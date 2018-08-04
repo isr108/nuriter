@@ -146,14 +146,11 @@
 			<br>
 			<br>
 
-			<!-- <button type="submit" style="width: 290px; height: 30px;"><font id="web-font">네이버로
-				시작하기</font></button> -->
-			<input
-			 type="submit" style="width: 290px; height: 30px;"><font id="web-font">네이버로
-				시작하기</font></button>
+			<button type="submit" style="width: 290px; height: 30px;"><font id="web-font">네이버로
+				시작하기</font></button> 
 			<br>
 			<br>
-			<button type="submit" style="width: 290px; height: 30px;"><font id="web-font">카카오톡으로
+			<button type="button" style="width: 290px; height: 30px;"><font id="web-font">카카오톡으로
 				시작하기</font></button>
 		</table>
 	 </form>
@@ -169,6 +166,6 @@
 		
 	
 	</script> 
-	<%@ include file="/views/common/footer.jsp" %>
+	<font id="web-font"><%@ include file="/views/common/footer.jsp" %></font>
 </body>
 </html>

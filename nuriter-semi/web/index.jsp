@@ -156,7 +156,16 @@
       width:100%;
       height:60%;
       /*  height: 40px; */
-      background:url('images/board/cat.jpg') no-repeat left top/ cover;
+      -moz-border-radius-topright: 10px;
+      -webkit-border-top-right-radius: 10px;
+      -moz-border-radius-topleft: 10px;
+      -webkit-border-top-left-radius: 10px;
+      /* background:url('images/board/cat.jpg') no-repeat left top/ cover; */
+      background-image:url('images/board/1.jpg');
+      background-repeat:no-repeat;
+      background-size:cover;
+       background-size:100% 100%;
+      
    }
    
    #search{
@@ -194,8 +203,9 @@
       display: inline-block;
       margin-top: 2%;
       margin-right:1%;
+      height:10%;
    	/*   margin-left: 20%; */
-   	 width:30%;
+   	  width:20%; 
    	 
    }
    #loginBtn a{
@@ -318,7 +328,7 @@
    <div id="iBox">
     <!-- <label id="head" href='#'><font id="web-font">누리터</font></label> -->
   	 <font id="web-font"><a id="head" href="#home" onclick="home()">누리터</a></font> 	
-  	 	 <div id="loginBtn" align="right">
+  	 	 <div id="loginBtn" align=right>
   	 	 	
   	   <%if(loginUser == null) {%>
         	<button class="button" onclick="location.href='views/member/login.jsp' " >로그인</button>
@@ -331,7 +341,7 @@
         		<% if(!loginUser.getUserId().equals("admin")){ %>
 					<button class="button" onclick="location.href='/w7/views/member/memberUpdateForm.jsp'">마이페이지</button>
 				<% }else{ %>
-					<button class="button" onclick="location.href='/w7/views/admin/adminPage.jsp'">관리자</button>
+					<button class="button" onclick="location.href='views/admin/adminPage.jsp'">관리페이지</button>
 				<% } %>
         
         <%} %>
@@ -344,7 +354,7 @@
       
       <br><br><br><br><br><br><br><br>
    <div id="search" align="center">
-      		<input type="text" id="searchBox" value="내용을 입력해 주세요">
+      		<input type="text" id="searchBox" placeholder="내용을 입력해주세요">
       		<input type="button" id="searchBtn" value="검색">
   	 	</div>
   	 	
@@ -352,10 +362,11 @@
    </div>
    
    
-   <div id="category">
+   <div id="category"><font id="web-font">
+   
       카테고리
-   </div>
-   <div id="category1">
+   </font></div>
+   <div id="category1"><font id="web-font">
    <table>
       <tr>
          <td><input type="button" value="언어" style="height:96px; width:226px;"
@@ -371,32 +382,35 @@
          <td><input type="button" value="기타" style="height:96px; width:226px;"></td>
       </tr>
    </table>
-   </div>
+  <font id="web-font"> </div>
    
    <!-- <div data-text-content="true" style="font-size:16px;" class="recommendText"> -->
-  <div id="recommendText">
+  <div id="recommendText"><font id="web-font">
       마감임박 누리터
+      </font>
    </div>
    
    <div id="listBox">
    
    </div>
     <br><br><br><br>
-   <div id="notice">
+   <div id="notice"><font id="web-font">
       <h4>공지사항</h4>
       <ul>
          <li>고객센터 운영시간 변경안내</li>
          <li>새로운 카테고리 추가 안내</li>
          <li>일시적인 오류 안내</li>
       </ul>
-      
+      </font>
    </div>
       <div id="help">
+      <font id="web-font">
       <h4>누리터 고객센터<br>
       1588-3287<br>
              상담시간 : 평일 10:30 ~ 18:30<br>
       *토요일 및 공휴일 휴무</h4>
       <input type ="button" id="callMe" value="전화 전 클릭">
+      </font>
    </div>
  </div>  
     <script>

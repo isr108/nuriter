@@ -1,18 +1,18 @@
 package com.kh.nuriter.member.model.dao;
 
+import static com.kh.nuriter.common.JDBCTemplate.close;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Properties;
 
 import com.kh.nuriter.member.model.vo.Member;
-import com.kh.nuriter.member.model.dao.MemberDao;
-
-
-import static com.kh.nuriter.common.JDBCTemplate.*;
 
 public class MemberDao {
 	private Properties prop = new Properties();
@@ -189,6 +189,100 @@ public class MemberDao {
 		}
 		
 		return result;
+	}
+
+	public ArrayList<Member> selectAll(Connection con) {
+		ArrayList<Member> list = null;
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		String query = prop.getProperty("selectAll");
+		
+		try {
+			stmt = con.createStatement();
+			
+			rset = stmt.executeQuery(query);
+			
+			list = new ArrayList<Member>();
+			
+			while(rset.next()){
+				Member m = new Member();
+				m.setUserId(rset.getString("user_id"));
+				m.setPassword(rset.getString("user_pwd"));
+				m.setUserName(rset.getString("user_name"));
+				m.setGender(rset.getString("gender"));
+				m.setAge(rset.getInt("age"));
+				m.setEmail(rset.getString("email"));
+				m.setPhone(rset.getString("phone"));
+				m.setAddress(rset.getString("address"));
+				m.setHobby(rset.getString("hobby"));
+				m.setEnrollDate(rset.getDate("enroll_date"));
+				
+			
+				list.add(m);
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(stmt);
+			close(rset);
+		}
+		
+	
+		return list;
+	}
+
+	public ArrayList<Member> searchId(Connection con, String userId){
+		ArrayList<Member> list = null;
+		/*Statement stmt = null;
+		ResultSet rset = null;*/
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String query = prop.getProperty("searchId");
+		/*System.out.println(query);*/
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setString(1, userId);
+			
+			rset = pstmt.executeQuery();
+			
+			
+			if(rset != null){
+				list = new ArrayList<Member>();
+				
+				while(rset.next()){
+					Member m = new Member();
+					
+					m.setUserId(rset.getString("user_id"));
+					m.setPassword(rset.getString("user_pwd"));
+					m.setUserName(rset.getString("user_name"));
+					m.setGender(rset.getString("gender"));
+					m.setAge(rset.getInt("age"));
+					m.setEmail(rset.getString("email"));
+					m.setPhone(rset.getString("phone"));
+					m.setAddress(rset.getString("address"));
+					m.setHobby(rset.getString("hobby"));
+					m.setEnrollDate(rset.getDate("enroll_date"));
+
+					list.add(m);
+				}
+				/*System.out.println(list);*/
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally{
+			close(pstmt);
+			close(rset);
+		}
+		
+		
+		return list;
 	}
 }
 

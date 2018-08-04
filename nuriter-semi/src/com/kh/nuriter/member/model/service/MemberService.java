@@ -1,11 +1,15 @@
 package com.kh.nuriter.member.model.service;
 
+import static com.kh.nuriter.common.JDBCTemplate.close;
+import static com.kh.nuriter.common.JDBCTemplate.commit;
+import static com.kh.nuriter.common.JDBCTemplate.getConnection;
+import static com.kh.nuriter.common.JDBCTemplate.rollback;
+
 import java.sql.Connection;
+import java.util.ArrayList;
 
 import com.kh.nuriter.member.model.dao.MemberDao;
 import com.kh.nuriter.member.model.vo.Member;
-
-import static com.kh.nuriter.common.JDBCTemplate.*;
 
 public class MemberService {
 
@@ -74,6 +78,16 @@ public class MemberService {
 		close(con);
 				
 		return result;
+	}
+
+	public ArrayList<Member> selectAll() {
+	Connection con = getConnection();
+		
+		ArrayList<Member> list = new MemberDao().selectAll(con);
+		
+		close(con);
+		
+		return list;
 	}
 
 
