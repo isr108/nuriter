@@ -310,7 +310,8 @@
 <body>
 	<font id="web-font"><div id="main">
 		
-		<font id="web-font"><a id="head" href='../../index.jsp'>누리터</a></font>	
+		<!-- <font id="web-font"><a id="head" href='../../index.jsp'>누리터</a></font>-->
+		<font id="web-font"><a id="head" href="#home" onclick="home()">누리터</a></font> 
 		<h1 align="center">회원가입</h1>
 		<br>
 		<div>
@@ -392,5 +393,14 @@
 		</div>
 	</div>
 	</font>
+	
+	<script>
+		
+		function home(){
+			location.href='<%=request.getContextPath()%>/home';
+		}
+		
+	
+	</script> 
 </body>
 </html>

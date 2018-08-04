@@ -308,6 +308,7 @@
        /* font-weight: bold; */
    }
 </style>
+
 </head>
 <body>
 	<!-- <label id="head">누리터</label> -->
@@ -316,7 +317,7 @@
  <div id="main">  
    <div id="iBox">
     <!-- <label id="head" href='#'><font id="web-font">누리터</font></label> -->
-  	 <font id="web-font"><a id="head" href='#'>누리터</a></font> 	
+  	 <font id="web-font"><a id="head" href="#home" onclick="home()">누리터</a></font> 	
   	 	 <div id="loginBtn" align="right">
   	 	 	
   	   <%if(loginUser == null) {%>
@@ -406,6 +407,12 @@
 				location.href='<%=request.getContextPath()%>/logout';
 			}
 		}
+		
+		function home(){
+			location.href='<%=request.getContextPath()%>/home';
+		}
+		
+	
 	</script> 
  <%@ include file="views/common/footer.jsp" %>
 </body>

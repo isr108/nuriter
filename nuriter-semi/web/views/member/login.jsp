@@ -104,7 +104,8 @@
 </head>
 <body>
 	<div id="iBox">
-        <font id="web-font"><a id="head" href='../../index.jsp'>누리터</a></font> 
+       <!--  <font id="web-font"><a id="head" href='../../index.jsp'>누리터</a></font>  -->
+        <font id="web-font"><a id="head" href="#home" onclick="home()">누리터</a></font> 
    </div> 
    
    <br><br><br><br>
@@ -159,6 +160,15 @@
 	 </div>
 	
 	</div>
+	
+	<script>
+		
+		function home(){
+			location.href='<%=request.getContextPath()%>/home';
+		}
+		
+	
+	</script> 
 	<%@ include file="/views/common/footer.jsp" %>
 </body>
 </html>
