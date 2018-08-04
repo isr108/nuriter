@@ -1,9 +1,10 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
@@ -167,7 +168,8 @@
       margin-left:3%;
       margin-top:1%;
       color: rgb(241, 196, 15);
-      font-size:2em;
+      font-size:3em;
+       text-decoration: none;
       /* padding:8px; */
       /* width:80%; */
    }
@@ -300,24 +302,22 @@
 .pagination a:last-child {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-    }
 </style>
 </head>
 <body>
-
-   <div id="iBox">
-        <label id="head"><font id="web-font">누리터</font></label>
-        
+<div id="iBox">
+        <!-- <label id="head" href='../../index.jsp'><font id="web-font">누리터</font></label> -->
+       <font id="web-font"><a id="head" href='../../index.jsp'>누리터</a></font> 
         <div id="search" align="center">
       		<input type="text" id="searchBox" value="내용을 입력해 주세요">
       		<input type="button" id="searchBtn" value="검색">
   	 	</div>
   	 	
   	 	 <div id="loginBtn">
-        	<!-- <button class="button">로그인</button>
-        	<button class="button">회원가입</button> -->
-      	 <button type="button" class="button" onclick="location.href='views/member/loginForm.jsp' ">로그인</button>
-       	 <button type="button" class="button">회원가입</button>
+        	<button class="button">로그인</button>
+        	<button class="button">회원가입</button>
+      		<!-- <button type="button" class="btn">로그인</button>
+       	 <button type="button" class="btn btn-primary">회원가입</button> -->
    		</div>
    </div> 
    
@@ -475,7 +475,5 @@
 		</div>
   <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
    
-   
-
 </body>
 </html>

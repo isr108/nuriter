@@ -1,92 +1,24 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
 <title>Insert title here</title>
 <style>
-  /*  *{
-         margin:auto;   
-   }
-   #head{
-      margin-left:50px;
-      margin-top:20px;
-      color: rgb(241, 196, 15);
-      font-size:2em;
-      width:80%;
-   }
-   #iBox{
-      position: absolute;
-      margin-top: 100px;
-      margin-left: 0px;
-      height:50px;
-       right:500px;
-       left:680px;
-   }
    
-   #searchBox{
-      color: rgb(94, 94, 94);
-       border-width: 3px;
-       border-style: solid;
-       border-color: rgb(241, 196, 15);
-       width:500px;
-       height:40px;
+   html{
+   		height:100%;
    }
-   
-   #searchBtn{
-      width:100px;
-      height:40px;
-      font-size: 16px;
-       color: rgb(64, 64, 64);
-       text-align: center;
-       line-height: 2.5em;
-       border-radius: 4px;
-       background-color: rgb(241, 196, 15);
+   body{
+   	 height:100%;
    }
-   
-   #category{
-      border:1px solid black;
-      height:62px;
-      margin-top:200px;
-      text-align:center;
-      font-size: 25px;
-       font-weight: bold;
+   #main{
+   	min-height:90%:
    }
-   
-   #category1{
-      border:1px solid black;
-      margin-left: auto;
-       margin-right: auto;
-       width: 907px;
-      height:195px;
-   }
-   
-   .recommendText{
-      font-size:16px;
-      margin-left: 0px;
-      margin-right: 0px;
-      margin-top: 100px;
-      height: 50px;
-      width: 70px;
-   }
-   #listBox{
-   border:1px solid black;
-    height: 352px;
-    width: 682px;
-    /* margin-left:auto;
-    margin-right:auto;
-    margin:auto;
-   
-   }
-   #notice{
-      
-   } */
-   
-   
    
    .colorgraph {
       width: 98%;
@@ -207,7 +139,8 @@
       margin-left:3%;
       margin-top:1%;
       color: rgb(241, 196, 15);
-      font-size:2em;
+      font-size:3em;
+       text-decoration: none;
       /* padding:8px; */
       /* width:80%; */
    }
@@ -219,7 +152,7 @@
       width:100%;
       height:60%;
       /*  height: 40px; */
-      background:url(../images/01.jpg) no-repeat left top/ cover;
+      background:url(../images/board/1.jpg) no-repeat left top/ cover;
    }
    
    #search{
@@ -258,8 +191,15 @@
       margin-top: 2%;
       margin-right:1%;
    	/*   margin-left: 20%; */
-   	 width:10%:
+   	 width:40%;
    	 
+   }
+   #loginBtn a{
+   		/* display:inline-block; */
+   		width:10%;
+   		 text-decoration: none;
+   		 margin-right:2%;
+   		 color:#646464;
    }
    
    .button{
@@ -363,83 +303,94 @@
       font-size: 15px;
        /* font-weight: bold; */
    }
+   
+    
 </style>
 </head>
 <body>
-   <!-- <label id="head">누리터</label> -->
-   <!-- <button type="button" class="btn">로그인</button>
-   <button type="button" class="btn btn-primary">회원가입</button> -->
-   
-   <div id="iBox">
-    <label id="head"><font id="web-font">누리터</font></label>
-  	 	
-  	 	 <div id="loginBtn">
-        	<button class="button">로그인</button>
-        	<button class="button">회원가입</button>
-      		<!-- <button type="button" class="btn">로그인</button>
-       	 <button type="button" class="btn btn-primary">회원가입</button> -->
-   		</div>
-   		
-     <!--  <input type="text" id="searchBox" value="내용을 입력해 주세요">
-      <input type="button" id="searchBtn" value="검색"> -->
-      
-      <br><br><br><br><br><br><br><br>
-   <div id="search" align="center">
-      		<input type="text" id="searchBox" value="내용을 입력해 주세요">
-      		<input type="button" id="searchBtn" value="검색">
-  	 	</div>
-  	 	
-  	 	<br><br><br><br><br><br><br><br>
-   </div>
-   
-   
-   <div id="category">
-      카테고리
-   </div>
-   <div id="category1">
-   <table>
-      <tr>
-         <td><input type="button" value="언어" style="height:96px; width:226px;"></td>
-         <td><input type="button" value="공방" style="height:96px; width:226px;"></td>
-         <td><input type="button" value="요리" style="height:96px; width:226px;"></td>
-         <td><input type="button" value="운동" style="height:96px; width:226px;"></td>
-      </tr>
-      <tr>
-         <td><input type="button" value="음악" style="height:96px; width:226px;"></td>
-         <td><input type="button" value="컴퓨터" style="height:96px; width:226px;"></td>
-         <td><input type="button" value="문화" style="height:96px; width:226px;"></td>
-         <td><input type="button" value="기타" style="height:96px; width:226px;"></td>
-      </tr>
-   </table>
-   </div>
-   
-   <!-- <div data-text-content="true" style="font-size:16px;" class="recommendText"> -->
-  <div id="recommendText">
-      마감임박 누리터
-   </div>
-   
-   <div id="listBox">
-   
-   </div>
-    <br><br><br><br>
-   <div id="notice">
-      <h4>공지사항</h4>
-      <ul>
-         <li>고객센터 운영시간 변경안내</li>
-         <li>새로운 카테고리 추가 안내</li>
-         <li>일시적인 오류 안내</li>
-      </ul>
-      
-   </div>
-      <div id="help">
-      <h4>누리터 고객센터<br>
-      1588-3287<br>
-             상담시간 : 평일 10:30 ~ 18:30<br>
-      *토요일 및 공휴일 휴무</h4>
-      <input type ="button" id="callMe" value="전화 전 클릭">
-   </div>
-   
-   
-   <br><br><br><br>
+	<font id="web-font"><div id="main">
+		
+		<font id="web-font"><a id="head" href='../../index.jsp'>누리터</a></font>	
+		<h1 align="center">회원가입</h1>
+		<br>
+		<div>
+			<form id="form1" action="/w7/insertMember" method="post">
+				<table align="center">
+					<tr>
+						<!-- <td><label>아이디</label></td> -->
+						<td><input type="text" name="userId" style="width: 300px; height: 30px;"
+						placeholder="이메일"></td>
+					</tr>
+					<tr>
+						<!-- <td><label>비밀번호</label></td> -->
+						<td><input type="password" name="password" style="width: 300px; height: 30px;"
+						placeholder="비밀번호"></td>
+					</tr>
+					<tr>
+						<!-- <td><label>비밀번호확인</label></td> -->
+						<td><input type="password" name="password2" style="width: 300px; height: 30px;"
+						placeholder="비밀번호 확인"></td>
+					</tr>
+					<tr>
+						<!-- <td><label>이름</label></td> -->
+						<td><input type="text" name="userName" style="width: 300px; height: 30px;"
+						placeholder="이름"></td>
+					</tr>
+					<tr>
+						<!-- <td><label>나이</label></td> -->
+						<td><input type="number" name="age" style="width: 300px; height: 30px;"
+						placeholder="나이"></td>
+					</tr>
+					<tr>
+						<!-- <td><label>성별</label></td> -->
+						<td>
+							<label>성별</label>
+							<input type="radio" name="gender" value="M" value="male">
+							<label for="male">남</label>
+							<input type="radio" name="gender" value="F" value="female">
+							<label for="female">여</label>
+						</td>
+					</tr>
+					<tr>
+						<!-- <td><label>이메일</label></td> -->
+						<td><input type="text" name="email" style="width: 300px; height: 30px;"
+						placeholder="이메일" ></td>
+					</tr>
+					<tr>
+						<!-- <td><label>전화번호</label></td> -->
+						<td><input type="tel" name="phone" style="width: 300px; height: 30px;"
+						placeholder="전화번호"></td>
+					</tr>
+					<tr>
+						<!-- <td><label>주소</label></td> -->
+						<td><input type="text" name="address" style="width: 300px; height: 30px;" 
+						placeholder="주소"></td>
+					</tr>
+					<tr>
+						<!-- <td><label>취미</label></td> -->
+						<td>
+						<label>취미</label>
+						<br>
+						<input type="checkbox" name="hobby" value="운동" id="sports">
+						<label for="sports">운동</label>
+						<font id="web-font"><input type="checkbox" name="hobby" value="낚시" id="fishing"></font>
+						<label for="sports">낚시</label>
+						<input type="checkbox" name="hobby" value="등산" id="climbing">
+						<label for="sports">등산</label>
+						<input type="checkbox" name="hobby" value="요리" id="cooking">
+						<label for="sports">요리</label>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center">
+							<input type="submit" value="가입하기">
+							<input type="reset" value="취소하기">
+						</td>	
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+	</font>
 </body>
 </html>

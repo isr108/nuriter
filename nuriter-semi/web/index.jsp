@@ -12,6 +12,7 @@
 <title>Insert title here</title>
 <style>
   
+   
    html{
    		height:100%;
    }
@@ -141,8 +142,9 @@
       margin-left:3%;
       margin-top:1%;
       color: rgb(241, 196, 15);
-      font-size:2em;
-       text-decoration: none;
+       font-size:3em;
+      
+      text-decoration: none;
       /* padding:8px; */
       /* width:80%; */
    }
@@ -154,7 +156,7 @@
       width:100%;
       height:60%;
       /*  height: 40px; */
-      background:url(../images/board/1.jpg) no-repeat left top/ cover;
+      background:url('images/board/cat.jpg') no-repeat left top/ cover;
    }
    
    #search{
@@ -187,7 +189,7 @@
     background-color: rgb(241, 196, 15);
    }
    
-   #loginBtn{
+    #loginBtn{
    	  float:right;
       display: inline-block;
       margin-top: 2%;
@@ -313,21 +315,25 @@
    <button type="button" class="btn btn-primary">회원가입</button> -->
  <div id="main">  
    <div id="iBox">
-    <!-- <label id="head"><font id="web-font">누리터</font></label> -->
-  	 <font id="web-font"><a id="head" href='#'>누리터</a></font>	
-  	 
+    <!-- <label id="head" href='#'><font id="web-font">누리터</font></label> -->
+  	 <font id="web-font"><a id="head" href='#'>누리터</a></font> 	
   	 	 <div id="loginBtn" align="right">
-  	 	 	<font id="web-font"> <a><%= loginUser.getUserName() %> 님</a></font>
-        	<!-- <button class="button" onclick="location.href='../../index.jsp' " >로그아웃</button> -->
-        	<button class="button" onclick="logout();" >로그아웃</button>
-        	<% if(!loginUser.getUserId().equals("admin")){ %>
-			<button class="button" onclick="location.href='/w7/views/member/memberUpdateForm.jsp'">마이페이지</button>
-		<% }else{ %>
-			<button class="button" onclick="location.href='/w7/views/admin/adminPage.jsp'">관리자</button>
-		<% } %>	
-        	<!-- <button class="button">마이페이지</button> -->
-        	
-        	
+  	 	 	
+  	   <%if(loginUser == null) {%>
+        	<button class="button" onclick="location.href='views/member/login.jsp' " >로그인</button>
+        	<button class="button" onclick="location.href='views/member/memberJoinForm.jsp' ">회원가입</button>
+        <%}else{ %>
+        <%if(loginUser != null) {%>
+        		<font id="web-font"> <a><%= loginUser.getUserName() %> 님</a></font>
+        		<button class="button" onclick="logout();" >로그아웃</button>
+        <% } %>
+        		<% if(!loginUser.getUserId().equals("admin")){ %>
+					<button class="button" onclick="location.href='/w7/views/member/memberUpdateForm.jsp'">마이페이지</button>
+				<% }else{ %>
+					<button class="button" onclick="location.href='/w7/views/admin/adminPage.jsp'">관리자</button>
+				<% } %>
+        
+        <%} %>
       		<!-- <button type="button" class="btn">로그인</button>
        	 <button type="button" class="btn btn-primary">회원가입</button> -->
    		</div>
@@ -392,7 +398,7 @@
       <input type ="button" id="callMe" value="전화 전 클릭">
    </div>
  </div>  
- <script>
+    <script>
 		function logout(){
 			var check = window.confirm('로그아웃 하시겠습니까?');
 			
@@ -400,7 +406,7 @@
 				location.href='<%=request.getContextPath()%>/logout';
 			}
 		}
-	</script>  
- <%@ include file="../common/footer.jsp" %>
+	</script> 
+ <%@ include file="views/common/footer.jsp" %>
 </body>
 </html>

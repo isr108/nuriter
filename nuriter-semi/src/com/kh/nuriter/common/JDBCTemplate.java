@@ -1,4 +1,4 @@
-package com.kh.w6.common;
+package com.kh.nuriter.common;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -13,27 +13,25 @@ public class JDBCTemplate {
 	public static Connection getConnection(){
 		Connection con = null;
 		Properties prop = new Properties();
-
+		
 		String fileName = JDBCTemplate.class.getResource("/sql/driver.properties").getPath();
-
-		//System.out.println(fileName);
-
+		
+		System.out.println(fileName);
+		
 		try {
 			prop.load(new FileReader(fileName));
-
+			
 			String driver = prop.getProperty("driver");
 			String url = prop.getProperty("url");
 			String user = prop.getProperty("user");
 			String password = prop.getProperty("password");
-
-
+			
 			Class.forName(driver);
 			con = DriverManager.getConnection(url, user, password);
-
-			//기본값은 true, 원칙이 application에서 모든걸 제어하는 것임
+			
 			con.setAutoCommit(false);
-
-
+			
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
@@ -41,13 +39,12 @@ public class JDBCTemplate {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
-
+		
 		return con;
+		
 	}
-
+	
 	public static void close(Connection con){
-
 		try {
 			if(con != null && !con.isClosed()){
 				con.close();
@@ -56,9 +53,8 @@ public class JDBCTemplate {
 			e.printStackTrace();
 		}
 	}
-
+	
 	public static void close(Statement stmt){
-
 		try {
 			if(stmt != null && !stmt.isClosed()){
 				stmt.close();
@@ -67,9 +63,8 @@ public class JDBCTemplate {
 			e.printStackTrace();
 		}
 	}
-
+	
 	public static void close(ResultSet rset){
-
 		try {
 			if(rset != null && !rset.isClosed()){
 				rset.close();
@@ -88,6 +83,7 @@ public class JDBCTemplate {
 			e.printStackTrace();
 		}
 	}
+	
 	public static void rollback(Connection con){
 		try {
 			if(con != null && !con.isClosed()){
@@ -98,15 +94,3 @@ public class JDBCTemplate {
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
