@@ -315,7 +315,7 @@
 		<h1 align="center">회원가입</h1>
 		<br>
 		<div>
-			<form id="form1" action="/w7/insertMember" method="post">
+			<form id="form1" action="/ns/insertMember" method="post">
 				<table align="center">
 					<tr>
 						<!-- <td><label>아이디</label></td> -->

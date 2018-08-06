@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.*, com.kh.nuriter.member.model.vo.*"%>
-   <%--  <% Member loginUser = (Member)session.getAttribute("loginUser"); %> --%>
+  
 <% 
 	ArrayList<Member> list 
 		= (ArrayList<Member>)request.getAttribute("list"); 
-	Member loginUser = (Member)session.getAttribute("loginUser");
+	 /* Member loginUser = (Member)session.getAttribute("loginUser");  */
 
 %>
 
@@ -12,10 +12,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+  <!-- <link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet"> -->
 <title>Insert title here</title>
 <style>
 
@@ -26,6 +26,7 @@
    	 height:100%;
    }
    #main{
+   	width:170%;
    	min-height:90%:
    } 
    
@@ -126,9 +127,9 @@
     /*      border-style: solid;
     border-color: red; */
     display: inline-block;
-    width: 90%;
+    width: 50%;
     height: 100%;
-    float: right;
+    float: inherit;
    }
    
    #showLeft{
@@ -174,13 +175,13 @@
       /* width:80%; */
    }
    
-   #iBox{
-  	 background-color:white;
+   /* #iBox{
+  	 /* background-color:white;
   	 display: inline-block;
-      margin-top: 5px;
+ */      /* margin-top: 5px; */
       /* margin-left: 30px; */
-      width:170%;
-      height:50%;
+      /* width:170%; */
+     /*  height:50%; */
       /*  height: 40px; */
    }
    
@@ -296,17 +297,17 @@
    }
 </style>
 </head>
-<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <body>
-<% if(loginUser == null 
+<%-- <% if(loginUser == null 
 				|| !loginUser.getUserId().equals("admin")){
 		//관리자가 아닌 경우
 		request.setAttribute("msg", "잘못된 경로로 접근하셨습니다.");
 		request.getRequestDispatcher("../common/errorPage.jsp").forward(request, response);
 		
 		
-	}else{%>
-<nav id="nuriBavBar" class="top-0 is-nav-white is-fixed">
+	}else{%> --%>
+<%-- <nav id="nuriBavBar" class="top-0 is-nav-white is-fixed">
 	
 	<div id="iBox"><font id="web-font">
         <!-- <label id="head" href='../../index.jsp'><font id="web-font">누리터</font></label> -->
@@ -321,11 +322,11 @@
         		<font id="web-font"> <a><%= loginUser.getUserName() %> 님</a></font>
         		<button class="button" onclick="logout();" >로그아웃</button>
         <% } %>
-        		<%-- <% if(!loginUser.getUserId().equals("admin")){ %>
+        		<% if(!loginUser.getUserId().equals("admin")){ %>
 					<button class="button" onclick="location.href='/w7/views/member/memberUpdateForm.jsp'">마이페이지</button>
 				<% }else{ %>
 					<button class="button" onclick="location.href='views/admin/adminPage.jsp'">관리페이지</button>
-				<% } %> --%>
+				<% } %>
  		</div> 
  		</div>
  		<script>
@@ -343,9 +344,9 @@
 	}
 	
 	</script>   
-   </nav>    
+   </nav>     --%>
  
-
+<%@ include file="../common/logoAndLogbutton.jsp" %>
 <div id="main">
  <br><br> <br><br>
    <hr class="colorgraph">
@@ -470,7 +471,7 @@
 		</script> --%>
 <%@ include file="/views/common/footer.jsp" %>
   </font>
- <% } %>
+ <%-- <% } %> --%>
 	
 </body>
 </html>

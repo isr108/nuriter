@@ -57,7 +57,7 @@ public class LoginServlet extends HttpServlet {
 			
 		}else{
 			page = "views/common/errorPage.jsp";
-			page = "views/common/errorPage.jsp";
+			/*page = "views/common/errorPage.jsp";*/
 			request.setAttribute("msg", "로그인 에러!!!");
 		}
 		

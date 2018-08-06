@@ -174,21 +174,21 @@
       /* width:80%; */
    }
    
-   #iBox{
+   /* #iBox{
       display: inline-block;
-      margin-top: 5px;
+      margin-top: 5px; */
       /* margin-left: 30px; */
-      width:100%;
-      height:50%;
+   /*    width:100%;
+      height:50%; */
       /*  height: 40px; */
-   }
+  /*  } */
    
-   #search{
+  /*  #search{
    	  display: inline-block;
       width:50%;
-      height:10%;
+      height:10%; */
       /* margin-top:2%; */
-   }
+ /*   }
    
    #searchBox{
     display: inline-block;
@@ -199,8 +199,8 @@
        width:70%;
        height:40px;
    }
-   
-   #searchBtn {
+   */ 
+  /*  #searchBtn {
      width: 90px;
     height: 40px;
      border-radius: 3px;
@@ -218,11 +218,11 @@
       margin-top: 2%;
       margin-right:1%;
    	/*   margin-left: 20%; */
-   	 width:10%:
+   /* 	 width:10%:
    	 
-   }
+   } */
    
-   .button{
+    .button{
        width: 90px;
      height: 40px;
      font-weight: 600;
@@ -268,7 +268,7 @@
    }
    .select-control{
    		display:inline-block;
-   		width:60%;
+   		width:30%;
    }
    
   .pagination {
@@ -305,8 +305,8 @@
 </style>
 </head>
 <body>
-<div id="iBox">
-        <!-- <label id="head" href='../../index.jsp'><font id="web-font">누리터</font></label> -->
+<!-- <div id="iBox">
+        <label id="head" href='../../index.jsp'><font id="web-font">누리터</font></label>
        <font id="web-font"><a id="head" href='../../index.jsp'>누리터</a></font> 
         <div id="search" align="center">
       		<input type="text" id="searchBox" value="내용을 입력해 주세요">
@@ -316,11 +316,11 @@
   	 	 <div id="loginBtn">
         	<button class="button">로그인</button>
         	<button class="button">회원가입</button>
-      		<!-- <button type="button" class="btn">로그인</button>
-       	 <button type="button" class="btn btn-primary">회원가입</button> -->
+      		<button type="button" class="btn">로그인</button>
+       	 <button type="button" class="btn btn-primary">회원가입</button>
    		</div>
-   </div> 
-   
+   </div>  -->
+   <%@ include file="../common/logoAndLogbutton.jsp" %>
   
    
    <br><br>
@@ -369,14 +369,15 @@
             <button class="button">누리터 개설하기</button>
               <button class="button">관심누리터 확인</button>
               
-              <div class="select-control inline-block width-100px" align="right">
+              
+       </div>
+       <div class="select-control inline-block width-100px" align="right">
                <select class="input-xs" onchange="sendGAClickEvent('정렬 방식 변경 - ' + this.value)" >
                     <option value="recommendation_point">추천순</option>
                     <option value="ranking_points" selected="">랭킹순</option>
                     <option value="created_at">신규등록순</option>
               </select>
         	</div>    
-       </div>
         
      <!-- <br><br> -->
       
