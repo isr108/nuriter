@@ -18,8 +18,9 @@
         background: gray;
         border-radius: 3px;
    }
+   */
    #wrapper {
-       width:70%;
+       width:100%;
            /*margin : 0 auto ;*/
    }
    
@@ -409,7 +410,7 @@ display:block; */   /* 마우스 커서 올리면 서브메뉴 보이게 하기 
       /* margin-top: 5px; */
       /* margin-left: 30px; */
        width:180%;
-      height:20%;
+      height:30%;
       /*  height: 40px; */
    }
    
@@ -517,8 +518,8 @@ display:block; */   /* 마우스 커서 올리면 서브메뉴 보이게 하기 
    #nuriBavBar.is-fixed {
     position: fixed;
     /* 하단 경계선 */
-    /* border-bottom: 1px solid #ffd400; */
-    background-color: #fff;
+    /*  border-bottom: 1px solid #ffd400; */
+    /* background-color: #fff; */
     top: 0;
     z-index: 10;
     }
@@ -575,7 +576,7 @@ display:block; */   /* 마우스 커서 올리면 서브메뉴 보이게 하기 
   	 	</div>
   	 	
   	 	 <div id="loginBtn"  align=right>
-        	 <%if(loginUser != null) {%>
+        	<%--  <%if(loginUser != null) {%>
         		<font id="web-font"> <a><%= loginUser.getUserName() %> 님</a></font>
         		<button class="button" onclick="logout();" >로그아웃</button>
         <% } %>
@@ -583,7 +584,22 @@ display:block; */   /* 마우스 커서 올리면 서브메뉴 보이게 하기 
 					<button class="button" onclick="location.href='/w7/views/member/memberUpdateForm.jsp'">마이페이지</button>
 				<% }else{ %>
 					<button class="button" onclick="location.href='../admin/adminPage.jsp'">관리페이지</button>
+				<% } %> --%>
+				<%if(loginUser == null) {%>
+        	<button class="button" onclick="location.href='/views/member/login.jsp' " >로그인</button>
+        	<button class="button" onclick="location.href='/views/member/memberJoinForm.jsp' ">회원가입</button>
+        <%}else{ %>
+        <%if(loginUser != null) {%>
+        		<font id="web-font"> <a><%= loginUser.getUserName() %> 님</a></font>
+        		<button class="button" onclick="logout();" >로그아웃</button>
+        <% } %>
+        		<% if(!loginUser.getUserId().equals("admin")){ %>
+					<button class="button" onclick="location.href='/w7/views/member/memberUpdateForm.jsp'">마이페이지</button>
+				<% }else{ %>
+					<button class="button" onclick="location.href='views/admin/adminPage.jsp'">관리페이지</button>
 				<% } %>
+        
+        <%} %>
  		</div> 
  		</font></div>
  		<script>

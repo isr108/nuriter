@@ -1,45 +1,41 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.kh.nuriter.member.model.vo.*"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
-<link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
 <style>
-   .colorgraph {
+   /*   .colorgraph {
       width: 98%;
         height: 3px;
         border-top: 0;
         background: rgb(241, 196, 15);
         border-radius: 3px;
-   }
+   } */
    #wrapper {
-       width:70%;
+       width:100%;
+       background-color: white;
+       
            /*margin : 0 auto ;*/
    }
    
-   #tableDiv{
+  /*  #tableDiv{
       width:100%;
       height:100%;
-      display: inline-block;
+      display: inline-block; */
      /*  border-style: solid; */
        /* border-color: red; */
        
        
-   }
-   #tableDiv table{
+   /* } */
+   /* #tableDiv table{
    	  width:20%;
    	  height:20%;
       display: inline-block;
-      margin-top:1%;
+      margin-top:1%; */
       /* margin: 8px; */
-      margin-left:1%;
+      /* margin-left:1%;
    }
    #tableDiv table tr{
       align: center;
@@ -49,12 +45,20 @@
    #tableDiv table tr td{
       background: white;
    }
-   
-  /*  ul.navi li {
+    */
+    
+   .navi{
+   	 background-color: #fff;
+   	 /* height:20%; */
+   } 
+   ul.navi li {
       display: inline-block;
       /* margin:auto;  */
-   /*   text-align:center;
-   } */
+      text-align:center;
+       /* height:30px; */
+      margin-top:2%;
+     
+   }
    
    ul.navi li a {
       float: center;
@@ -141,12 +145,12 @@
      color:#FF4500;
    }
    
-   #showRight{
+   /* #showRight{
      /*  border-style: solid; */
      /*  border-color: red; */
-     float:right;
+     /* float:right; */
      /*   margin-left: 10%; */
-      display: inline-block;
+  /*    display: inline-block;
       width: 90%;
       height:100%;
       
@@ -158,7 +162,7 @@
       margin-left: 8%;
       width:90%;
       height:30%;
-   }
+   } */
    
    #web-font{
       font-family: 'Jua', sans-serif;
@@ -222,7 +226,7 @@
    	 
    } */
    
-    .button{
+   /*  .button{
        width: 90px;
      height: 40px;
      font-weight: 600;
@@ -233,9 +237,9 @@
    
    .button:hover {
      background-color: white; /* Green */
-     color: rgb(241, 196, 15);
+    /*  color: rgb(241, 196, 15);
      border: 2px solid rgb(241, 196, 15); /* Green */
-   }
+   /* }
    
    #showMain button{
        width: 100px;
@@ -248,11 +252,11 @@
    
    #showMain button:hover {
      background-color: white; /* Green */
-     color: rgb(241, 196, 15);
+    /*  color: rgb(241, 196, 15);
      border: 2px solid rgb(241, 196, 15); /* Green */
-   }
-   
-   #showRightButton button{
+   /*}
+    */
+ /*   #showRightButton button{
        width: 150px;
      height: 40px;
      font-weight: 600;
@@ -269,9 +273,9 @@
    .select-control{
    		display:inline-block;
    		width:30%;
-   }
+   } */ 
    
-  .pagination {
+/*   .pagination {
     display: inline-block;
     width:60%;
     float:right;
@@ -301,37 +305,22 @@
 
 .pagination a:last-child {
     border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-bottom-right-radius: 5px; */
+    
+      #nuriBavBar1.is-fixed {
+      width:100%;
+    position: fixed;
+    /* 하단 경계선 */
+    /* border-bottom: 1px solid #ffd400; */
+    background-color: #fff;
+    top: 0;
+     margin-top:68px;
+    z-index: 10;
     }
- 
-</style>
+</style>	
 </head>
 <body>
-<!-- <div id="iBox">
-        <label id="head" href='../../index.jsp'><font id="web-font">누리터</font></label>
-       <font id="web-font"><a id="head" href='../../index.jsp'>누리터</a></font> 
-        <div id="search" align="center">
-      		<input type="text" id="searchBox" value="내용을 입력해 주세요">
-      		<input type="button" id="searchBtn" value="검색">
-  	 	</div>
-  	 	
-  	 	 <div id="loginBtn">
-        	<button class="button">로그인</button>
-        	<button class="button">회원가입</button>
-      		<button type="button" class="btn">로그인</button>
-       	 <button type="button" class="btn btn-primary">회원가입</button>
-   		</div>
-   </div>  -->
-   
-  
-   <%@ include file="../common/logoAndLogbutton.jsp" %>
-  
-   
-  
-    <%@ include file="../common/categorybar.jsp" %>
-
-    <br><br><br> <br><br><br> <br><br><br>
-      <!-- <nav>
+	<nav id="nuriBavBar1" class="top-0 is-nav-white is-fixed">
         <div class="wrapper">
           <ul class="navi">
                <li id="web-font" ><a href="/bs/views/Login.html">언어</a>
@@ -350,137 +339,8 @@
                <li id="web-font"><a href="/bs/views/nuritaShow.html">기타</a></li>
           </ul>
         </div>
-  </nav>   -->
-  
-  
-  <!-- <hr class="colorgraph"> -->
-  
-  <div id="showMain">
-  
-   <div id="showLeft" >
-     <ul class="navi2" style="list-style-type:none">
-        <li id="web-font"><a href="#">운동</a></li>
         <hr class="colorgraph">
-        <li id="web-font"><a href="#">카테고리</a></li>
-        <hr class="colorgraph">
-        <li id="web-font"><a href="#">축구</a></li>
-        <li id="web-font"><a href="#">농구</a></li>
-        <li id="web-font"><a href="#">야구</a></li>
-     </ul>
-   </div>
+  </nav> 
   
-     <div id="showRight">
-     
-        <div id="showRightButton">
-            <button class="button">누리터 개설하기</button>
-              <button class="button">관심누리터 확인</button>
-              
-              
-       </div>
-       <div class="select-control inline-block width-100px" align="right">
-               <select class="input-xs" onchange="sendGAClickEvent('정렬 방식 변경 - ' + this.value)" >
-                    <option value="recommendation_point">추천순</option>
-                    <option value="ranking_points" selected="">랭킹순</option>
-                    <option value="created_at">신규등록순</option>
-              </select>
-        	</div>    
-        
-     <!-- <br><br> -->
-      
-        <div id="tableDiv" align="center">
-           <table>
-           <tr>
-            <th><img src="../image/go1.gif" width="200px" height="130px"></th>
-           </tr>
-           <tr>
-            <td><p id="web-font-table" align="center"><font size="4" color="black">[축구]한 게임 찢으실분 구합니다.</font></p></td>
-           </tr>
-            </table>
-            
-            <table>
-           <tr>
-            <th><img src="../image/go1.gif" width="200px" height="130px"></th>
-           </tr>
-           <tr>
-            <td><p id="web-font-table" align="center"><font size="4" color="black">[축구]한 게임 찢으실분 구합니다.</font></p></td>
-           </tr>
-            </table>
-            
-            <table>
-           <tr>
-            <th><img src="../image/go1.gif" width="200px" height="130px"></th>
-           </tr>
-           <tr>
-            <td><p id="web-font-table" align="center"><font size="4" color="black">[축구]한 게임 찢으실분 구합니다.</font></p></td>
-           </tr>
-            </table>
-            
-            <table>
-           <tr>
-            <th><img src="../image/go1.gif" width="200px" height="130px"></th>
-           </tr>
-           <tr>
-            <td><p id="web-font-table" align="center"><font size="4" color="black">[축구]한 게임 찢으실분 구합니다.</font></p></td>
-           </tr>
-            </table>
-            
-            
-            
-            
-            <table>
-           <tr>
-            <th><img src="../image/go1.gif" width="200px" height="130px"></th>
-           </tr>
-           <tr>
-            <td><p id="web-font-table" align="center"><font size="4" color="black">[축구]한 게임 찢으실분 구합니다.</font></p></td>
-           </tr>
-            </table>
-            
-            <table>
-           <tr>
-            <th><img src="../image/go1.gif" width="200px" height="130px"></th>
-           </tr>
-           <tr>
-            <td><p id="web-font-table" align="center"><font size="4" color="black">[축구]한 게임 찢으실분 구합니다.</font></p></td>
-           </tr>
-            </table>
-            
-            <table>
-           <tr>
-            <th><img src="../image/go1.gif" width="200px" height="130px"></th>
-           </tr>
-           <tr>
-            <td><p id="web-font-table" align="center"><font size="4" color="black">[축구]한 게임 찢으실분 구합니다.</font></p></td>
-           </tr>
-            </table>
-            
-            <table>
-           <tr>
-            <th><img src="../image/go1.gif" width="200px" height="130px"></th>
-           </tr>
-           <tr>
-            <td><p id="web-font-table" align="center"><font size="4" color="black">[축구]한 게임 찢으실분 구합니다.</font></p></td>
-           </tr>
-            </table>
-        </div>
-
-     </div>
-     
-     
-  </div>
-  
-   <br><br><br><br><br>
-    <div class="pagination" align="center">
-	  <a href="#" >&laquo;</a>
-	  <a href="#" class="active">1</a>
-	  <a href="#" >2</a>
-	  <a href="#" >3</a>
-	  <a href="#" >4</a>
-	  <a href="#" >5</a>
-	  <a href="#" >6</a>
-	  <a href="#" >&raquo;</a>
-		</div>
-  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-   
 </body>
 </html>

@@ -362,11 +362,11 @@
    </div>
    
    
-   <div id="category"><font id="web-font">
+   <font id="web-font"><div id="category">
    
       카테고리
-   </font></div>
-   <div id="category1"><font id="web-font">
+   <!-- </font> --></div>
+   <div id="category1"><!-- <font id="web-font"> -->
    <table>
       <tr>
          <td><input type="button" value="언어" style="height:96px; width:226px;"
@@ -382,35 +382,36 @@
          <td><input type="button" value="기타" style="height:96px; width:226px;"></td>
       </tr>
    </table>
-  <font id="web-font"> </div>
+   </div>
+  <!-- <font id="web-font">  -->
    
    <!-- <div data-text-content="true" style="font-size:16px;" class="recommendText"> -->
-  <div id="recommendText"><font id="web-font">
+  <div id="recommendText"><!-- <font id="web-font"> -->
       마감임박 누리터
-      </font>
+      <!-- </font> -->
    </div>
    
    <div id="listBox">
    
    </div>
     <br><br><br><br>
-   <div id="notice"><font id="web-font">
+   <div id="notice"><!-- <font id="web-font"> -->
       <h4>공지사항</h4>
       <ul>
          <li>고객센터 운영시간 변경안내</li>
          <li>새로운 카테고리 추가 안내</li>
          <li>일시적인 오류 안내</li>
       </ul>
-      </font>
+      <!-- </font> -->
    </div>
       <div id="help">
-      <font id="web-font">
+      <!-- <font id="web-font"> -->
       <h4>누리터 고객센터<br>
       1588-3287<br>
              상담시간 : 평일 10:30 ~ 18:30<br>
       *토요일 및 공휴일 휴무</h4>
       <input type ="button" id="callMe" value="전화 전 클릭">
-      </font>
+     </font>
    </div>
  </div>  
     <script>
