@@ -18,9 +18,13 @@
         border-top: 0;
         background: rgb(241, 196, 15);
         border-radius: 3px;
+        border-style: solid; 
+      border-color: red; 
    }
    #wrapper {
        width:70%;
+       border-style: solid; 
+      border-color: red; 
            /*margin : 0 auto ;*/
    }
    
@@ -28,8 +32,8 @@
       width:100%;
       height:100%;
       display: inline-block;
-     /*  border-style: solid; */
-       /* border-color: red; */
+     border-style: solid; 
+       border-color: red; 
        
        
    }
@@ -40,14 +44,20 @@
       margin-top:1%;
       /* margin: 8px; */
       margin-left:1%;
+      border-style: solid; 
+      border-color: red; 
    }
    #tableDiv table tr{
       align: center;
       border: 2px solid black;
+      border-style: solid; 
+      border-color: red; 
       
    }
    #tableDiv table tr td{
       background: white;
+      border-style: solid; 
+      border-color: red; 
    }
    
   /*  ul.navi li {
@@ -121,16 +131,16 @@
 	
    
    #showMain{
-     /*  border-style: solid; */
-       /* border-color: red; */
+      border-style: solid; 
+      border-color: red; 
       display: inline-block;
       width:100%;
       height:100%;
    }
    
    #showLeft{
-     /*  border-style: solid; */
-       /* border-color: red; */
+      border-style: solid;
+       border-color: red
        width:10%;
       /*  height:15%; */
        font-size:20px;
@@ -142,8 +152,8 @@
    }
    
    #showRight{
-     /*  border-style: solid; */
-     /*  border-color: red; */
+     border-style: solid;
+     border-color: red; 
      float:right;
      /*   margin-left: 10%; */
       display: inline-block;
@@ -154,25 +164,29 @@
    }
    
    #showRightButton{
+   border-style: solid; 
+      border-color: red; 
    	  display:inline-block;
       margin-left: 8%;
       width:90%;
-      height:30%;
+      height:10%;
    }
    
    #web-font{
       font-family: 'Jua', sans-serif;
    }
    
-   #head{
+   /* #head{
+   border-style: solid; 
+      border-color: red; 
       margin-left:3%;
       margin-top:1%;
       color: rgb(241, 196, 15);
       font-size:3em;
-       text-decoration: none;
+       text-decoration: none; */
       /* padding:8px; */
       /* width:80%; */
-   }
+   /* } */
    
    /* #iBox{
       display: inline-block;
@@ -269,9 +283,10 @@
    .select-control{
    		display:inline-block;
    		width:30%;
+   		margin-left: 340px;
    }
    
-  .pagination {
+/*   .pagination {
     display: inline-block;
     width:60%;
     float:right;
@@ -302,7 +317,7 @@
 .pagination a:last-child {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-    }
+    } */
  
 </style>
 </head>
@@ -374,16 +389,16 @@
         <div id="showRightButton">
             <button class="button">누리터 개설하기</button>
               <button class="button">관심누리터 확인</button>
-              
-              
-       </div>
-       <div class="select-control inline-block width-100px" align="right">
+               <div class="select-control inline-block width-100px" align="right">
                <select class="input-xs" onchange="sendGAClickEvent('정렬 방식 변경 - ' + this.value)" >
                     <option value="recommendation_point">추천순</option>
                     <option value="ranking_points" selected="">랭킹순</option>
                     <option value="created_at">신규등록순</option>
               </select>
-        	</div>    
+        	</div>  
+              
+       </div>
+        
         
      <!-- <br><br> -->
       

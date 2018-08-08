@@ -168,15 +168,15 @@
       font-family: 'Jua', sans-serif;
    }
    
-   #head{
+  /*  #head{
       margin-left:3%;
       margin-top:1%;
       color: rgb(241, 196, 15);
       font-size:3em;
-       text-decoration: none;
+       text-decoration: none; */
       /* padding:8px; */
       /* width:80%; */
-   }
+  /*  } */
    
    /* #iBox{
       display: inline-block;
@@ -314,7 +314,7 @@
     /* border-bottom: 1px solid #ffd400; */
     background-color: #fff;
     top: 0;
-     margin-top:68px;
+     margin-top:70px;
     z-index: 10;
     }
 </style>	

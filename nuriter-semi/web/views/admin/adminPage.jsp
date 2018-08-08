@@ -26,7 +26,7 @@
    	 height:100%;
    }
    #main{
-   	width:170%;
+   	/* width:170%; */
    	min-height:90%:
    } 
    
@@ -186,17 +186,17 @@
    }
    
    
-   
+  /*  
    #search{
    	  display: inline-block;
       width:40%;
       height:10%;
       margin-left: 220px;
-      margin-top: 25px;
+      margin-top: 25px; */
       /* margin-top:2%; */
-   }
+ /*   } */
    
-   #searchBox{
+   /* #searchBox{
     display: inline-block;
        color: rgb(94, 94, 94);
        border-width: 3px;
@@ -224,16 +224,16 @@
       margin-top: 2%;
       margin-right:1%;
    	  /*  margin-left: 20%; */
-   	  width:15%; 
+  /*  	  width:15%; 
    	 
    }
-   #loginBtn a{
+   #loginBtn a{ */
    		/* display:inline-block; */
-   		width:10%;
+   		/*width:10%;
    		 text-decoration: none;
    		 margin-right:2%;
    		 color:#646464;
-   }
+   } */
    .button{
        width: 90px;
      height: 40px;

@@ -170,7 +170,7 @@ display:block; */   /* 마우스 커서 올리면 서브메뉴 보이게 하기 
       margin-left: 220px;
       margin-top: 25px;
       /* margin-top:2%; */
-   } 
+   /* }  */
    
   /*  #searchBox{
     display: inline-block;
@@ -266,12 +266,12 @@ display:block; */   /* 마우스 커서 올리면 서브메뉴 보이게 하기 
         background: rgb(241, 196, 15);
         border-radius: 3px;
    }
-   #wrapper {
+  /*  #wrapper {
        width:70%;
            /*margin : 0 auto ;*/
-   }
+ /*   } */
    
-   #tableDiv{
+ /*   #tableDiv{
       width:100%;
       height:100%;
       display: inline-block;
@@ -279,14 +279,14 @@ display:block; */   /* 마우스 커서 올리면 서브메뉴 보이게 하기 
        /* border-color: red; */
        
        
-   }
-   #tableDiv table{
+ /*  } */
+ /*   #tableDiv table{
    	  width:20%;
    	  height:20%;
       display: inline-block;
-      margin-top:1%;
+      margin-top:1%; */
       /* margin: 8px; */
-      margin-left:1%;
+ /*      margin-left:1%;
    }
    #tableDiv table tr{
       align: center;
@@ -295,15 +295,15 @@ display:block; */   /* 마우스 커서 올리면 서브메뉴 보이게 하기 
    }
    #tableDiv table tr td{
       background: white;
-   }
+   } */
    
-   ul.navi li {
-      display: inline-block;
+ /*   ul.navi li {
+      display: inline-block; */
       /* margin:auto;  */
-      text-align:center;
+ /*      text-align:center;
    }
-   
-   ul.navi li a {
+    */
+  /*  ul.navi li a {
       float: center;
       font-size: 20px;
       line-height: 40px;
@@ -319,37 +319,37 @@ display:block; */   /* 마우스 커서 올리면 서브메뉴 보이게 하기 
    .navi li a:hover {
       color:#FF4500;
    }
-   
-   ul.navi2 li a {
+    */
+  /*  ul.navi2 li a {
       float: center;
       font-size: 15px;
       line-height: 10px;
       color: #000000;
-      text-decoration: none;
+      text-decoration: none; */
        /* margin: auto;  */
       /* padding: 0 30px; */
-      -moz-border-radius-topright: 10px;
+ /*      -moz-border-radius-topright: 10px;
       -webkit-border-top-right-radius: 10px;
       -moz-border-radius-topleft: 10px;
       -webkit-border-top-left-radius: 10px;
    }
-   
+    */
   	
-	.menubar li ul {
+	/* .menubar li ul {
 	background: rgb(109,109,109);
 	display:none;  /* 평상시에는 서브메뉴가 안보이게 하기 */
-	height:auto;
+	/*height:auto;
 	padding:0px;
 	margin:0px;
 	border:0px;
 	position:absolute;
 	width:200px;
 	z-index:200;
-}
+} */
 	
-	.menubar li:hover ul {
+/*	.menubar li:hover ul {
 	display:block;   /* 마우스 커서 올리면 서브메뉴 보이게 하기 */
-}
+/*} */
 	
    
    /* #showMain{ */
@@ -361,33 +361,33 @@ display:block; */   /* 마우스 커서 올리면 서브메뉴 보이게 하기 
     float: right;
    } */
    
-   #showLeft{
+  /*  #showLeft{
      /*  border-style: solid; */
        /* border-color: red; */
-       width:10%;
+      /*  width:10%; */
       /*  height:15%; */
-       font-size:20px;
+    /*    font-size:20px;
         display: inline-block;
-   }
+   } */
    
-   #showRight{
+  /*  #showRight{ */
      /*  border-style: solid; */
      /*  border-color: red; */
-     float:right;
+    /*  float:right; */
      /*   margin-left: 10%; */
-      display: inline-block;
+   /*    display: inline-block;
       width: 90%;
       height:100%;
       
       
-   }
+   } */
    
-   #showRightButton{
+  /*  #showRightButton{
    	  
       margin-left: 8%;
       width:50%;
       height:30%;
-   }
+   } */ 
    
    #web-font{
       font-family: 'Jua', sans-serif;
@@ -398,7 +398,6 @@ display:block; */   /* 마우스 커서 올리면 서브메뉴 보이게 하기 
       margin-top:1%;
       color: rgb(241, 196, 15);
        font-size:3em;
-      
       text-decoration: none;
       /* padding:8px; */
       /* width:80%; */
@@ -409,7 +408,7 @@ display:block; */   /* 마우스 커서 올리면 서브메뉴 보이게 하기 
   	 display: inline-block;
       /* margin-top: 5px; */
       /* margin-left: 30px; */
-       width:180%;
+       width:190%;
       height:30%;
       /*  height: 40px; */
    }
@@ -420,7 +419,7 @@ display:block; */   /* 마우스 커서 올리면 서브메뉴 보이게 하기 
    	  display: inline-block;
       width:40%;
       height:10%;
-      margin-left: 110px;
+      margin-left: 80px;
       margin-top: 25px;
       /* margin-top:2%; */
    }
@@ -448,11 +447,12 @@ display:block; */   /* 마우스 커서 올리면 서브메뉴 보이게 하기 
    }
    
     #loginBtn{
-   	 float:right; 
+   	 /* float:right;  */
       display: inline-block;
       margin-top: 2%;
       margin-right:2%;
-   	  /*  margin-left: 20%; */
+   	  /* margin-left: 15%; */
+   	  margin-left: 145px;
    	  width:20%; 
    	 
    }
@@ -575,7 +575,7 @@ display:block; */   /* 마우스 커서 올리면 서브메뉴 보이게 하기 
       		<input type="button" id="searchBtn" value="검색">
   	 	</div>
   	 	
-  	 	 <div id="loginBtn"  align=right>
+  	 	 <div id="loginBtn">  <!-- align=right> -->
         	<%--  <%if(loginUser != null) {%>
         		<font id="web-font"> <a><%= loginUser.getUserName() %> 님</a></font>
         		<button class="button" onclick="logout();" >로그아웃</button>
@@ -586,8 +586,8 @@ display:block; */   /* 마우스 커서 올리면 서브메뉴 보이게 하기 
 					<button class="button" onclick="location.href='../admin/adminPage.jsp'">관리페이지</button>
 				<% } %> --%>
 				<%if(loginUser == null) {%>
-        	<button class="button" onclick="location.href='/views/member/login.jsp' " >로그인</button>
-        	<button class="button" onclick="location.href='/views/member/memberJoinForm.jsp' ">회원가입</button>
+        	<button class="button" onclick="location.href='../member/login.jsp' " >로그인</button>
+        	<button class="button" onclick="location.href='../member/memberJoinForm.jsp' ">회원가입</button>
         <%}else{ %>
         <%if(loginUser != null) {%>
         		<font id="web-font"> <a><%= loginUser.getUserName() %> 님</a></font>
