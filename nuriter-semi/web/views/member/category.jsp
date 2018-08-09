@@ -383,8 +383,9 @@
         <div id="tableDiv" align="center">
            <table>
            <tr>
-            <th><img src="../image/go1.gif" width="200px" height="130px"></th>
+            <th><a href="categoryDetail.jsp"><img src="../image/go1.gif" width="200px" height="130px"></a></th>
            </tr>
+    
            <tr>
             <td><p id="web-font-table" align="center"><font size="4" color="black">[축구]한 게임 찢으실분 구합니다.</font></p></td>
            </tr>
