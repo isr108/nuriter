@@ -127,7 +127,7 @@
     /*      border-style: solid;
     border-color: red; */
     display: inline-block;
-    width: 50%;
+    width: 80%;
     height: 100%;
     float: inherit;
    }
@@ -405,7 +405,7 @@
 			
 		</script>
 		<br>
-		<table align="center" border="1">
+		<table align="center" border="1" style="width:600px">
 			<tr>
 				<th>아이디</th>
 				<th>이름</th>
@@ -417,6 +417,29 @@
 				<th>취미</th>
 				<th>가입일</th>
 			</tr>
+			<tr>
+				<th>아이디</th>
+				<th>이름</th>
+				<th>성별</th>
+				<th>나이</th>
+				<th>이메일</th>
+				<th>전화번호</th>
+				<th>주소</th>
+				<th>취미</th>
+				<th>가입일</th>
+			</tr>
+			<tr>
+				<th>아이디</th>
+				<th>이름</th>
+				<th>성별</th>
+				<th>나이</th>
+				<th>이메일</th>
+				<th>전화번호</th>
+				<th>주소</th>
+				<th>취미</th>
+				<th>가입일</th>
+			</tr>
+			
 			<%-- <% for(Member m : list){ %>
 			<tr>
 				<td><%= m.getUserId() %></td>
@@ -432,7 +455,8 @@
 			<% } %> --%>
 		</table>
  	</div>
- </div>		
+ </div>
+ <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>		
 		 <%-- <script>
 			$(function(){
 				<% for(Member m : list){%>

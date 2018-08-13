@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -216,6 +216,7 @@
    		 color:#646464;
    }
    
+   
    .button{
        width: 90px;
      height: 40px;
@@ -228,6 +229,21 @@
    .button:hover {
      background-color: white; /* Green */
      color: rgb(241, 196, 15);
+     border: 2px solid rgb(241, 196, 15); /* Green */
+   }
+   
+   .button1{
+      /*  width: 90px;
+     height: 40px;
+     font-weight: 600;
+     border-radius: 4px; */
+     background-color: white; 
+    /*  color: white; */
+   }
+   
+   .button1:hover {
+     background-color: white; /* Green */
+     /* color: rgb(241, 196, 15); */
      border: 2px solid rgb(241, 196, 15); /* Green */
    }
    
@@ -272,12 +288,18 @@
    
    #category1{
       /* border:1px solid black; */
-      margin-left: auto;
+      /*  margin-left: auto;  */
+       margin-left:20%;
        margin-right: auto;
-       width: 907px;
-      height:195px;
+       /* width: 907px; */
+       width: 50%;
+      /* height:195px; */
+      height:70%;
+      float:center;
+      
    }
-   
+
+  
    #recommendText{
    text-align:center;
       font-size:25px;
@@ -287,6 +309,7 @@
       margin-top: 100px;
       height: 50%;
       width: 70%;
+     
    }
    
    #help{
@@ -298,25 +321,61 @@
    
     #listBox{
    border:1px solid black;
-    height: 352px;
-    width: 682px;
+    height: 363px;
+    width: 698px;
     /* margin-left:auto;
     margin-right:auto; */
     margin:auto;
    
    }
    
+    #listBox1{
+   border:1px solid black;
+    /* height: 362px;
+    width: 682px; */
+    /* margin-left:auto;
+    margin-right:auto; */
+    margin:auto;
+    display:inline-block;
+    text-align:center;
+   
+   }
+    #listBox2{
+   border:1px solid black;
+    /* height: 362px;
+    width: 682px; */
+    /* margin-left:auto;
+    margin-right:auto; */
+    margin:auto;
+    display:inline-block;
+    text-align:center;
+   
+   }
+   
+   #listBox3{
+   border:1px solid black;
+    /* height: 362px;
+    width: 682px; */
+    /* margin-left:auto;
+    margin-right:auto; */
+    margin:auto;
+    display:inline-block;
+    text-align:center;
+   
+   }
+   
     #notice{
    	 /* border:1px solid black; */
    	  display:inline-block;
-   	  width:50%;
-      height:80%;
+   	  width:30%;
+      height:50%;
       margin-left:2%;
      /*  margin-top:50px; */
       /* text-align:center; */
       font-size: 15px;
        /* font-weight: bold; */
    }
+
 </style>
 
 </head>
@@ -366,21 +425,22 @@
    
       카테고리
    <!-- </font> --></div>
-   <div id="category1"><!-- <font id="web-font"> -->
+   <div id="category1" align="center"><!-- <font id="web-font"> -->
    <table>
-      <tr>
-         <td><input type="button" value="언어" style="height:96px; width:226px;"
+       <tr>
+         <td><input class="button1" type="button" value="언어" style="height:96px; width:226px;"
          onclick="location.href='views/member/category.jsp' "></td>
-         <td><input type="button" value="공방" style="height:96px; width:226px;"></td>
-         <td><input type="button" value="요리" style="height:96px; width:226px;"></td>
-         <td><input type="button" value="운동" style="height:96px; width:226px;"></td>
+         <td><input class="button1" type="button" value="공방" style="height:96px; width:226px;"></td>
+         <td><input class="button1"  type="button" value="요리" style="height:96px; width:226px;"></td>
+         <td><input class="button1" type="button" value="운동" style="height:96px; width:226px;"></td>
       </tr>
       <tr>
-         <td><input type="button" value="음악" style="height:96px; width:226px;"></td>
-         <td><input type="button" value="컴퓨터" style="height:96px; width:226px;"></td>
-         <td><input type="button" value="문화" style="height:96px; width:226px;"></td>
-         <td><input type="button" value="기타" style="height:96px; width:226px;"></td>
-      </tr>
+         <td><input class="button1" type="button" value="음악" style="height:96px; width:226px;"></td>
+         <td><input class="button1" type="button" value="컴퓨터" style="height:96px; width:226px;"></td>
+         <td><input class="button1" type="button" value="문화" style="height:96px; width:226px;"></td>
+         <td><input class="button1" type="button" value="기타" style="height:96px; width:226px;"></td>
+      </tr> 
+      
    </table>
    </div>
   <!-- <font id="web-font">  -->
@@ -388,13 +448,206 @@
    <!-- <div data-text-content="true" style="font-size:16px;" class="recommendText"> -->
   <div id="recommendText"><!-- <font id="web-font"> -->
       마감임박 누리터
-      <!-- </font> -->
+    
    </div>
-   
+   <br>
    <div id="listBox">
    
+   <div id="listBox1">
+   		  <table>
+       <tr>
+         <td style="height:30px; width:226px;">운동</td>
+      </tr>
+      <tr>
+         <td style="height:110px; width:226px; text-align:center" >
+         	<table>
+         		<tr>
+         			<td rowspan=2>
+         				 <img width="80px" height="90px" src="images/board/cat.png">
+         			</td>
+         			<td>
+         				같이 축구하실분 구합니다.
+         			</td>
+         		</tr>
+         		<tr>
+         			<td>
+         				D-3
+         			</td>
+         		</tr>
+         	</table>
+        </td>
+      </tr>
+      <tr>
+         <td style="height:110px; width:226px;" >
+         	<table>
+         		<tr>
+         			<td rowspan=2>
+         				 <img width="80px" height="90px" src="images/board/cat.png">
+         			</td>
+         			<td>
+         				같이 축구하실분 구합니다.
+         			</td>
+         		</tr>
+         		<tr>
+         			<td>
+         				D-2
+         			</td>
+         		</tr>
+         	</table>
+        </td>
+      </tr>
+      <tr>
+         <td style="height:110px; width:226px;" >
+         	<table>
+         		<tr>
+         			<td rowspan=2>
+         				 <img width="80px" height="90px" src="images/board/cat.png">
+         			</td>
+         			<td>
+         				야구 보러가실 분 구합니다.
+         			</td>
+         		</tr>
+         		<tr>
+         			<td>
+         				D-1
+         			</td>
+         		</tr>
+         	</table>
+        </td>
+      </tr>
+   </table>
    </div>
-    <br><br><br><br>
+   <div id="listBox2">
+     <table>
+       <tr>
+         <td style="height:30px; width:226px;">문화</td>
+      </tr>
+      <tr>
+         <td style="height:110px; width:226px;" >
+         	<table>
+         		<tr>
+         			<td rowspan=2>
+         				 <img width="80px" height="90px" src="images/board/cat.png">
+         			</td>
+         			<td>
+         				같이 축구하실분 구합니다.
+         			</td>
+         		</tr>
+         		<tr>
+         			<td>
+         				D-3
+         			</td>
+         		</tr>
+         	</table>
+        </td>
+      </tr>
+      <tr>
+         <td style="height:110px; width:226px;" >
+         	<table>
+         		<tr>
+         			<td rowspan=2>
+         				 <img width="80px" height="90px" src="images/board/cat.png">
+         			</td>
+         			<td>
+         				같이 축구하실분 구합니다.
+         			</td>
+         		</tr>
+         		<tr>
+         			<td>
+         				D-3
+         			</td>
+         		</tr>
+         	</table>
+        </td>
+      </tr>
+      <tr>
+         <td style="height:110px; width:226px;" >
+         	<table>
+         		<tr>
+         			<td rowspan=2>
+         				 <img width="80px" height="90px" src="images/board/cat.png">
+         			</td>
+         			<td>
+         				같이 축구하실분 구합니다.
+         			</td>
+         		</tr>
+         		<tr>
+         			<td>
+         				D-3
+         			</td>
+         		</tr>
+         	</table>
+        </td>
+      </tr>
+   </table>
+   </div>
+    <div id="listBox3">
+     <table>
+      <tr>
+         <td style="height:30px; width:226px;">음악</td>
+      </tr>
+     <tr>
+         <td style="height:110px; width:226px;" >
+         	<table>
+         		<tr>
+         			<td rowspan=2>
+         				 <img width="80px" height="90px" src="images/board/cat.png">
+         			</td>
+         			<td>
+         				같이 축구하실분 구합니다.
+         			</td>
+         		</tr>
+         		<tr>
+         			<td>
+         				D-3
+         			</td>
+         		</tr>
+         	</table>
+        </td>
+      </tr>
+      <tr>
+         <td style="height:110px; width:226px;" >
+         	<table>
+         		<tr>
+         			<td rowspan=2>
+         				 <img width="80px" height="90px" src="images/board/cat.png">
+         			</td>
+         			<td>
+         				같이 축구하실분 구합니다.
+         			</td>
+         		</tr>
+         		<tr>
+         			<td>
+         				D-3
+         			</td>
+         		</tr>
+         	</table>
+        </td>
+      </tr>
+      <tr>
+         <td style="height:110px; width:226px;" >
+         	<table>
+         		<tr>
+         			<td rowspan=2>
+         				 <img width="80px" height="90px" src="images/board/cat.png">
+         			</td>
+         			<td>
+         				같이 축구하실분 구합니다.
+         			</td>
+         		</tr>
+         		<tr>
+         			<td>
+         				D-3
+         			</td>
+         		</tr>
+         	</table>
+        </td>
+      </tr>
+   </table>
+   </div>
+   
+   </div>
+    <br><br><br><br> <br><br><br><br> <br><br><br><br>
    <div id="notice"><!-- <font id="web-font"> -->
       <h4>공지사항</h4>
       <ul>

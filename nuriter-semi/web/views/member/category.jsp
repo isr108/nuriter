@@ -12,6 +12,13 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
 <style>
+
+	html{
+   		height:100%;
+   }
+   body{
+   	 height:100%;
+   }
    .colorgraph {
       width: 98%;
         height: 3px;
@@ -39,7 +46,7 @@
    }
    #tableDiv table{
    	  width:20%;
-   	  height:20%;
+   	  height:30%;
       display: inline-block;
       margin-top:1%;
       /* margin: 8px; */
@@ -345,7 +352,7 @@
   
     <%@ include file="../common/categorybar.jsp" %>
 
-    <br><br><br> <br><br><br> <br><br><br>
+    <br><br><br> <br><br><br> <br><br><br><br>
       <!-- <nav>
         <div class="wrapper">
           <ul class="navi">
@@ -477,14 +484,9 @@
             <td><p id="web-font-table" align="center"><font size="4" color="black">[축구]한 게임 찢으실분 구합니다.</font></p></td>
            </tr>
             </table>
-        </div>
-
-     </div>
-     
-     
-  </div>
-  
-   <br><br><br><br><br>
+            
+            
+             <br><br><br><br><br><br><br>
     <div class="pagination" align="center">
 	  <a href="#" >&laquo;</a>
 	  <a href="#" class="active">1</a>
@@ -495,7 +497,15 @@
 	  <a href="#" >6</a>
 	  <a href="#" >&raquo;</a>
 		</div>
-  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+ <!--  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
+        </div>
+   
+     </div>
+   
+     
+  </div>
+  
+ 
    
 </body>
 </html>
