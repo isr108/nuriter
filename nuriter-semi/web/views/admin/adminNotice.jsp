@@ -70,12 +70,12 @@
    	float: left;
    }
    
-   /* #btnBox{
+   #btnBox{
      border:1px solid white;
      width:30%;
      height:40px;
      float:right;
-   } */
+   }
    
    #btnBox > input{
     /* display:table-cell; */
@@ -112,7 +112,7 @@
    	height:50px;
    }
    
-   /* #noticeUpdate{
+   #noticeUpdate{
      border:1px solid white;
      width:100%;
      height:410px;
@@ -135,35 +135,36 @@
     float:right;
     margin-top: 5px;
     margin-right: 10px;
-   } */
+    
+   }
    
 </style>
 </head>
 <body>
 	<%@ include file="../common/logoAndLogbutton.jsp" %>
-	
+	<%@ include file="adminbar.jsp" %>
 	
 <div id="main">
  <br><br> <br><br>
-    <hr class="colorgraph">
+    <!-- <hr class="colorgraph">
     
 	<div id="showLeft" >
      <ul class="navi2" style="list-style-type:none">
         <hr class="colorgraph">
         <li id="web-font"><a href="#">공지사항</a></li>
         <hr class="colorgraph">
-        <!-- <li id="web-font"><a href="#">Q&A</a></li>
-        <li id="web-font"><a href="#">자주묻는질문</a></li> -->
+        <li id="web-font"><a href="#">Q&A</a></li>
+        <li id="web-font"><a href="#">자주묻는질문</a></li>
      </ul>
-   	</div>
+   	</div> -->
    	
    	<div id="notice" align="center">
    		<div id="upBox" align="center">
    			<label>공지사항</label>
-   			<!-- <div id="btnBox">
+   			<div id="btnBox">
    			  <input type="button" name="update" value="수정">
    			  <input type="button" name="delete" value="삭제">
-   			</div> -->
+   			</div>
    		</div>
    	
    		<div id="noticeList">
@@ -206,12 +207,12 @@
    			<button onclick="#">></button>
    			<button onclick="#">>></button>
    		</div>
-   		<!-- <div id="noticeUpdate">
+   		<div id="noticeUpdate">
 		  <input type="text" id="noticeTitle" placeholder="제목">
 		  <textarea rows="15" cols="145">내용을 입력하세요...</textarea>
 		  
 		  <input type="button" id="" name="upLoad" value="등록">
-   		</div> -->
+   		</div>
    	</div>
 </div>
    	<%@ include file="../common/footer.jsp" %>

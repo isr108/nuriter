@@ -667,7 +667,7 @@
       1588-3287<br>
              상담시간 : 평일 10:30 ~ 18:30<br>
       *토요일 및 공휴일 휴무</h4>
-      <input type ="button" id="callMe" value="전화 전 클릭">
+      <input type ="button" id="callMe" value="전화 전 클릭" onclick="location.href='views/notice/FnQ.jsp'">
      </font>
    </div>
  </div>  
