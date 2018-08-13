@@ -106,7 +106,7 @@ a {
 			</div><br>
 		
 			<div id="check" style="font-size: 16px;" align="center">
-				<a href="#">출석체크</a>
+				<a href="<%=request.getContextPath()%>/views/member/csCheck.jsp">출석체크</a>
 			</div><br>
 	
 		
