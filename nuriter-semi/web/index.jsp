@@ -373,9 +373,12 @@
      /*  margin-top:50px; */
       /* text-align:center; */
       font-size: 15px;
+     
        /* font-weight: bold; */
    }
-
+   #notice:hover{
+   	cursor:pointer;
+   }
 </style>
 
 </head>
@@ -647,8 +650,8 @@
    </div>
    
    </div>
-    <br><br><br><br> <br><br><br><br> <br><br><br><br>
-   <div id="notice"><!-- <font id="web-font"> -->
+    <br><br><br><br>
+   <div id="notice" onclick="location.href='views/notice/notice.jsp'"><!-- <font id="web-font"> -->
       <h4>공지사항</h4>
       <ul>
          <li>고객센터 운영시간 변경안내</li>
