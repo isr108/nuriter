@@ -12,10 +12,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
-  <!-- <link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet"> -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet"> 
 <title>Insert title here</title>
 <style>
 
@@ -127,21 +127,35 @@
     border-style: solid;
     border-color: black;
     display: inline-block;
-    width: 50%;
-    height: 100%;
-    float: center;
+    width: 700px;
+    height: 50%;
+    /* float: center; */
     margin-left:13%;
-    margin-bottom:2%;
+    margin-bottom:1%;
+
+   }
+     #showMain1{
+    /* border-style: solid;
+    border-color: black; */
+    display: inline-block;
+    width: 900px;
+    height: 100%;
+    float: right;
+    margin-right: 20%
+    /* float: center; */
+    /* margin-left:13%;
+    margin-bottom:1%; */
+
    }
    
-   #showLeft{
+  /*  #showLeft{ */
      /*  border-style: solid; */
        /* border-color: red; */
-       width:10%;
+      /*  width:10%; */
       /*  height:15%; */
-       font-size:20px;
+    /*    font-size:20px;
         display: inline-block;
-   }
+   } */
    
    #showRight{
      /*  border-style: solid; */
@@ -177,65 +191,7 @@
       /* width:80%; */
    }
    
-   /* #iBox{
-  	 /* background-color:white;
-  	 display: inline-block;
- */      /* margin-top: 5px; */
-      /* margin-left: 30px; */
-      /* width:170%; */
-     /*  height:50%; */
-      /*  height: 40px; */
-   }
    
-   
-  /*  
-   #search{
-   	  display: inline-block;
-      width:40%;
-      height:10%;
-      margin-left: 220px;
-      margin-top: 25px; */
-      /* margin-top:2%; */
- /*   } */
-   
-   /* #searchBox{
-    display: inline-block;
-       color: rgb(94, 94, 94);
-       border-width: 3px;
-       border-style: solid;
-       border-color: rgb(241, 196, 15);
-       width:80%;
-       height:40px;
-   }
-   
-   #searchBtn {
-     width: 90px;
-    height: 40px;
-     border-radius: 3px;
-    font-weight: 600;
-     border-color: transparent;
-     font-size: 15px;
-    color: white;
-    cursor: pointer;
-    background-color: rgb(241, 196, 15);
-   }
-   
-    #loginBtn{
-   	 float:right; 
-      display: inline-block;
-      margin-top: 2%;
-      margin-right:1%;
-   	  /*  margin-left: 20%; */
-  /*  	  width:15%; 
-   	 
-   }
-   #loginBtn a{ */
-   		/* display:inline-block; */
-   		/*width:10%;
-   		 text-decoration: none;
-   		 margin-right:2%;
-   		 color:#646464;
-   } */
    .button{
        width: 90px;
      height: 40px;
@@ -296,6 +252,13 @@
     top: 0;
     z-index: 10;
     }
+   #main1{
+   	width:100%;
+   	height:100%;
+   	display:inline-block;
+   	margin-top:70px;
+   /* 	border-style: solid;
+    border-color: red; */
    }
 </style>
 </head>
@@ -349,6 +312,9 @@
    </nav>     --%>
  
 <%@ include file="../common/logoAndLogbutton.jsp" %>
+
+
+<div id="main1">
 <%@ include file="adminbar.jsp" %>
 <!-- <div id="main">
  <br><br> <br><br>
@@ -364,7 +330,7 @@
         <li id="web-font"><a href="#">고객문의관리</a></li>
      </ul>
    	</div>  -->       		
-   		
+<div id="showMain1">   		
  <div id="showMain" align="center">  		
    		<!-- <h1 align="center">회원 정보 전체 보기</h1> -->
 		<div  align="center">
@@ -391,6 +357,7 @@
 			
 			</form>
 		</div>
+		
 		<script>
 		$(function(){
 			$("#genderBox").hide();
@@ -458,6 +425,7 @@
 			<% } %> --%>
 		</table>
  	</div>
+ </div>
  </div>
  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>		
 		 <%-- <script>

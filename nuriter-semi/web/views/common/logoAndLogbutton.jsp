@@ -59,7 +59,7 @@
   	 display: inline-block;
       /* margin-top: 5px; */
       /* margin-left: 30px; */
-      width:230%;
+      width:240%;
       /* height:30%; */
       /*  height: 40px; */
    }

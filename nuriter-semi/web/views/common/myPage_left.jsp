@@ -106,12 +106,12 @@ a {
 			</div><br>
 		
 			<div id="check" style="font-size: 16px;" align="center">
-				<a href="#">출석체크</a>
+				<a href="<%=request.getContextPath()%>/views/member/csCheck.jsp">출석체크</a>
 			</div><br>
 	
 		
 			<div id="newNuri" style="font-size: 16px;" align="center">
-				<a href="#">나의 누리터 개설</a>
+				<a href="<%=request.getContextPath()%>/views/member/nuriterOpen.jsp">나의 누리터 개설</a>
 			</div><br>
 		
 		</div>
