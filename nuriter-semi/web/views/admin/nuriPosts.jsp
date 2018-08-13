@@ -25,6 +25,7 @@
  height:500px;
  width:80%;
 }
+
 #bulletinTable{
 height:100px;
 width:68%;
