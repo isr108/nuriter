@@ -42,10 +42,10 @@
 </style>
 </head>
 <body>
-	<%@ include file="/views/logoAndLogbutton2.jsp" %>
-	<%@ include file="/views/categoryBar.jsp" %>
-	<%@ include file="/views/myPage_left.jsp" %>
-	<%@ include file="/views/myNuriList.jsp" %>
+	<%@ include file="/views/common/logoAndLogbutton.jsp" %>
+	 <%@ include file="/views/common/categorybar.jsp" %>
+ 	<%@ include file="/views/common/myPage_left.jsp" %>
+	<%@ include file="/views/common/myNuriList.jsp" %>
 	<div class="outer">
 		<br>
 		<h2 align="center">종료된 누리터</h2>

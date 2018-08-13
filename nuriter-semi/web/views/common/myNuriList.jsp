@@ -38,15 +38,15 @@
 	<table id="listTable">
 		<tbody>
 			<tr>
-				<td><br><a href="<%=request.getContextPath()%>/views/myNuri.jsp">참여중인 누리터<br>
+				<td><br><a href="<%=request.getContextPath()%>/views/common/myNuri.jsp">참여중인 누리터<br>
 				1건<br><br></a></td>
-				<td><br><a href="<%=request.getContextPath()%>/views/doneNuri.jsp">종료된 누리터<br>
+				<td><br><a href="<%=request.getContextPath()%>/views/common/doneNuri.jsp">종료된 누리터<br>
 				3건<br><br></a></td>
-				<td><br><a href="<%=request.getContextPath()%>/views/nuriOpen.jsp">개설중인 누리터<br>
+				<td><br><a href="<%=request.getContextPath()%>/views/common/nuriOpen.jsp">개설중인 누리터<br>
 				0건<br><br></a></td>
-				<td><br><a href="<%=request.getContextPath()%>/views/nuriEnded.jsp">개설했던 누리터<br>
+				<td><br><a href="<%=request.getContextPath()%>/views/common/nuriEnded.jsp">개설했던 누리터<br>
 				0건<br><br></a></td>
-				<td><br><a href="<%=request.getContextPath()%>/views/nuriInteresting.jsp">관심 누리터<br>
+				<td><br><a href="<%=request.getContextPath()%>/views/common/nuriInteresting.jsp">관심 누리터<br>
 				2건<br><br></a></td>
 			</tr>
 		</tbody>
