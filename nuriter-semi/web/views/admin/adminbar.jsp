@@ -12,7 +12,6 @@
   /*     min-height:90%:  */
   /* } */
    #web-font{
-   
       font-family: 'Jua', sans-serif;
    }
    #showLeft{

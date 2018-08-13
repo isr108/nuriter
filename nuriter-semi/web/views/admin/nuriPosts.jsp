@@ -29,7 +29,6 @@
 height:100px;
 width:68%;
 /* margin-left:300px; */
-
 margin-left:auto;
 margin-right:auto;
 /* margin-top:5%; */
