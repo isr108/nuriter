@@ -139,7 +139,7 @@
 			<br>
 		<!-- <form id="form2"> -->
 		<table>
-			<span><label><a href=""><font id="web-font">아이디/비밀번호 찾기</font></a></label></span>
+			<span><label><a href="../member/find_IdPassword.jsp"><font id="web-font">아이디/비밀번호 찾기</font></a></label></span>
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			
 			<font id="web-font"><span><a href="../member/memberJoinForm.jsp">무료 회원가입</a></span></font>
