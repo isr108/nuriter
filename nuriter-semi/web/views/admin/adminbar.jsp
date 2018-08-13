@@ -13,6 +13,7 @@
   /* } */
    #web-font{
       font-family: 'Jua', sans-serif;
+ 
    }
    #showLeft{
        border-style: solid; 
