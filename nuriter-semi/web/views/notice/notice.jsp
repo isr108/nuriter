@@ -198,7 +198,7 @@
    				</tr>
    				<tr>
    					<td><input type="checkbox" name="cb"></td>
-   					<td colspan="5">ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ</td>
+   					<td colspan="5">ㅇㅇㅇㅇㅇㅇㄻㄴㄹㄴㅇㄹㅇㅇㅇㅇㅇㅇ</td>
    				</tr>
    			</table>
    			<button onclick="#"><<</button>
