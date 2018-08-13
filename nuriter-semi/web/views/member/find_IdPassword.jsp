@@ -318,7 +318,7 @@
 			<div style="width:200px; display:inline-block; margin-left:20%;">
 			<p style="font-size:2em;">아이디 찾기</p>
 			</div>
-			<div style="width:200px; display:inline-block; margin-left:15%;">
+			<div style="width:200px; display:inline-block; margin-left:27%;">
 			<p style="font-size:2em;">비밀번호 찾기</p>
 			</div>
 			<br><br>

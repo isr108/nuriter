@@ -98,11 +98,11 @@ a {
 			<div id="name" style="font-size: 18px;" align="center">홍길동</div>
 		<br><br>
 			<div id="myNuri" style="font-size: 16px;" align="center">
-			<a href="<%=request.getContextPath()%>/views/myNuri.jsp">나의누리터</a>
+			<a href="<%=request.getContextPath()%>/views/common/myNuri.jsp">나의누리터</a>
 			</div><br>
 	
 			<div id="info" style="font-size: 16px;" align="center">
-				<a href="<%=request.getContextPath()%>/views/myInfo.jsp">개인정보수정</a>
+				<a href="<%=request.getContextPath()%>/views/common/myInfo.jsp">개인정보수정</a>
 			</div><br>
 		
 			<div id="check" style="font-size: 16px;" align="center">

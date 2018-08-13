@@ -115,9 +115,9 @@
 </head>
 <body>
 
-	<%@ include file="/views/logoAndLogbutton2.jsp" %>
-	<%@ include file="/views/categoryBar.jsp" %>
-	<%@ include file="/views/myPage_left.jsp" %>
+	<%@ include file="logoAndLogbutton.jsp" %>
+	<%@ include file="categorybar.jsp" %>
+	<%@ include file="myPage_left.jsp" %>
 	
 		<div id="myInfoPage">
 		<h1 align="center"><%-- <%=loginUser.getUserName() %> --%>님의 회원 정보 수정</h1>

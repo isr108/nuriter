@@ -59,7 +59,7 @@
   	 display: inline-block;
       /* margin-top: 5px; */
       /* margin-left: 30px; */
-      width:250%;
+      width:230%;
       /* height:30%; */
       /*  height: 40px; */
    }
@@ -101,7 +101,7 @@
       margin-top: 2%;
       margin-right:1%;
    	  /* margin-left: 15%; */
-   	  margin-left: 23.5%;
+   	  margin-left: 20%;
    	  width:20%; 
    	 
    }

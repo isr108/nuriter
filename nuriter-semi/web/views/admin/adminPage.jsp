@@ -124,12 +124,14 @@
 	
    
    #showMain{
-    /*      border-style: solid;
-    border-color: red; */
+    border-style: solid;
+    border-color: black;
     display: inline-block;
-    width: 80%;
+    width: 50%;
     height: 100%;
-    float: inherit;
+    float: center;
+    margin-left:13%;
+    margin-bottom:2%;
    }
    
    #showLeft{
@@ -347,7 +349,8 @@
    </nav>     --%>
  
 <%@ include file="../common/logoAndLogbutton.jsp" %>
-<div id="main">
+<%@ include file="adminbar.jsp" %>
+<!-- <div id="main">
  <br><br> <br><br>
    <hr class="colorgraph">
    <div id="showLeft" >
@@ -360,7 +363,7 @@
         <li id="web-font"><a href="#">공지사항</a></li>
         <li id="web-font"><a href="#">고객문의관리</a></li>
      </ul>
-   	</div>        		
+   	</div>  -->       		
    		
  <div id="showMain" align="center">  		
    		<!-- <h1 align="center">회원 정보 전체 보기</h1> -->
