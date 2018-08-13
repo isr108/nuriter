@@ -6,13 +6,13 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-   /*   .colorgraph {
+    .colorgraph {
       width: 98%;
         height: 3px;
         border-top: 0;
         background: rgb(241, 196, 15);
         border-radius: 3px;
-   } */
+   } 
    #wrapper {
        width:100%;
        background-color: white;
@@ -314,7 +314,7 @@
     /* border-bottom: 1px solid #ffd400; */
     background-color: #fff;
     top: 0;
-     margin-top:70px;
+     margin-top:72px;
     z-index: 10;
     }
 </style>	

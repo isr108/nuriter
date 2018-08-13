@@ -118,7 +118,7 @@
      float:right;
      /*   margin-left: 10%; */
       display: inline-block;
-      width: 90%;
+      width: 50%;
       height:100%;
       
       
@@ -152,7 +152,7 @@
       width:100%;
       height:60%;
       /*  height: 40px; */
-      background:url(../images/board/1.jpg) no-repeat left top/ cover;
+     /*  background:url(../images/board/1.jpg) no-repeat left top/ cover; */
    }
    
    #search{
@@ -313,9 +313,9 @@
 		<!-- <font id="web-font"><a id="head" href='../../index.jsp'>누리터</a></font>-->
 		<font id="web-font"><a id="head" href="#home" onclick="home()">누리터</a></font> 
 		<h1 align="center">회원가입</h1>
-		<br>
-		<div>
-			<form id="form1" action="/ns/insertMember" method="post">
+		<br><br>
+		<div id="iBox">
+			<form id="form1" action="/ns/insertMember" method="post" style="margin-left: 28%; display: inline-block;">
 				<table align="center">
 					<tr>
 						<!-- <td><label>아이디</label></td> -->
@@ -390,7 +390,17 @@
 					</tr>
 				</table>
 			</form>
+			<div id="showRight">
+			<textarea rows="10px" cols="40px">이 약관은 주식회사 누리터(이하 “회사”라고 합니다) 가 
+			“누리터” 인터넷 서비스 마켓플레이스 사이트 (http://www.nuriter.com, 이하 "누리터 사이트”라고 합니다)와 
+			스마트폰 등 이동통신기기를 통해 제공되는 “누리터” 모바일 애플리케이션(이하 “모바일 누리터”이라고 합니다)을 통하여 제공하는 
+			중개서비스 및 기타 정보서비스(이하 "서비스"라고 합니다)와 관련하여 회사와 회원간의 권리와 의무, 
+			책임사항 및 회원의 서비스이용절차에 관한 사항을 규정함을 목적으로 합니다.</textarea>
+			<br>
+			<button style="width:310px; height:40px;">동의하고 가입완료</button>
 		</div>
+		</div>
+		
 	</div>
 	</font>
 	
