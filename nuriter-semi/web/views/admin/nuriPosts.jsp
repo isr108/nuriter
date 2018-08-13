@@ -19,6 +19,7 @@
     border-color: red; */
 }
 .showRight{
+
  float:right;
  margin-right:10%;
 /*  margin-left:auto; */
