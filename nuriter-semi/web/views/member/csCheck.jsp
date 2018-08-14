@@ -76,6 +76,13 @@
 					<!-- <th>조회수</th> -->
 					<th width="100px">날짜</th>
 				</tr>
+				<tr onclick="location.href='<%=request.getContextPath()%>/views/member/csCheckone.jsp'">
+				<td></td>
+					<td>1</td>
+					<td>축구하실분</td>
+					<td>이선생</td>
+					<td>8/21~8/31</td>
+				</tr>
 				<%-- <% for(Notice n : list){ %>
 				<tr>
 					<td><%= n.getNno() %></td>
@@ -98,6 +105,13 @@
 					<th width="100px">누리장</th>
 					<!-- <th>조회수</th> -->
 					<th width="100px">날짜</th>
+				</tr>
+				<tr onclick="location.href='<%=request.getContextPath()%>/views/member/csCheckjang.jsp'">
+				<td></td>
+					<td>1</td>
+					<td>축구하실분</td>
+					<td>이선생</td>
+					<td>8/21~8/31</td>
 				</tr>
 				<%-- <% for(Notice n : list){ %>
 				<tr>

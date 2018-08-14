@@ -243,7 +243,7 @@
         		<button class="button" onclick="logout();" >로그아웃</button>
         <% } %>
         		<% if(!loginUser.getUserId().equals("admin")){ %>
-					<button class="button" onclick="location.href='/w7/views/member/memberUpdateForm.jsp'">마이페이지</button>
+					<button class="button" onclick="location.href='location.href='<%=request.getContextPath()%>/views/common/myNuri.jsp'">마이페이지</button>
 				<% }else{ %>
 					<button class="button" onclick="location.href='views/admin/adminPage.jsp'">관리페이지</button>
 				<% } %>

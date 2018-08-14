@@ -130,7 +130,8 @@
     
     	<br><br>
     
-    	<input id ="web-font2" type="button" style="width: 250px; height: 30px;" value="불량누리원 신고하기">	
+    	<input id ="web-font2" type="button" style="width: 250px; height: 30px;" value="불량누리원 신고하기"
+    	onclick="location.href='<%=request.getContextPath()%>/views/member/reportPage.jsp'">	
     
     </div>
 	
