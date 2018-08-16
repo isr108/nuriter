@@ -113,10 +113,10 @@
 	<div id="login1" align="center">
 		<div id="login2">
 			<div align="center"><font id="web-font"><h2>로그인</h2></font></div>
-    		<form id = "form1" action="<%=request.getContextPath()%>/login" method="post">
+    		<form id = "form1" action="<%=request.getContextPath()%>/login.me" method="post">
 			 <table>
 			  <tr>
-				<td><input id="web-font" type="text" name="userid"
+				<td><input id="web-font" type="text" name="useremail"
 					style="width: 290px; height: 30px;" placeholder="이메일"></td>
 			 </tr>
 			

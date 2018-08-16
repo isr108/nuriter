@@ -13,12 +13,12 @@ import com.kh.nuriter.member.model.vo.Member;
 
 public class MemberService {
 
-	public Member loginCheck(String userId, String password) {
+	public Member loginCheck(String userEmail, String password) {
 		Connection con = getConnection();
 		
-		Member loginUser = new MemberDao().loginCheck(con, userId, password);
+		Member loginUser = new MemberDao().loginCheck(con, userEmail, password);
 		
-		System.out.println("service userid : " +userId);
+		System.out.println("service userid : " +userEmail);
 		System.out.println("service userpwd : " +password);
 		close(con);
 		

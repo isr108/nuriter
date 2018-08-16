@@ -1,6 +1,7 @@
 package com.kh.nuriter.member.controller;
 
 import java.io.IOException;
+import java.sql.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,7 +16,7 @@ import com.kh.nuriter.member.model.vo.Member;
 /**
  * Servlet implementation class InsertMemberServlet
  */
-@WebServlet("/insertMember")
+@WebServlet("/insertMember.me")
 public class InsertMemberServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -32,20 +33,24 @@ public class InsertMemberServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//인코딩
-		request.setCharacterEncoding("utf-8");
-		response.setContentType("text/html; charset=UTF-8");
+		/*request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html; charset=UTF-8");*/
+		
+		System.out.println("회원가입 호출됨");
 		
 		//request 객체에서 파라메터 꺼내기
-		String userId = request.getParameter("userId");
+		String userEmail = request.getParameter("useremail");
 		String password = request.getParameter("password");
 		String userName = request.getParameter("userName");
-		String gender = request.getParameter("gender");
-		int age = Integer.parseInt(request.getParameter("age"));
-		String email = request.getParameter("email");
+		String nickName = request.getParameter("nickName");
+		String birthDate = request.getParameter("birthdate");
 		String phone = request.getParameter("phone");
 		String address = request.getParameter("address");
+		String bankName = request.getParameter("bankname");
+		String bankNumber = request.getParameter("banknumber");
 		String[] hobby = request.getParameterValues("hobby");
 		String hobbys = "";
+		
 		
 		if(hobby != null){
 			for(int i = 0; i < hobby.length; i++){
@@ -59,38 +64,38 @@ public class InsertMemberServlet extends HttpServlet {
 		
 		//member객체 생성
 		Member m = new Member();
-		m.setUserId(userId);
-		m.setPassword(password);
-		m.setUserName(userName);
-		m.setGender(gender);
-		m.setAge(age);
-		m.setEmail(email);
-		m.setPhone(phone);
-		m.setAddress(address);
-		m.setHobby(hobbys);
+				
+		 m.setUserEmail(userEmail);
+		 m.setPassword(password);
+		 m.setUserName(userName);
+		 m.setNickName(nickName);
+		 m.setBirthDate(birthDate);
+		 m.setPhone(phone);
+		 m.setAddress(address);
+		 m.setBankName(bankName);
+		 m.setBankNumber(bankNumber);
+		 m.setHobby(hobbys);
 		
 		//서비스로 전달
 		int result = new MemberService().insertMember(m);
+		
+		System.out.println(result);
 		
 		//처리 결과에 따른 뷰 페이지 결정
 		String page = "";
 		
 		if(result > 0){
-			page = "views/common/successPage.jsp";
+			page = "/views/common/successPage.jsp";
 			request.setAttribute("msg", "회원 가입에 성공하셨습니다!! 환영합니다!");
 		}else{
-			page = "views/common/errorPage.jsp";
+			page = "/views/common/errorPage.jsp";
 			request.setAttribute("msg", "회원 가입에 실패하셨습니다!!");
 		
 		}
 		
 		RequestDispatcher view = request.getRequestDispatcher(page);
 		view.forward(request, response);
-		
-		
-		
-		
-		
+
 	}
 
 	/**

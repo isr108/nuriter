@@ -31,7 +31,7 @@ public class MemberDao {
 		
 	}
 
-	public Member loginCheck(Connection con, String userId, String password) {
+	public Member loginCheck(Connection con, String userEmail, String password) {
 		Member loginUser = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -40,7 +40,7 @@ public class MemberDao {
 		System.out.println(query);
 		try {
 			pstmt = con.prepareStatement(query);
-			pstmt.setString(1, userId);
+			pstmt.setString(1, userEmail);
 			pstmt.setString(2, password);
 			
 			System.out.println(pstmt);
@@ -49,16 +49,24 @@ public class MemberDao {
 			if(rset.next()){
 				loginUser = new Member();
 				
-				loginUser.setUserId(rset.getString("user_id"));
+				/*loginUser.setUserNumber(rset.getString("user_number"));*/
+				loginUser.setUserEmail(rset.getString("user_email"));
 				loginUser.setPassword(rset.getString("user_pwd"));
 				loginUser.setUserName(rset.getString("user_name"));
-				loginUser.setGender(rset.getString("gender"));
-				loginUser.setAge(rset.getInt("age"));
-				loginUser.setEmail(rset.getString("email"));
-				loginUser.setPhone(rset.getString("phone"));
+				loginUser.setNickName(rset.getString("nickname"));
 				loginUser.setAddress(rset.getString("address"));
+				loginUser.setPhone(rset.getString("phone"));
 				loginUser.setHobby(rset.getString("hobby"));
+				loginUser.setBirthDate(rset.getString("birth_date"));
 				loginUser.setEnrollDate(rset.getDate("enroll_date"));
+				loginUser.setGrade(rset.getString("grade"));
+				loginUser.setBankName(rset.getString("bank_name"));
+				loginUser.setBankNumber(rset.getString("bank_number"));
+				loginUser.setAccountSort(rset.getString("account_sort"));
+				loginUser.setToken(rset.getString("token"));
+				loginUser.setReportedUser(rset.getString("reported_user"));
+				loginUser.setActivated(rset.getString("activated"));
+				loginUser.setActivatedDate(rset.getDate("activated_date"));
 				
 			}
 			
@@ -83,14 +91,15 @@ public class MemberDao {
 		
 		try {
 			pstmt = con.prepareStatement(query);
-			pstmt.setString(1, m.getUserId());
+			pstmt.setString(1, m.getUserEmail());
 			pstmt.setString(2, m.getPassword());
 			pstmt.setString(3, m.getUserName());
-			pstmt.setString(4, m.getGender());
-			pstmt.setInt(5, m.getAge());
-			pstmt.setString(6, m.getEmail());
-			pstmt.setString(7, m.getPhone());
-			pstmt.setString(8, m.getAddress());
+			pstmt.setString(4, m.getNickName());
+			pstmt.setString(5, m.getBirthDate());
+			pstmt.setString(6, m.getPhone());
+			pstmt.setString(7, m.getAddress());
+			pstmt.setString(8, m.getBankName());
+			pstmt.setString(9, m.getBankNumber());
 			pstmt.setString(9, m.getHobby());
 			
 			result = pstmt.executeUpdate();
@@ -151,7 +160,7 @@ public class MemberDao {
 			pstmt.setString(6, m.getPhone());
 			pstmt.setString(7, m.getAddress());
 			pstmt.setString(8, m.getHobby());
-			pstmt.setString(9, m.getUserId());
+			pstmt.setString(9, m.getUserEail());
 			
 			
 			result = pstmt.executeUpdate();
@@ -175,7 +184,7 @@ public class MemberDao {
 		
 		try {
 			pstmt = con.prepareStatement(query);
-			pstmt.setString(1, m.getUserId());
+			pstmt.setString(1, m.getUserEail());
 			pstmt.setString(2, m.getPassword());
 			
 			result = pstmt.executeUpdate();
