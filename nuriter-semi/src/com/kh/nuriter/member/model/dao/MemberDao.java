@@ -100,7 +100,7 @@ public class MemberDao {
 			pstmt.setString(7, m.getAddress());
 			pstmt.setString(8, m.getBankName());
 			pstmt.setString(9, m.getBankNumber());
-			pstmt.setString(9, m.getHobby());
+			pstmt.setString(10, m.getHobby());
 			
 			result = pstmt.executeUpdate();
 		
