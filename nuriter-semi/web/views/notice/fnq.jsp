@@ -12,6 +12,7 @@
 <style>
 .item {
 	margin-top: 50px;
+	
 }
 
 /* .menuArea {
@@ -175,11 +176,11 @@ ul.navi2 li a {
 					<table id="listTable">
 						<tbody>
 							<tr>
-								<td><br>이용문의<br> 1건<br> <br></td>
-								<td><br>결제 및 환불문의<br> 3건<br> <br></td>
-								<td><br>계정관련문의<br> 0건<br> <br></td>
-								<td><br>버그문의<br> 0건<br> <br></td>
-								<td><br>기타문의<br> 2건<br> <br></td>
+								<td><br>이용문의<br><br> <br></td>
+								<td><br>결제 및 환불문의<br><br> <br></td>
+								<td><br>계정관련문의<br><br> <br></td>
+								<td><br>버그문의<br><br> <br></td>
+								<td><br>기타문의<br><br> <br></td>
 							</tr>
 						</tbody>
 					</table>

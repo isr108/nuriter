@@ -33,7 +33,7 @@ public class deleteMemberServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Member m = (Member)request.getSession().getAttribute("loginUser");
 		
-		int result = new MemberService().deleteMember(m.getUserId());
+		int result = new MemberService().deleteMember(m.getUserEmail());
 		
 		String page="";
 		

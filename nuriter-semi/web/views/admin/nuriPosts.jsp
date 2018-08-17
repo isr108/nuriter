@@ -79,6 +79,7 @@ height:50px;
 </head>
 <body>
 	<%@ include file="../common/logoAndLogbutton.jsp"%>
+	
 	<%-- <%@ include file="../common/categorybar.jsp" %> --%>
 	<div class="main1">
 		<%@include file="../admin/adminbar.jsp"%>

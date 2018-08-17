@@ -112,6 +112,7 @@
    		 margin-right:2%;
    		 color:#646464;
    }
+   
    .button{
        width: 90px;
      height: 40px;
@@ -242,7 +243,7 @@
         		<font id="web-font"> <a><%= loginUser.getUserName() %> 님</a></font>
         		<button class="button" onclick="logout();" >로그아웃</button>
         <% } %>
-        		<% if(!loginUser.getUserId().equals("admin")){ %>
+        		<% if(!loginUser.getUserEmail().equals("admin")){ %>
 					<button class="button" onclick="location.href='location.href='<%=request.getContextPath()%>/views/common/myNuri.jsp'">마이페이지</button>
 				<% }else{ %>
 					<button class="button" onclick="location.href='views/admin/adminPage.jsp'">관리페이지</button>

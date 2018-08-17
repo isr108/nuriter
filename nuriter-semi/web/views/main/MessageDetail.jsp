@@ -35,9 +35,10 @@
   
     <%@ include file="../common/categorybar.jsp" %>
     
-    <%@ include file="myPage_left.jsp" %>
+    <%@ include file="../common/myPage_left.jsp" %>
 
 	<div class="outer">
+	
 		<br>
 		<h2 align="left">메세지</h2>
 		<div class="tableArea">

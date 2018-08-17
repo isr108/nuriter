@@ -12,14 +12,14 @@
   
   <!-- 왼쪽 하단 간단설명 tab부분 -->
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>
      $( function() {
-       $( "#tabs" ).tabs();
+       /* $( "#tabs" ).tabs(); */
      } );
   </script>
   
@@ -135,15 +135,34 @@
 #popupDiv {  /* 팝업창 css */
     top : 0px;
     position: absolute;
-    width: 500px;
-    height: 500px;
+    width: 550px;
+    height: 550px;
     display: none; 
-    background:red;
+    background:#D8D8D8;
+   	border:none;
+    
     }
 #textArea{
 	margin-left:auto;
 	margin-right:auto;
 	margin-top:5px;
+}
+.popBtn{
+	margin-top:10px;
+		
+}
+#popSendbtn{
+	background:#0080FF;
+	color:white;
+	margin-right:15px;
+	height:30px;
+	width:80px;
+}
+#popCloseBtn{
+	background:#FFBF00;
+	color:white;
+	height:30px;
+	width:80px;
 }
 </style>
 </head>
@@ -212,11 +231,14 @@
             <div id="popupDiv" class="modal fade" role="dialog">
             		<h2 id="web-font">누리터 신고</h2>
             		<div id="textArea">
+            		<h5 id="web-font">신고 제목</h5>
+            		<input type="text" style="width:300px; height:30px;border:6px solid #FFBF00;"
+            		 id="reportTitle">
             		<h5 id="web-font">신고 내용</h5>
-            		<textarea rows="15" cols="40"></textarea>
+            		<textarea rows="15" cols="50" id="report" style="border:6px solid #FFBF00;"></textarea>
             		</div>
-            		<div>
-            	<button id="popSend">send</button>
+            		<div class="popBtn">
+            	<button id="popSendbtn">send</button>
             	<button id="popCloseBtn">close</button>
             		</div>
             </div>
@@ -255,12 +277,21 @@
 	        });
 	        
 	        $("#popCloseBtn").click(function(event){
-	          /*   $("#popup_mask").css("display","none); */
-	            $("#popupDiv").css("display","none"); 
+	          /*  $("#popup_mask").hide(); */
+	            $("#popupDiv").hide(); 
 	            /* $("body").css("overflow","auto"); */
+	            $(".modal-backdrop").hide();
 	        
 	        });
-	    });
+			
+	        $("#popSendbtn").click(function(event){
+	        	alert("신고가 접수 되었습니다");
+	        	location.href="<%=request.getContextPath()%>/reportSend";
+	        	
+	        });
+	
+	
+	});
 	 
 </Script>
 
