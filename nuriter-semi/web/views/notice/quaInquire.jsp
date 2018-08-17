@@ -56,7 +56,7 @@ margin-left:30px;
 .tHead{
 margin-top:50px;
 }
-.summerText{
+.summerText1{
 overflow:hidden;
 		margin-left:auto;
 		margin-right:auto;
@@ -108,8 +108,8 @@ overflow:hidden;
 					<!-- <td><textarea rows="15" cols="100"></textarea></td> -->
 				</tr>
 			</table>
-			<div class="summerText">
-				<%@include file="../common/summerText .jsp" %>
+			<div class="summerText1">
+				<%@include file="../common/summerText.jsp" %>
 			</div>
 		</div>
 	</div>

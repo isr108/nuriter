@@ -84,7 +84,7 @@ height:50px;
 		<%@include file="../admin/adminbar.jsp"%>
 		<div class="showRight">
 		<div class="head1" id="web-font" >
-			<h2>누리터 관리</h2>
+			<h2>신고된 누리터 관리</h2>
 		</div>
 		<div class="bulletin" id="web-font">
 			<div  class="bButton">
@@ -108,6 +108,7 @@ height:50px;
 					</tr>
 				</table>
 				</div>
+				
 		</div>
 	</div>
 </body>

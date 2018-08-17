@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="/resources/demos/style.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>
      $( function() {
        $( "#tabs" ).tabs();
@@ -95,7 +96,7 @@
    height:50px;
 } */
 
-button {
+.applyButton{
    margin-top:10px;
    width:200px;
    height:50px;
@@ -131,7 +132,19 @@ button {
 .rightBox {
 	/* float:right; */
 }
-
+#popupDiv {  /* 팝업창 css */
+    top : 0px;
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    display: none; 
+    background:red;
+    }
+#textArea{
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:5px;
+}
 </style>
 </head>
 <body>
@@ -139,7 +152,7 @@ button {
    <%@ include file="../common/logoAndLogbutton.jsp" %>
    <%@ include file="../common/categorybar.jsp" %>
    
-<div class="content" align="center">
+<div class="content" align="center" id="popup_mask">
       <!-- <div id="listBox" align="center">
             <button type="button" class="btn btn-link">언어</button>
             <button type="button" class="btn btn-link">공방</button>
@@ -194,17 +207,28 @@ button {
                <i class="far fa-grin-hearts fa-5x"></i><br>관심누리터 등록
             </div>
             <div>
-               <i class="fas fa-angry fa-5x"></i><br>게시글 신고
+               <i class="fas fa-angry fa-5x" id="popOpen" data-toggle="modal" data-target="#popupDiv"></i><br>게시글 신고
+            </div>
+            <div id="popupDiv" class="modal fade" role="dialog">
+            		<h2 id="web-font">누리터 신고</h2>
+            		<div id="textArea">
+            		<h5 id="web-font">신고 내용</h5>
+            		<textarea rows="15" cols="40"></textarea>
+            		</div>
+            		<div>
+            	<button id="popSend">send</button>
+            	<button id="popCloseBtn">close</button>
+            		</div>
             </div>
          </div>
          <div>
-         	<button onclick="location.href='apply.jsp'">누리터 신청하기</button>
+         	<button onclick="location.href='apply.jsp'" class="applyButton">누리터 신청하기</button>
          </div>
     </div>
     
     <div id = aboutHe>
        <div id="profile">
-          <i class="fas fa-user-tie fa-5x"></i><br>
+          <i class="fas fa-user-tie fa-5x" ></i><br>
           <label>홍길동</label>
        </div>
        <div id="introduce" align="center">
@@ -215,5 +239,34 @@ button {
    </div>
 </div>
       <%@ include file="../common/footer.jsp" %>
+
+<Script>
+	$(function(){
+		$("#popOpen").click(function(event){
+			console.log('작동');
+			$("#popupDiv").css({
+	                "top": (($(window).height()-$("#popupDiv").outerHeight())/1.5+$(window).scrollTop())+"px",
+	                "left": (($(window).width()-$("#popupDiv").outerWidth())/2+$(window).scrollLeft())+"px"
+									
+			 });
+			   $("#popup_mask").css("display","block"); 
+	            
+	            $("body").css("overflow","hidden");
+	        });
+	        
+	        $("#popCloseBtn").click(function(event){
+	          /*   $("#popup_mask").css("display","none); */
+	            $("#popupDiv").css("display","none"); 
+	            /* $("body").css("overflow","auto"); */
+	        
+	        });
+	    });
+	 
+</Script>
+
+
+
+
+
 </body>
 </html>
