@@ -180,7 +180,8 @@ ul.navi2 li a {
 								<td><br>결제 및 환불문의<br><br> <br></td>
 								<td><br>계정관련문의<br><br> <br></td>
 								<td><br>버그문의<br><br> <br></td>
-								<td><br>기타문의<br><br> <br></td>
+								<td><br>기타문의<br>
+								<br> <br></td>
 							</tr>
 						</tbody>
 					</table>
