@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 <style>
 .colorgraph {
+
 	width: 98%;
 	height: 3px;
 	border-top: 0;

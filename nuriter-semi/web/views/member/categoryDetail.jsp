@@ -247,7 +247,8 @@
 			$("#popupDiv").css({
 	                "top": (($(window).height()-$("#popupDiv").outerHeight())/1.5+$(window).scrollTop())+"px",
 	                "left": (($(window).width()-$("#popupDiv").outerWidth())/2+$(window).scrollLeft())+"px"
-									
+			
+	                
 			 });
 			   $("#popup_mask").css("display","block"); 
 	            
