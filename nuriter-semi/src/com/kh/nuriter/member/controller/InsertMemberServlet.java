@@ -1,7 +1,10 @@
 package com.kh.nuriter.member.controller;
 
 import java.io.IOException;
-import java.sql.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.GregorianCalendar;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.kh.nuriter.member.model.service.MemberService;
 import com.kh.nuriter.member.model.vo.Member;
+
+import sun.util.calendar.LocalGregorianCalendar.Date;
 
 /**
  * Servlet implementation class InsertMemberServlet
@@ -34,12 +39,12 @@ public class InsertMemberServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//인코딩
 		/*request.setCharacterEncoding("utf-8");
-		response.setContentType("text/html; charset=UTF-8");*/
-		
+		response.setContentType("text/html; charset=UTF-8");
+		*/
 		System.out.println("회원가입 호출됨");
 		
 		//request 객체에서 파라메터 꺼내기
-		String userEmail = request.getParameter("useremail");
+		String userEmail = request.getParameter("userEmail");
 		String password = request.getParameter("password");
 		String userName = request.getParameter("userName");
 		String nickName = request.getParameter("nickName");
@@ -51,6 +56,9 @@ public class InsertMemberServlet extends HttpServlet {
 		String[] hobby = request.getParameterValues("hobby");
 		String hobbys = "";
 		
+		System.out.println("date : " + birthDate);
+		System.out.println(userEmail);
+		System.out.println(password);
 		
 		if(hobby != null){
 			for(int i = 0; i < hobby.length; i++){
@@ -61,6 +69,33 @@ public class InsertMemberServlet extends HttpServlet {
 				}
 			}
 		}
+				
+		java.sql.Date day = null;
+		
+		if(birthDate != " " || birthDate != null){
+			
+			String[] dateArr = birthDate.split("-");
+			int[] arr = new int[dateArr.length];
+			
+			for(int i=0; i<dateArr.length; i++){
+				
+				arr[i] = Integer.parseInt(dateArr[i]);
+			}
+			
+			System.out.println("year" + arr[0]);
+			System.out.println("month" + arr[1]);
+			System.out.println("day" + arr[2]);
+			day=new java.sql.Date(new GregorianCalendar(arr[0], arr[1]-1, arr[2]).getTimeInMillis());
+			
+		}else{
+			day = new java.sql.Date(new GregorianCalendar().getTimeInMillis());
+		}
+		
+		
+		
+		stm.format(day);
+		
+		Date day2 = stm;
 		
 		//member객체 생성
 		Member m = new Member();
@@ -69,7 +104,7 @@ public class InsertMemberServlet extends HttpServlet {
 		 m.setPassword(password);
 		 m.setUserName(userName);
 		 m.setNickName(nickName);
-		 m.setBirthDate(birthDate);
+		 m.setBirthDate(day2);
 		 m.setPhone(phone);
 		 m.setAddress(address);
 		 m.setBankName(bankName);
@@ -85,16 +120,17 @@ public class InsertMemberServlet extends HttpServlet {
 		String page = "";
 		
 		if(result > 0){
-			page = "/views/common/successPage.jsp";
-			request.setAttribute("msg", "회원 가입에 성공하셨습니다!! 환영합니다!");
+			/*page = "/views/common/successPage.jsp";
+			request.setAttribute("msg", "회원 가입에 성공하셨습니다!! 환영합니다!");*/
+			response.sendRedirect(request.getContextPath() + "/home");
 		}else{
 			page = "/views/common/errorPage.jsp";
 			request.setAttribute("msg", "회원 가입에 실패하셨습니다!!");
+			RequestDispatcher view = request.getRequestDispatcher(page);
+			view.forward(request, response);
 		
 		}
 		
-		RequestDispatcher view = request.getRequestDispatcher(page);
-		view.forward(request, response);
 
 	}
 

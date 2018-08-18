@@ -57,9 +57,10 @@ public class MemberDao {
 				loginUser.setAddress(rset.getString("address"));
 				loginUser.setPhone(rset.getString("phone"));
 				loginUser.setHobby(rset.getString("hobby"));
-				loginUser.setBirthDate(rset.getString("birth_date"));
+				loginUser.setBirthDate(rset.getDate("birth_date"));
 				loginUser.setEnrollDate(rset.getDate("enroll_date"));
 				loginUser.setGrade(rset.getString("grade"));
+				loginUser.setGradeDate(rset.getDate("grade_date"));
 				loginUser.setBankName(rset.getString("bank_name"));
 				loginUser.setBankNumber(rset.getString("bank_number"));
 				loginUser.setAccountSort(rset.getString("account_sort"));
@@ -95,7 +96,7 @@ public class MemberDao {
 			pstmt.setString(2, m.getPassword());
 			pstmt.setString(3, m.getUserName());
 			pstmt.setString(4, m.getNickName());
-			pstmt.setString(5, m.getBirthDate());
+			pstmt.setDate(5, m.getBirthDate());
 			pstmt.setString(6, m.getPhone());
 			pstmt.setString(7, m.getAddress());
 			pstmt.setString(8, m.getBankName());
@@ -112,8 +113,6 @@ public class MemberDao {
 		} finally{
 			close(pstmt);
 		}
-		
-		
 		
 		
 		return result;

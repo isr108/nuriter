@@ -11,8 +11,9 @@ public class Member implements java.io.Serializable{
 	private String nickName;
 	private String phone;
 	private String address;
-	private String birthDate;
+	private Date birthDate;
 	private	String grade;
+	private Date gradeDate;
 	private String bankName;
 	private String bankNumber;
 	private String hobby;
@@ -27,9 +28,10 @@ public class Member implements java.io.Serializable{
 	
 	public Member(){}
 
-	
-	public Member(int userNumber, String userEmail, String password, String userName, String nickName,
-			String phone, String address, String birthDate, String grade, String bankName, String bankNumber,
+
+
+	public Member(int userNumber, String userEmail, String password, String userName, String nickName, String phone,
+			String address, Date birthDate, String grade, Date gradeDate, String bankName, String bankNumber,
 			String hobby, Date enrollDate, String accountSort, String token, String reportedUser, String activated,
 			Date activatedDate) {
 		super();
@@ -42,6 +44,7 @@ public class Member implements java.io.Serializable{
 		this.address = address;
 		this.birthDate = birthDate;
 		this.grade = grade;
+		this.gradeDate = gradeDate;
 		this.bankName = bankName;
 		this.bankNumber = bankNumber;
 		this.hobby = hobby;
@@ -53,7 +56,8 @@ public class Member implements java.io.Serializable{
 		this.activatedDate = activatedDate;
 	}
 
-	
+
+
 	public int getUserNumber() {
 		return userNumber;
 	}
@@ -113,6 +117,7 @@ public class Member implements java.io.Serializable{
 	}
 
 
+
 	public String getPhone() {
 		return phone;
 	}
@@ -137,13 +142,13 @@ public class Member implements java.io.Serializable{
 
 
 
-	public String getBirthDate() {
+	public Date getBirthDate() {
 		return birthDate;
 	}
 
 
 
-	public void setBirthDate(String birthDate) {
+	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
 
@@ -157,6 +162,18 @@ public class Member implements java.io.Serializable{
 
 	public void setGrade(String grade) {
 		this.grade = grade;
+	}
+
+
+
+	public Date getGradeDate() {
+		return gradeDate;
+	}
+
+
+
+	public void setGradeDate(Date gradeDate) {
+		this.gradeDate = gradeDate;
 	}
 
 
@@ -266,18 +283,21 @@ public class Member implements java.io.Serializable{
 	public void setActivatedDate(Date activatedDate) {
 		this.activatedDate = activatedDate;
 	}
-	
-	
+
+
+
 	@Override
 	public String toString() {
-		return "Member [userNumber=" + userNumber + ", userEmail=" + userEmail + ", password=" + password + ", userName="
-				+ userName + ", nickName=" + nickName + ", phone=" + phone + ", address=" + address
-				+ ", birthDate=" + birthDate + ", grade=" + grade + ", bankName=" + bankName + ", bankNumber="
-				+ bankNumber + ", hobby=" + hobby + ", enrollDate=" + enrollDate + ", accountSort=" + accountSort
-				+ ", token=" + token + ", reportedUser=" + reportedUser + ", activated=" + activated
-				+ ", activatedDate=" + activatedDate + "]";
+		return "Member [userNumber=" + userNumber + ", userEmail=" + userEmail + ", password=" + password
+				+ ", userName=" + userName + ", nickName=" + nickName + ", phone=" + phone + ", address=" + address
+				+ ", birthDate=" + birthDate + ", grade=" + grade + ", gradeDate=" + gradeDate + ", bankName="
+				+ bankName + ", bankNumber=" + bankNumber + ", hobby=" + hobby + ", enrollDate=" + enrollDate
+				+ ", accountSort=" + accountSort + ", token=" + token + ", reportedUser=" + reportedUser
+				+ ", activated=" + activated + ", activatedDate=" + activatedDate + "]";
 	}
 
+	
+	
 
 	
 	

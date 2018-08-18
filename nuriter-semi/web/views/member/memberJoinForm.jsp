@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.kh.nuriter.member.model.vo.*"%>
+<% Member b = (Member) request.getAttribute("b"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -222,21 +223,21 @@
 			<tbody>
 			<tr>
 				<th>이메일</th>		
-				<td><input type="text" id="userId" name="userId" ></td>
+				<td><input type="text" id="userEmail" name="userEmail"></td>
 			</tr>
 			<tr>
 				<th>비밀번호</th>
 				<td>
-					<input type="password" id="new_pass" name="new_pass" maxlength="16" class="newPassword">
+					<input type="password" id="password" name="password" maxlength="16" class="newPassword">
 				</td>
 			</tr>
 			<tr>
 				<th> 비밀번호 확인</th>
-				<td><input type="password" id="new_pass2" name="new_pass2" maxlength="16" class="newPassword"></td>
+				<td><input type="password" id="password1" name="password1" maxlength="16" class="newPassword"></td>
 			</tr>
 			<tr>
 				<th>이름</th>
-				<td><input type="text" name="Name" <%-- value="<%=loginUser.getUserName()%>" --%>></td>
+				<td><input type="text" name="userName" <%-- value="<%=loginUser.getUserName()%>" --%>></td>
 			</tr>
 			<tr>
 				<th>닉네임</th>
@@ -244,7 +245,7 @@
 			</tr>
 			<tr>
 				<th>생년월일</th>
-				<td><input type="text" name="birth" <%-- value="<%=loginUser.getUserName()%>" --%>></td>
+				<td><input type="date" name="birthdate" <%-- value="<%=loginUser.getUserName()%>" --%>></td>
 			</tr>
 			<tr>
 				<th>전화번호</th>
