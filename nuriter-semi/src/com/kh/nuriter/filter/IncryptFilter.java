@@ -37,9 +37,10 @@ public class IncryptFilter implements Filter {
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		System.out.println("암호화 필터");
+		System.out.println("암호화 필터!");
 		
-		HttpServletRequest h_request = (HttpServletRequest) request;
+		//다운 캐스팅
+		HttpServletRequest h_request = (HttpServletRequest)request;
 		
 		LoginWrapper lw = new LoginWrapper(h_request);
 		
