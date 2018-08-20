@@ -120,7 +120,7 @@
 	<%@ include file="myPage_left.jsp" %>
 	
 		<div id="myInfoPage">
-		<h1 align="center"><%-- <%=loginUser.getUserName() %> --%>님의 회원 정보 수정</h1>
+		<h1 align="center"><%=loginUser.getUserName() %>님의 회원 정보 수정</h1>
 		<br><br>
 		<form> <!-- action="/w7/updateMember" method="post" -->
 			<table class="changeInfo" align="center">
