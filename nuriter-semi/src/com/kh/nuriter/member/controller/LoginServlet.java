@@ -36,7 +36,7 @@ public class LoginServlet extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");*/
 		
 		//2. 전송값 꺼내서 변수에 기록하기
-		String userEmail = request.getParameter("useremail");
+		String userEmail = request.getParameter("userid");
 		String password = request.getParameter("password");
 		
 		System.out.println("userId : " + userEmail);

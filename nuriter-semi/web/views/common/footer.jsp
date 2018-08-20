@@ -16,6 +16,6 @@
 </head>
 <body>
 	<hr>
-	<p>Copyright ⓒ 2018 Nuriter Inc. All rights reserved</p>
+	<p>Copyright. All rights reserved</p>
 </body>
 </html>

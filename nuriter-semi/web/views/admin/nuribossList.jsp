@@ -188,8 +188,8 @@
 					  
 					  		          
 					   <!-- <button id="web-font" onclick="location.href='/nu/views/admin/nuribossAllList.jsp'">신청회원 전체보기</button> -->
-					   <%-- <button id="web-font" onclick="location.href='<%=request.getContextPath()%>/views/admin/nuribossAllList.jsp'">신청회원 전체보기</button> --%>
-					   <input type ="button" class="button" style="width:200px;" value="신청회원 전체보기" onclick="location.href='<%=request.getContextPath()%>/views/admin/nuribossAllList.jsp'">
+					   <button id="web-font" onclick="location.href='<%=request.getContextPath()%>/views/admin/nuribossAllList.jsp'">신청회원 전체보기</button>
+					  <%-- <input type ="button" id="web-font" value="신청회원 전체보기" onclick="location.href='<%=request.getContextPath()%>/views/admin/nuribossAllList.jsp'"> --%>
 					</div>
 				</div>
 				
@@ -241,8 +241,7 @@
 					  <br><br><br>
 					  
 					   <!-- <button id="web-font">누리장 전체보기</button> -->
-					  <%-- <button id="web-font" onclick="location.href='<%=request.getContextPath()%>/views/admin/nuribossApplyList.jsp'">누리장 전체보기</button> --%>
-					  <input type ="button" class="button" style="width:200px;" value="누리장 전체보기" onclick="location.href='<%=request.getContextPath()%>/views/admin/nuribossApplyList.jsp'">
+					  <button id="web-font" onclick="location.href='<%=request.getContextPath()%>/views/admin/nuribossApplyList.jsp'">누리장 전체보기</button>
 					</div>
 				</div>
 			</div>

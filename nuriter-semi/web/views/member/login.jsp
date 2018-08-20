@@ -116,7 +116,7 @@
     		<form id = "form1" action="<%=request.getContextPath()%>/login.me" method="post">
 			 <table>
 			  <tr>
-				<td><input id="web-font" type="text" name="useremail"
+				<td><input id="web-font" type="text" name="userid"
 					style="width: 290px; height: 30px;" placeholder="이메일"></td>
 			 </tr>
 			
