@@ -285,8 +285,8 @@ button {
 	        $("#popCloseBtn").click(function(event){
 	          /*  $("#popup_mask").hide(); */
 	            $("#popupDiv").hide(); 
-	            /* $("body").css("overflow","auto"); */
 	            $(".modal-backdrop").hide();
+	            $("body").css("overflow","auto");
 	        
 	        });
 			
