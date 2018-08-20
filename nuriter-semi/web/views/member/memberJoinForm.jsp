@@ -312,9 +312,25 @@
 		<br><br>
 		<div align="center">
 		<input class="button" type="button" value="취소하기" onclick="home();"> 
-		<input class="button" type="submit" value="가입하기">
+		<input class="button" type="button" value="가입하기" onclick="insertMember();">
+
 		</div>
 		<script>
+		 function insertMember(){
+
+				var yes = document.getElementById("yes").checked;
+				var num = 0;
+				
+				/* if(yes == true){
+					 num=1;
+				} */
+				
+				if(yes == true){
+					$("#form1").submit();
+				}else{
+					alert("약관에 동의 해 주시길 바랍니다.");
+				}
+			}
 		
 			$(function(){
 				$("#password1").change(function(){
@@ -365,7 +381,7 @@
 			중개서비스 및 기타 정보서비스(이하 "서비스"라고 합니다)와 관련하여 회사와 회원간의 권리와 의무, 
 			책임사항 및 회원의 서비스이용절차에 관한 사항을 규정함을 목적으로 합니다.</textarea>
 			<br>
-			<input type="checkbox" name="hobby" value="동의하고 가입" id="language">
+			<input type="checkbox" name="yes" value="동의하고 가입" id="yes">
 			<label for="language">이 약관에 대해서 동의 합니다.</label> 
 			<!-- <button class="button" style="width:310px; height:40px;">동의하고 가입완료</button> -->
 		</div>
@@ -392,18 +408,7 @@
 		function home(){
 			location.href='<%=request.getContextPath()%>/home';
 		}
-		/*  function insertMember(){
-
-			
-			var num = document.getElementById("password").value;
-			var num2 = document.getElementById("password1").value;
-			
-			if(num == num2){
-				$("#form1").submit();
-			}else{
-				alert("비밀번호가 다릅니다. 정확히 입력해주세요.");
-			}
-		} */
+		
 			/*$(function(){
 				$("#idCheck").click(function(){
 					var userId = $("#userEmail").val();
