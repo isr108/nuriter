@@ -1,9 +1,6 @@
 package com.kh.nuriter.member.controller;
 
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 
 import javax.servlet.RequestDispatcher;
@@ -15,8 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.kh.nuriter.member.model.service.MemberService;
 import com.kh.nuriter.member.model.vo.Member;
-
-import sun.util.calendar.LocalGregorianCalendar.Date;
 
 /**
  * Servlet implementation class InsertMemberServlet
@@ -60,16 +55,6 @@ public class InsertMemberServlet extends HttpServlet {
 		System.out.println(userEmail);
 		System.out.println(password);
 		
-		if(hobby != null){
-			for(int i = 0; i < hobby.length; i++){
-				if(i == 0){
-					hobbys += hobby[i];
-				}else{
-					hobbys += ", " + hobby[i];
-				}
-			}
-		}
-				
 		java.sql.Date day = null;
 		
 		if(birthDate != " " || birthDate != null){
@@ -80,7 +65,9 @@ public class InsertMemberServlet extends HttpServlet {
 			for(int i=0; i<dateArr.length; i++){
 				
 				arr[i] = Integer.parseInt(dateArr[i]);
+				System.out.println(dateArr[i]);
 			}
+			
 			
 			System.out.println("year" + arr[0]);
 			System.out.println("month" + arr[1]);
@@ -91,11 +78,19 @@ public class InsertMemberServlet extends HttpServlet {
 			day = new java.sql.Date(new GregorianCalendar().getTimeInMillis());
 		}
 		
+		System.out.println(day);
 		
 		
-		stm.format(day);
-		
-		Date day2 = stm;
+		if(hobby != null){
+			for(int i = 0; i < hobby.length; i++){
+				if(i == 0){
+					hobbys += hobby[i];
+				}else{
+					hobbys += ", " + hobby[i];
+				}
+			}
+		}
+				
 		
 		//member객체 생성
 		Member m = new Member();
@@ -104,7 +99,7 @@ public class InsertMemberServlet extends HttpServlet {
 		 m.setPassword(password);
 		 m.setUserName(userName);
 		 m.setNickName(nickName);
-		 m.setBirthDate(day2);
+		 m.setBirthDate(day);
 		 m.setPhone(phone);
 		 m.setAddress(address);
 		 m.setBankName(bankName);

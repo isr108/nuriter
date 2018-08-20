@@ -8,8 +8,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.Properties;
 
 import com.kh.nuriter.member.model.vo.Member;
@@ -96,12 +94,13 @@ public class MemberDao {
 			pstmt.setString(2, m.getPassword());
 			pstmt.setString(3, m.getUserName());
 			pstmt.setString(4, m.getNickName());
-			pstmt.setDate(5, m.getBirthDate());
+			pstmt.setString(5, m.getAddress());
 			pstmt.setString(6, m.getPhone());
-			pstmt.setString(7, m.getAddress());
-			pstmt.setString(8, m.getBankName());
-			pstmt.setString(9, m.getBankNumber());
-			pstmt.setString(10, m.getHobby());
+			pstmt.setString(7, m.getHobby());
+			pstmt.setDate(8, m.getBirthDate());
+			pstmt.setString(9, m.getBankName());
+			pstmt.setString(10, m.getBankNumber());
+			
 			
 			result = pstmt.executeUpdate();
 		
@@ -118,7 +117,31 @@ public class MemberDao {
 		return result;
 	}
 
-	public int deleteMember(Connection con, String userId) {
+	public int idCheck(Connection con, String userEmail) {
+		
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = prop.getProperty("idCheck");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, userEmail);
+			
+			result = pstmt.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally{
+			close(pstmt);
+			
+			
+		}
+		return result;
+	}
+
+	/*public int deleteMember(Connection con, String userId) {
 		PreparedStatement pstmt = null;
 		int result = 0;
 		
@@ -244,13 +267,13 @@ public class MemberDao {
 
 	public ArrayList<Member> searchId(Connection con, String userId){
 		ArrayList<Member> list = null;
-		/*Statement stmt = null;
-		ResultSet rset = null;*/
+		Statement stmt = null;
+		ResultSet rset = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
 		String query = prop.getProperty("searchId");
-		/*System.out.println(query);*/
+		System.out.println(query);
 		
 		try {
 			pstmt = con.prepareStatement(query);
@@ -279,7 +302,7 @@ public class MemberDao {
 
 					list.add(m);
 				}
-				/*System.out.println(list);*/
+				System.out.println(list);
 			}
 			
 		} catch (SQLException e) {
@@ -291,7 +314,7 @@ public class MemberDao {
 		
 		
 		return list;
-	}
+	}*/
 }
 
 

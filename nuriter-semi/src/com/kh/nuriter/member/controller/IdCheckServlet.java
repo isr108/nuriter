@@ -1,9 +1,8 @@
 package com.kh.nuriter.member.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.io.PrintWriter;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,19 +10,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.kh.nuriter.member.model.service.MemberService;
-import com.kh.nuriter.member.model.vo.Member;
 
 /**
- * Servlet implementation class SelectAllMemberServlet
+ * Servlet implementation class IdCheckServlet
  */
-@WebServlet("/selectAll")
-public class SelectAllMemberServlet extends HttpServlet {
+@WebServlet("/idCheck.me")
+public class IdCheckServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SelectAllMemberServlet() {
+    public IdCheckServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,22 +30,21 @@ public class SelectAllMemberServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*
-		//ArrayList<Member> list = new MemberService().selectAll();
+		String userEmail = request.getParameter("userEmail");
 		
-		String page = "";
+		int result = new MemberService().idCheck(userEmail);
 		
-		if(list != null || list.size() > 0){
-			request.setAttribute("list", list);
-			page = "views/admin/adminPage.jsp";
+		PrintWriter out = response.getWriter();
+		
+		if(result >0){
+			out.append("fail");
 		}else{
-			request.setAttribute("msg", "가입 되어 있는 회원 정보가 없습니다.");
-			page = "views/common/errorPage.jsp";
+			out.append("success");
 		}
 		
-		RequestDispatcher view = request.getRequestDispatcher(page);
-		view.forward(request, response);
-		*/
+		out.flush();
+		out.close();
+		
 		
 	}
 

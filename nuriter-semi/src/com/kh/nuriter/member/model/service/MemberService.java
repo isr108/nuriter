@@ -6,7 +6,6 @@ import static com.kh.nuriter.common.JDBCTemplate.getConnection;
 import static com.kh.nuriter.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
-import java.util.ArrayList;
 
 import com.kh.nuriter.member.model.dao.MemberDao;
 import com.kh.nuriter.member.model.vo.Member;
@@ -44,7 +43,7 @@ public class MemberService {
 		return result;
 	}
 
-	public int deleteMember(String userId) {
+	/*public int deleteMember(String userId) {
 		Connection con = getConnection();
 		
 		int result = new MemberDao().deleteMember(con, userId);
@@ -88,8 +87,19 @@ public class MemberService {
 		close(con);
 		
 		return list;
+	}*/
+
+	public int idCheck(String userEmail) {
+		Connection con = getConnection();
+		
+		int result = new MemberDao().idCheck(con, userEmail);
+		
+		
+		close(con);
+		
+		
+		return result;
+		
 	}
-
-
 
 }

@@ -151,7 +151,7 @@
 	}
 
 	table {
-	width:350px;
+	width:370px;
     border-top: 2px solid #ACACAC;
     border-bottom: 2px solid #ACACAC;
     color: #5B5B5B;
@@ -203,6 +203,22 @@
 	border-top:1px solid #E2E2E2;
     text-align:left;
 	}
+	#idCheck{
+		background:rgb(241, 196, 15);
+		border-radius:5px;
+		width:80px;
+		height:25px;
+		text-align:center;
+		color: white;
+		
+	
+	}
+
+	#idCheck:hover{
+	
+		cursor:pointer;
+	}
+
     
 </style>
 </head>
@@ -224,6 +240,7 @@
 			<tr>
 				<th>이메일</th>		
 				<td><input type="text" id="userEmail" name="userEmail"></td>
+				<td width=200px><div id="idCheck">중복확인</div></td>
 			</tr>
 			<tr>
 				<th>비밀번호</th>
@@ -234,6 +251,8 @@
 			<tr>
 				<th> 비밀번호 확인</th>
 				<td><input type="password" id="password1" name="password1" maxlength="16" class="newPassword"></td>
+				<td><label id="pwdresult"></label></td>
+				
 			</tr>
 			<tr>
 				<th>이름</th>
@@ -295,6 +314,45 @@
 		<input class="button" type="button" value="취소하기" onclick="home();"> 
 		<input class="button" type="submit" value="가입하기">
 		</div>
+		<script>
+		
+			$(function(){
+				$("#password1").change(function(){
+					if($("#password").val() != $(this).val()){
+						$("#pwdresult").html("비밀번호가 일치하지 않습니다.").css("color","red");
+						$("#password1").val('');
+						$(this).select();
+					}else{
+						$("#pwdresult").html("비밀번호 일치").css("color","green");
+					}
+				});
+
+				
+				$("#idCheck").click(function(){
+					var userEmail = $("#userEmail").val();
+					console.log("클릭");
+					$.ajax({
+						url:"/ns/idCheck.me",
+						type:"post",
+						data:{userEmail:userEmail},
+						success:function(data){
+							console.log(data);
+							if(data === "fail"){
+								alert("아이디가 중복됩니다.");
+							}else{
+								alert("사용 가능합니다.")
+							}
+						},
+						error:function(data){
+							console.log("실패");
+						}
+					});
+				});
+			});
+	
+	</script> 
+		
+		
 		</form>
 		</div>
 		<!-- <button onclick="deleteMember();">탈퇴하기</button> -->
@@ -307,7 +365,9 @@
 			중개서비스 및 기타 정보서비스(이하 "서비스"라고 합니다)와 관련하여 회사와 회원간의 권리와 의무, 
 			책임사항 및 회원의 서비스이용절차에 관한 사항을 규정함을 목적으로 합니다.</textarea>
 			<br>
-			<button class="button" style="width:310px; height:40px;">동의하고 가입완료</button>
+			<input type="checkbox" name="hobby" value="동의하고 가입" id="language">
+			<label for="language">이 약관에 대해서 동의 합니다.</label> 
+			<!-- <button class="button" style="width:310px; height:40px;">동의하고 가입완료</button> -->
 		</div>
 		
 	
@@ -327,16 +387,46 @@
 	</div>
 	</div>		
 	
-	
-	
-	
 	<script>
 		
 		function home(){
 			location.href='<%=request.getContextPath()%>/home';
 		}
-		
-	
+		/*  function insertMember(){
+
+			
+			var num = document.getElementById("password").value;
+			var num2 = document.getElementById("password1").value;
+			
+			if(num == num2){
+				$("#form1").submit();
+			}else{
+				alert("비밀번호가 다릅니다. 정확히 입력해주세요.");
+			}
+		} */
+			/*$(function(){
+				$("#idCheck").click(function(){
+					var userId = $("#userEmail").val();
+					console.log("클릭");
+					$.ajax({
+						url:"/jsp/idCheck.me",
+						type:"post",
+						data:{userId:userId},
+						success:function(data){
+							console.log(data);
+							if(data === "fail"){
+								alert("아이디가 중복됩니다.");
+							}else{
+								alert("사용 가능합니다.")
+							}
+						},
+						error:function(data){
+							console.log("실패");
+						}
+					});
+				});
+			});
+	 */
 	</script> 
 	</div></font>
 </body>

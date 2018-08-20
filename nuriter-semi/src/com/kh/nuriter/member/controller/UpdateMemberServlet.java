@@ -33,7 +33,7 @@ public class UpdateMemberServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//인코딩
-		request.setCharacterEncoding("UTF-8");
+		/*request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		
 		//request 객체에서 파라메터 꺼내기
@@ -87,7 +87,7 @@ public class UpdateMemberServlet extends HttpServlet {
 			RequestDispatcher view = request.getRequestDispatcher(page);
 			view.forward(request, response);
 			
-		}
+		}*/
 				
 		
 	}

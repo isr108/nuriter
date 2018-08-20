@@ -31,7 +31,7 @@ public class deleteMemberServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Member m = (Member)request.getSession().getAttribute("loginUser");
+		/*Member m = (Member)request.getSession().getAttribute("loginUser");
 		
 		int result = new MemberService().deleteMember(m.getUserId());
 		
@@ -47,7 +47,7 @@ public class deleteMemberServlet extends HttpServlet {
 		}
 		
 		RequestDispatcher view = request.getRequestDispatcher(page);
-		view.forward(request, response);
+		view.forward(request, response);*/
 		
 		/*request.getSession().invalidate();
 		
