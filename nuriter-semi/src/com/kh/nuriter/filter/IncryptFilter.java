@@ -16,7 +16,7 @@ import com.kh.nuriter.wrapper.LoginWrapper;
 /**
  * Servlet Filter implementation class IncryptFilter
  */
-@WebFilter("*.mu")
+@WebFilter("*.me")
 public class IncryptFilter implements Filter {
 
     /**

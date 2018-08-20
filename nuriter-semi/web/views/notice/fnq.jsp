@@ -168,7 +168,6 @@ h3:hover{
 	<br>
 	
 	<div class="mainArea">
-		
 		<div class="menuArea">
 			<div id="showLeft">
 				<ul class="navi2" style="list-style-type: none">
