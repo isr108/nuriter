@@ -1,9 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.*, com.kh.nuriter.notice.model.vo.*"%>
+<% ArrayList<Notice> list = (ArrayList<Notice>)request.getAttribute("list");
+   PageInfo pi = (PageInfo)request.getAttribute("pi");
+   int listCount = pi.getListCount();
+   int currentPage = pi.getCurrentPage();
+   int maxPage = pi.getMaxPage();
+   int startPage = pi.getStartPage();
+   int endPage = pi.getEndPage();
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <title>Insert title here</title>
 <style>
 
@@ -51,7 +60,7 @@
    }
    
    #notice{
-   	border:1px solid white;
+   	border:1px solid blue;
    	width:40%;
    	margin-left:auto;
    	margin-right:auto;
@@ -70,12 +79,12 @@
    	float: left;
    }
    
-   /* #btnBox{
+   #btnBox{
      border:1px solid white;
      width:30%;
      height:40px;
      float:right;
-   } */
+   }
    
    #btnBox > input{
     /* display:table-cell; */
@@ -112,7 +121,7 @@
    	height:50px;
    }
    
-   /* #noticeUpdate{
+   #noticeUpdate{
      border:1px solid white;
      width:100%;
      height:410px;
@@ -135,85 +144,109 @@
     float:right;
     margin-top: 5px;
     margin-right: 10px;
-   } */
+    
+   }
    
 </style>
 </head>
 <body>
 	<%@ include file="../common/logoAndLogbutton.jsp" %>
-	
+	<%-- <%@ include file="adminbar.jsp" %> --%>
 	
 <div id="main">
  <br><br> <br><br>
-    <hr class="colorgraph">
+    <!-- <hr class="colorgraph">
     
 	<div id="showLeft" >
      <ul class="navi2" style="list-style-type:none">
         <hr class="colorgraph">
         <li id="web-font"><a href="#">공지사항</a></li>
         <hr class="colorgraph">
-        <!-- <li id="web-font"><a href="#">Q&A</a></li>
-        <li id="web-font"><a href="#">자주묻는질문</a></li> -->
+        <li id="web-font"><a href="#">Q&A</a></li>
+        <li id="web-font"><a href="#">자주묻는질문</a></li>
      </ul>
-   	</div>
+   	</div> -->
    	
    	<div id="notice" align="center">
    		<div id="upBox" align="center">
    			<label>공지사항</label>
-   			<!-- <div id="btnBox">
-   			  <input type="button" name="update" value="수정">
-   			  <input type="button" name="delete" value="삭제">
-   			</div> -->
+   			<div id="btnBox">
+   			
+   			<%-- <% if(loginUser != null 
+			     && loginUser.getUserId().equals("admin")){ %> --%>
+			     
+   			  <button onclick="location.href='views/notice/noticeInsertForm.jsp'">작성하기</button>
+   			  
+   			<%-- <% } %> --%>
+   			
+   			</div>
    		</div>
    	
    		<div id="noticeList">
-   			<table border="1" width="100%" height="40%">
+   			<table border="1" width="100%" height="40%" id="listArea">
    				<tr>
-   					<th width="50"></th>
-   					<th colspan="5">공지사항 제목</th>
+					<th width="10%">글번호</th>
+					<th width="35%">글제목</th>
+					<th width="15%">작성자</th>
+					<th width="10%">조회수</th>
+					<th width="30%">작성일</th>
    				</tr>
-   				<tr>
-   					<td><input type="checkbox" name="cb"></td>
-   					<td colspan="5">누리장 신청시 확인해주세요~!</td>
-   				</tr>
-   				<tr>
-   					<td><input type="checkbox" name="cb"></td>
-   					<td colspan="5">누리장 신고시!</td>
-   				</tr>
-   				<tr>
-   					<td><input type="checkbox" name="cb"></td>
-   					<td colspan="5">ㅇ아아아아앙</td>
-   				</tr>
-   				<tr>
-   					<td><input type="checkbox" name="cb"></td>
-   					<td colspan="5">아에이옹우우우우ㅜㅇ</td>
-   				</tr>
-   				<tr>
-   					<td><input type="checkbox" name="cb"></td>
-   					<td colspan="5">샤ㅏ라라라라랑</td>
-   				</tr>
-   				<tr>
-   					<td><input type="checkbox" name="cb"></td>
-   					<td colspan="5">ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ</td>
-   				</tr>
-   				<tr>
-   					<td><input type="checkbox" name="cb"></td>
-   					<td colspan="5">ㅇㅇㅇㅇㅇㅇㄻㄴㄹㄴㅇㄹㅇㅇㅇㅇㅇㅇ</td>
-   				</tr>
+   				<% for(Notice n : list){ %>
+				<tr>
+					<input type="hidden" value="<%= n.getNno()%>">
+					<td><%= n.getNno() %></td>
+					<td><%= n.getnTitle() %></td>
+					<td><%= n.getnWriter() %></td>
+					<td><%= n.getnCount() %></td>
+					<td><%= n.getnDate() %></td>
+				</tr>
+				<% } %>
    			</table>
-   			<button onclick="#"><<</button>
-   			<button onclick="#"><</button>
-   			<button onclick="#">></button>
-   			<button onclick="#">>></button>
    		</div>
-   		<!-- <div id="noticeUpdate">
-		  <input type="text" id="noticeTitle" placeholder="제목">
-		  <textarea rows="15" cols="145">내용을 입력하세요...</textarea>
-		  
-		  <input type="button" id="" name="upLoad" value="등록">
-   		</div> -->
+   		
+   		<!-- 페이지처리 -->
+   		<div class="pageArea" align="center">
+   			<button onclick="location.href='<%= request.getContextPath()%>/selectList.no?currentPage=1'"><<</button>
+   			<% if(currentPage <= 1){ %>
+   			<button disabled><</button>
+   			<% }else{ %>
+   			<button onclick="location.href='<%= request.getContextPath()%>/selectList.no?currentPage=<%=currentPage - 1%>'"><</button>
+   			<% } %>
+   			<% for(int p = startPage; p <= endPage; p++){
+   				if(p == currentPage){	
+   			%>
+   				<button disabled><%= p %></button>
+   			<%  }else{ %>
+   				<button onclick="location.href='<%= request.getContextPath()%>/selectList.no?currentPage=<%= p %>'"><%= p %></button>
+   			<%  } %>
+   			
+   			<% } %>
+   			
+   			<% if(currentPage >= maxPage){ %>
+   				<button disabled>></button>
+   			<% }else{ %>
+   				<button onclick="location.href='<%= request.getContextPath()%>/selectList.no?currentPage=<%= currentPage + 1%>'">></button>
+   			<% } %>
+   				<button onclick="location.href='<%= request.getContextPath()%>/selectList.no?currentPage=<%= maxPage %>'">>></button>
+   		</div>
+   		
    	</div>
 </div>
+
+	<script>
+		$(function(){
+			$("#listArea td").mouseenter(function(){
+				$(this).parent().css({"background":"darkgray", "cursor":"pointer"});
+			}).mouseout(function(){
+				$(this).parent().css({"background":"white"});
+			}).click(function(){
+				var num = $(this).parent().children("input").val();
+				console.log(num);
+				location.href="<%= request.getContextPath()%>/selectOne.no?num=" + num;
+			});
+		});
+	</script>
+
    	<%@ include file="../common/footer.jsp" %>
 </body>
 </html>

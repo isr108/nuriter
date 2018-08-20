@@ -4,10 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"/>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
+  <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 
 <title>Insert title here</title>
 <style>
@@ -59,7 +62,7 @@
    /* border-style: solid;
     border-color: red;  */
   	width:300px;
-  	height:300px;
+  	height:200px;
   	padding:0;
   
   }
@@ -113,10 +116,10 @@
 	<div id="login1" align="center">
 		<div id="login2">
 			<div align="center"><font id="web-font"><h2>로그인</h2></font></div>
-    		<form id = "form1" action="<%=request.getContextPath()%>/login" method="post">
+    		<form id = "form1" action="<%=request.getContextPath()%>/login.me" method="post">
 			 <table>
 			  <tr>
-				<td><input id="web-font" type="text" name="userid"
+				<td><input id="web-font" type="text" name="useremail"
 					style="width: 290px; height: 30px;" placeholder="이메일"></td>
 			 </tr>
 			
@@ -148,14 +151,49 @@
 
 			<button type="submit" style="width: 290px; height: 30px;"><font id="web-font">네이버로
 				시작하기</font></button> 
-			<br>
-			<br>
-			<button type="button" style="width: 290px; height: 30px;"><font id="web-font">카카오톡으로
-				시작하기</font></button>
+			
+			
 		</table>
 	 </form>
 	 </div>
-	
+	 <br>
+	<!-- <button type="button" style="width: 290px; height: 30px;"><font id="web-font">카카오톡으로
+				시작하기</font></button> -->
+				<a id="kakao-login-btn"></a>
+				<a href="http://developers.kakao.com/logout"></a>
+				<script type='text/javascript'>
+	  					//<![CDATA[
+				    // 사용할 앱의 JavaScript 키를 설정해 주세요.
+				    Kakao.init('a8004af3cf14f2187ce86e8e3a84b0e4');
+				    // 카카오 로그인 버튼을 생성합니다.
+				    Kakao.Auth.createLoginButton({
+				      container: '#kakao-login-btn',
+				      success: function(authObj) {
+				    	 Kakao.API.reuest({
+				    		  
+				    		  url: '/v1/user/me',
+				    		  success: function(res){
+				    			 
+				    		  alert(res.properties.nickname+'님 환영합니다.');
+				    		  location.href="./home?name"+res.properties.nickname;
+				    			  /* alert(JSON.stringify(authObj));
+							        console.log(JSON.stringify(authObj.kaccount_email));
+						              console.log(JSON.stringify(authObj.id));
+
+						              console.log(JSON.stringify(authObj.properties.nickname)); */
+				    		  },
+				    	 	  fail: function(err) {
+							         alert(JSON.stringify(err));
+				    	 	  }
+				    	  });
+				        
+				      },
+				      fail: function(err) {
+				         alert(JSON.stringify(err));
+				      }
+				    });
+				  //]]>
+				</script>
 	</div>
 	
 	<script>

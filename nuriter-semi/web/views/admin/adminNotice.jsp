@@ -10,7 +10,8 @@
 	#main{
    	/* width:170%; */
    	border:1px solid white;
-   	min-height:90%:
+   	min-height:90%;
+   	margin-top:70px;
    }
    
    #web-font{
@@ -142,9 +143,10 @@
 </head>
 <body>
 	<%@ include file="../common/logoAndLogbutton.jsp" %>
-	<%@ include file="adminbar.jsp" %>
+	
 	
 <div id="main">
+<%@ include file="adminbar.jsp" %>
  <br><br> <br><br>
     <!-- <hr class="colorgraph">
     

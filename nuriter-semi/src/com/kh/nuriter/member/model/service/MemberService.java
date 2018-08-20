@@ -6,19 +6,18 @@ import static com.kh.nuriter.common.JDBCTemplate.getConnection;
 import static com.kh.nuriter.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
-import java.util.ArrayList;
 
 import com.kh.nuriter.member.model.dao.MemberDao;
 import com.kh.nuriter.member.model.vo.Member;
 
 public class MemberService {
 
-	public Member loginCheck(String userId, String password) {
+	public Member loginCheck(String userEmail, String password) {
 		Connection con = getConnection();
 		
-		Member loginUser = new MemberDao().loginCheck(con, userId, password);
+		Member loginUser = new MemberDao().loginCheck(con, userEmail, password);
 		
-		System.out.println("service userid : " +userId);
+		System.out.println("service userid : " +userEmail);
 		System.out.println("service userpwd : " +password);
 		close(con);
 		
@@ -44,10 +43,10 @@ public class MemberService {
 		return result;
 	}
 
-	public int deleteMember(String userId) {
+	public int deleteMember(Member m) {
 		Connection con = getConnection();
 		
-		int result = new MemberDao().deleteMember(con, userId);
+		int result = new MemberDao().deleteMember(con, m);
 		
 		if(result >0){
 			commit(con);
@@ -63,7 +62,7 @@ public class MemberService {
 	
 
 
-
+   
 	public int updateMember(Member m) {
 		Connection con = getConnection();
 		
@@ -79,7 +78,8 @@ public class MemberService {
 				
 		return result;
 	}
-
+	
+	/*
 	public ArrayList<Member> selectAll() {
 	Connection con = getConnection();
 		
@@ -88,8 +88,22 @@ public class MemberService {
 		close(con);
 		
 		return list;
+	}*/
+
+	public int idCheck(String userEmail) {
+		Connection con = getConnection();
+		
+		int result = new MemberDao().idCheck(con, userEmail);
+		
+		
+		close(con);
+		
+		
+		return result;
+		
 	}
 
+	
 
 
 }

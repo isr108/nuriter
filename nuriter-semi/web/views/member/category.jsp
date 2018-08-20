@@ -25,13 +25,13 @@
         border-top: 0;
         background: rgb(241, 196, 15);
         border-radius: 3px;
-        border-style: solid; 
-      border-color: red; 
+      /*   border-style: solid; 
+      border-color: red;  */
    }
    #wrapper {
        width:70%;
-       border-style: solid; 
-      border-color: red; 
+      /*  border-style: solid; 
+      border-color: red;  */
            /*margin : 0 auto ;*/
    }
    
@@ -39,8 +39,8 @@
       width:100%;
       height:100%;
       display: inline-block;
-     border-style: solid; 
-       border-color: red; 
+    /*  border-style: solid; 
+       border-color: red;  */
        
        
    }
@@ -51,20 +51,20 @@
       margin-top:1%;
       /* margin: 8px; */
       margin-left:1%;
-      border-style: solid; 
-      border-color: red; 
+      /* border-style: solid; 
+      border-color: red;  */
    }
    #tableDiv table tr{
       align: center;
       border: 2px solid black;
-      border-style: solid; 
-      border-color: red; 
+      /* border-style: solid; 
+      border-color: red;  */
       
    }
    #tableDiv table tr td{
       background: white;
-      border-style: solid; 
-      border-color: red; 
+      /* border-style: solid; 
+      border-color: red;  */
    }
    
   /*  ul.navi li {
@@ -138,16 +138,16 @@
 	
    
    #showMain{
-      border-style: solid; 
-      border-color: red; 
+     /*  border-style: solid; 
+      border-color: red;  */
       display: inline-block;
       width:100%;
       height:100%;
    }
    
    #showLeft{
-      border-style: solid;
-       border-color: red
+     /*  border-style: solid;
+       border-color: red */
        width:10%;
       /*  height:15%; */
        font-size:20px;
@@ -159,8 +159,8 @@
    }
    
    #showRight{
-     border-style: solid;
-     border-color: red; 
+     /* border-style: solid;
+     border-color: red;  */
      float:right;
      /*   margin-left: 10%; */
       display: inline-block;
@@ -171,8 +171,8 @@
    }
    
    #showRightButton{
-   border-style: solid; 
-      border-color: red; 
+  /*  border-style: solid; 
+      border-color: red;  */
    	  display:inline-block;
       margin-left: 8%;
       width:90%;

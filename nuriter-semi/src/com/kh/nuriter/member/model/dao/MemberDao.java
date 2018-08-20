@@ -8,8 +8,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.Properties;
 
 import com.kh.nuriter.member.model.vo.Member;
@@ -31,7 +29,7 @@ public class MemberDao {
 		
 	}
 
-	public Member loginCheck(Connection con, String userId, String password) {
+	public Member loginCheck(Connection con, String userEmail, String password) {
 		Member loginUser = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -40,7 +38,7 @@ public class MemberDao {
 		System.out.println(query);
 		try {
 			pstmt = con.prepareStatement(query);
-			pstmt.setString(1, userId);
+			pstmt.setString(1, userEmail);
 			pstmt.setString(2, password);
 			
 			System.out.println(pstmt);
@@ -49,16 +47,26 @@ public class MemberDao {
 			if(rset.next()){
 				loginUser = new Member();
 				
-				loginUser.setUserId(rset.getString("user_id"));
+				loginUser.setUserNumber(rset.getInt("user_number"));
+				System.out.println(rset.getInt("user_number"));
+				loginUser.setUserEmail(rset.getString("user_email"));
 				loginUser.setPassword(rset.getString("user_pwd"));
 				loginUser.setUserName(rset.getString("user_name"));
-				loginUser.setGender(rset.getString("gender"));
-				loginUser.setAge(rset.getInt("age"));
-				loginUser.setEmail(rset.getString("email"));
-				loginUser.setPhone(rset.getString("phone"));
+				loginUser.setNickName(rset.getString("nickname"));
 				loginUser.setAddress(rset.getString("address"));
+				loginUser.setPhone(rset.getString("phone"));
 				loginUser.setHobby(rset.getString("hobby"));
+				loginUser.setBirthDate(rset.getDate("birth_date"));
 				loginUser.setEnrollDate(rset.getDate("enroll_date"));
+				loginUser.setGrade(rset.getString("grade"));
+				loginUser.setGradeDate(rset.getDate("grade_date"));
+				loginUser.setBankName(rset.getString("bank_name"));
+				loginUser.setBankNumber(rset.getString("bank_number"));
+				loginUser.setAccountSort(rset.getString("account_sort"));
+				loginUser.setToken(rset.getString("token"));
+				loginUser.setReportedUser(rset.getString("reported_user"));
+				loginUser.setActivated(rset.getString("activated"));
+				loginUser.setActivatedDate(rset.getDate("activated_date"));
 				
 			}
 			
@@ -83,15 +91,17 @@ public class MemberDao {
 		
 		try {
 			pstmt = con.prepareStatement(query);
-			pstmt.setString(1, m.getUserId());
+			pstmt.setString(1, m.getUserEmail());
 			pstmt.setString(2, m.getPassword());
 			pstmt.setString(3, m.getUserName());
-			pstmt.setString(4, m.getGender());
-			pstmt.setInt(5, m.getAge());
-			pstmt.setString(6, m.getEmail());
-			pstmt.setString(7, m.getPhone());
-			pstmt.setString(8, m.getAddress());
-			pstmt.setString(9, m.getHobby());
+			pstmt.setString(4, m.getNickName());
+			pstmt.setString(5, m.getAddress());
+			pstmt.setString(6, m.getPhone());
+			pstmt.setString(7, m.getHobby());
+			pstmt.setDate(8, m.getBirthDate());
+			pstmt.setString(9, m.getBankName());
+			pstmt.setString(10, m.getBankNumber());
+			
 			
 			result = pstmt.executeUpdate();
 		
@@ -105,53 +115,49 @@ public class MemberDao {
 		}
 		
 		
-		
-		
 		return result;
 	}
 
-	public int deleteMember(Connection con, String userId) {
+	public int idCheck(Connection con, String userEmail) {
+		
 		PreparedStatement pstmt = null;
 		int result = 0;
 		
-		String query = prop.getProperty("deleteMember");
+		String query = prop.getProperty("idCheck");
 		
 		try {
 			pstmt = con.prepareStatement(query);
-			pstmt.setString(1, userId);
+			pstmt.setString(1, userEmail);
 			
 			result = pstmt.executeUpdate();
 			
+			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally{
+		} finally{
 			close(pstmt);
 			
+			
 		}
-		
 		return result;
 	}
+
+
 
 	public int updateMember(Connection con, Member m) {
 		PreparedStatement pstmt = null;
 		int result = 0;
 		
 		String query = prop.getProperty("updateMember");
-		System.out.println(query);
 		
 		try {
 			pstmt = con.prepareStatement(query);
 			
 			pstmt.setString(1, m.getPassword());
-			pstmt.setString(2, m.getUserName());
-			pstmt.setString(3, m.getGender());
-			pstmt.setInt(4, m.getAge());
-			pstmt.setString(5, m.getEmail());
-			pstmt.setString(6, m.getPhone());
-			pstmt.setString(7, m.getAddress());
-			pstmt.setString(8, m.getHobby());
-			pstmt.setString(9, m.getUserId());
+			pstmt.setString(2, m.getNickName());
+			pstmt.setString(3, m.getPhone());
+			pstmt.setString(4, m.getAddress());
+			pstmt.setString(5, m.getHobby());
 			
 			
 			result = pstmt.executeUpdate();
@@ -171,16 +177,14 @@ public class MemberDao {
 		int result = 0;
 		
 		String query = prop.getProperty("deleteMember");
-		System.out.println(query);
 		
 		try {
 			pstmt = con.prepareStatement(query);
-			pstmt.setString(1, m.getUserId());
+			pstmt.setString(1, m.getUserEmail());
 			pstmt.setString(2, m.getPassword());
 			
 			result = pstmt.executeUpdate();
 			
-			System.out.println(result);
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -191,6 +195,7 @@ public class MemberDao {
 		return result;
 	}
 
+	/*
 	public ArrayList<Member> selectAll(Connection con) {
 		ArrayList<Member> list = null;
 		Statement stmt = null;
@@ -236,13 +241,13 @@ public class MemberDao {
 
 	public ArrayList<Member> searchId(Connection con, String userId){
 		ArrayList<Member> list = null;
-		/*Statement stmt = null;
-		ResultSet rset = null;*/
+		Statement stmt = null;
+		ResultSet rset = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
 		String query = prop.getProperty("searchId");
-		/*System.out.println(query);*/
+		System.out.println(query);
 		
 		try {
 			pstmt = con.prepareStatement(query);
@@ -271,7 +276,7 @@ public class MemberDao {
 
 					list.add(m);
 				}
-				/*System.out.println(list);*/
+				System.out.println(list);
 			}
 			
 		} catch (SQLException e) {
@@ -283,7 +288,7 @@ public class MemberDao {
 		
 		
 		return list;
-	}
+	}*/
 }
 
 

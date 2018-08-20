@@ -37,12 +37,8 @@ public class UpdateMemberServlet extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		
 		//request 객체에서 파라메터 꺼내기
-		String userId = request.getParameter("userId");
 		String password = request.getParameter("password");
-		String userName = request.getParameter("userName");
-		String gender = request.getParameter("gender");
-		int age = Integer.parseInt(request.getParameter("age"));
-		String email = request.getParameter("email");
+		String nickName = request.getParameter("nickName");
 		String phone = request.getParameter("phone");
 		String address = request.getParameter("address");
 		String[] hobby = request.getParameterValues("hobby");
@@ -57,16 +53,11 @@ public class UpdateMemberServlet extends HttpServlet {
 				
 		//member객체 생성
 		Member m = new Member();
-		m.setUserId(userId);
 		m.setPassword(password);
-		m.setUserName(userName);
-		m.setGender(gender);
-		m.setAge(age);
-		m.setEmail(email);
+		m.setNickName(nickName);
 		m.setPhone(phone);
 		m.setAddress(address);
 		m.setHobby(hobbys);
-		
 		System.out.println(m);
 		
 		//service로직으로 전달
@@ -78,8 +69,7 @@ public class UpdateMemberServlet extends HttpServlet {
 		if(result > 0) {
 			HttpSession session = request.getSession();
 			session.setAttribute("loginUser", m);
-			//response.sendRedirect("views/member/memberUpdateForm.jsp");
-			response.sendRedirect("views/main/main.jsp");
+			response.sendRedirect("index.jsp");
 		}else {
 			page = "views/common/errorPage.jsp";
 			request.setAttribute("msg", "회원 정보 수정에 실패하였습니다!!");
