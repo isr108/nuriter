@@ -14,6 +14,7 @@
 	border-radius: 3px;
 }
 
+
 #showLeft {
 	/*  border-style: solid; */
 	/* border-color: red; */
