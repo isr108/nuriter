@@ -140,6 +140,7 @@
 	    <%@ include file="../common/myPage_left.jsp" %>
 	</div>
 	<div id="main">
+			<% if(loginUser != null){ %>
 	    	<div id="twoRight" align="center">
 	    		<div id="twoRight-child">
 		    		<div id="twoRight-child2" align="left">
@@ -270,7 +271,7 @@
 	    	var name = $(".selectBox option:selected").text();
 	    	
 	    	$.ajax({
-				url:"/nu/category.nu",
+				url:"/ns/category.nu",
 				data:{name:name},
 				type:"get",
 				success:function(data){
@@ -298,5 +299,10 @@
     </script>
     <br><br><br><br><br>
     <br><br><br>
+    
+    <% }else{
+		request.setAttribute("msg", "잘못된 경로로 접근하셨습니다.");
+		request.getRequestDispatcher("../common/errorPage.jsp").forward(request, response);
+	} %>
 </body>
 </html>
