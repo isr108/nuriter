@@ -132,6 +132,44 @@ button {
 	/* float:right; */
 }
 
+#popupDiv {  /* 팝업창 css */
+    top : 0px;
+    position: absolute;
+    width: 550px;
+    height: 550px;
+    display: none; 
+    background:#D8D8D8;
+   	border:none;
+    
+    }
+#textArea{
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:5px;
+}
+.popBtn{
+	margin-top:10px;
+		
+}
+#popSendbtn{
+	background:#0080FF;
+	color:white;
+	margin-right:15px;
+	height:30px;
+	width:80px;
+}
+#popCloseBtn{
+	background:#FFBF00;
+	color:white;
+	height:30px;
+	width:80px;
+}
+
+.applyButton{
+   margin-top:10px;
+   width:200px;
+   height:50px;
+}
 </style>
 </head>
 <body>
@@ -194,7 +232,21 @@ button {
                <i class="far fa-grin-hearts fa-5x"></i><br>관심누리터 등록
             </div>
             <div>
-               <i class="fas fa-angry fa-5x"></i><br>게시글 신고
+               <i class="fas fa-angry fa-5x" id="popOpen" data-toggle="modal" data-target="#popupDiv"></i><br>게시글 신고
+            </div>
+              <div id="popupDiv" class="modal fade" role="dialog">
+            		<h2 id="web-font">누리터 신고</h2>
+            		<div id="textArea">
+            		<h5 id="web-font">신고 제목</h5>
+            		<input type="text" style="width:300px; height:30px;border:6px solid #FFBF00;"
+            		 id="reportTitle" name="reportTitle">
+            		<h5 id="web-font">신고 내용</h5>
+            		<textarea rows="15" cols="50" id="report" style="border:6px solid #FFBF00;" name="reportContent"></textarea>
+            		</div>
+            		<div class="popBtn">
+            	<button id="popSendbtn">send</button>
+            	<button id="popCloseBtn">close</button>
+            		</div>
             </div>
          </div>
          <div>
@@ -215,5 +267,38 @@ button {
    </div>
 </div>
       <%@ include file="../common/footer.jsp" %>
+      
+<Script>
+	$(function(){
+		$("#popOpen").click(function(event){
+			console.log('작동');
+			$("#popupDiv").css({
+	                "top": (($(window).height()-$("#popupDiv").outerHeight())/1.5+$(window).scrollTop())+"px",
+	                "left": (($(window).width()-$("#popupDiv").outerWidth())/2+$(window).scrollLeft())+"px"
+			
+			 });
+			   $("#popup_mask").css("display","block"); 
+	            
+	            $("body").css("overflow","hidden");
+	        });
+	        
+	        $("#popCloseBtn").click(function(event){
+	          /*  $("#popup_mask").hide(); */
+	            $("#popupDiv").hide(); 
+	            $(".modal-backdrop").hide();
+	            $("body").css("overflow","auto");
+	        
+	        });
+			
+	        $("#popSendbtn").click(function(event){
+	        	alert("신고가 접수 되었습니다");
+	        	location.href="<%=request.getContextPath()%>/reportSend";
+	        	
+	        });
+	
+	
+	});
+	 
+</Script>      
 </body>
 </html>

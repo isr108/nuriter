@@ -9,10 +9,13 @@
 	href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/semantic.min.css">
 <script
 	src="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/semantic.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <style>
 .colorgraph {
+
 	width: 98%;
 	height: 3px;
+	
 	border-top: 0;
 	background: rgb(241, 196, 15);
 	border-radius: 3px;
@@ -129,38 +132,24 @@ margin-top:10%;
 	<br>
 	<br>
 	<br>
-	<hr style="border: solid 1px lightgray;">
 	<div class="main">
+	<%if(!loginUser.getUserEmail().equals("admin")){ %>
 		<div id="showLeft">
 			<ul class="navi2" style="list-style-type: none">
 				<hr class="colorgraph">
 				<!-- 기능 -->
-				<li class="web-font"><a href="FnQ.jsp">고객센터</a></li>
+				<li class="web-font"><a href="#">고객센터</a></li>
 				<hr class="colorgraph">
-				<li class="web-font"><a href="FnQ.jsp">자주묻는질문</a></li>
-				<li class="web-font" id="qnaColor"><a href="QnA.jsp">1:1 문의하기</a></li>
+				<li class="web-font"><a href="fnq.jsp">자주묻는질문</a></li>
+				<li class="web-font" id="qnaColor"><a href="qna.jsp">1:1 문의하기</a></li>
 			</ul>
 		</div>
-
+		<%}else{ %>
+			<%@ include file="../admin/adminbar.jsp" %>
+		<% } %>
 		<div class="showRight">
-			<div id="nuriList" align="center">
-				<form>
-					<!-- 기능구현 시 여기에 삽입 action="" method="" -->
-					<table id="listTable">
-						<tbody>
-							<tr>
-								<td><br>이용문의<br> 1건<br> <br></td>
-								<td><br>결제 및 환불문의<br> 3건<br> <br></td>
-								<td><br>계정관련문의<br> 0건<br> <br></td>
-								<td><br>버그문의<br> 0건<br> <br></td>
-								<td><br>기타문의<br> 2건<br> <br></td>
-							</tr>
-						</tbody>
-					</table>
-				</form>
-			</div>
 			<div class="b">
-				<button id="bButton" href="#">게시글 작성</button>
+				<button id="bButton" onclick="location.href='quaInquire.jsp'">게시글 작성</button>
 			</div>
 			<div class="bulletin" class="web-font">
 				<table id="bulletinTable">
@@ -181,11 +170,14 @@ margin-top:10%;
 					</tr>
 				</table>
 			</div>
-		
-		
-		
 		</div>
-
 	</div>
+	<script>
+		$(function(){
+			$(".tBody").click(function(){
+				location.href="quaDetail.jsp";
+			});
+		});
+	</script>
 </body>
 </html>
