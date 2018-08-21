@@ -47,7 +47,7 @@ public class MemberDao {
 			if(rset.next()){
 				loginUser = new Member();
 				
-				/*loginUser.setUserNumber(rset.getString("user_number"));*/
+				loginUser.setUserNumber(rset.getInt("user_number"));
 				loginUser.setUserEmail(rset.getString("user_email"));
 				loginUser.setPassword(rset.getString("user_pwd"));
 				loginUser.setUserName(rset.getString("user_name"));
@@ -141,7 +141,7 @@ public class MemberDao {
 		return result;
 	}
 
-	/*public int deleteMember(Connection con, String userId) {
+	public int deleteMember(Connection con, Member m) {
 		PreparedStatement pstmt = null;
 		int result = 0;
 		
@@ -149,7 +149,8 @@ public class MemberDao {
 		
 		try {
 			pstmt = con.prepareStatement(query);
-			pstmt.setString(1, userId);
+			pstmt.setString(1, m.getUserEmail());
+			pstmt.setString(2, m.getPassword());
 			
 			result = pstmt.executeUpdate();
 			
@@ -164,29 +165,36 @@ public class MemberDao {
 		return result;
 	}
 
-	public int updateMember(Connection con, Member m) {
+	public int updateMember(Connection con, Member m, String oldPassword) {
 		PreparedStatement pstmt = null;
 		int result = 0;
 		
 		String query = prop.getProperty("updateMember");
+		String query2 = prop.getProperty("updateMemberNoPwd");
 		System.out.println(query);
 		
 		try {
-			pstmt = con.prepareStatement(query);
+			if(!m.getPassword().equals(oldPassword)){
+				pstmt = con.prepareStatement(query);
+				pstmt.setString(1, m.getPassword());				
+				pstmt.setString(2, m.getNickName());
+				pstmt.setString(3, m.getAddress());
+				pstmt.setString(4, m.getPhone());
+				pstmt.setString(5, m.getHobby());
+				pstmt.setString(6, m.getUserEmail());
+				pstmt.setString(7, String.valueOf(m.getUserNumber()));
 			
-			pstmt.setString(1, m.getPassword());
-			pstmt.setString(2, m.getUserName());
-			pstmt.setString(3, m.getGender());
-			pstmt.setInt(4, m.getAge());
-			pstmt.setString(5, m.getEmail());
-			pstmt.setString(6, m.getPhone());
-			pstmt.setString(7, m.getAddress());
-			pstmt.setString(8, m.getHobby());
-			pstmt.setString(9, m.getUserEail());
-			
-			
-			result = pstmt.executeUpdate();
-			
+				result = pstmt.executeUpdate();
+			}else{
+				pstmt = con.prepareStatement(query2);				
+				pstmt.setString(1, m.getNickName());
+				pstmt.setString(2, m.getAddress());
+				pstmt.setString(3, m.getPhone());
+				pstmt.setString(4, m.getHobby());
+				pstmt.setString(5, m.getUserEmail());
+				pstmt.setString(6, String.valueOf(m.getUserNumber()));
+				result = pstmt.executeUpdate();
+			}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -196,6 +204,7 @@ public class MemberDao {
 		
 		return result;
 	}
+	/*
 
 	public int deleteMember(Connection con, Member m) {
 		PreparedStatement pstmt = null;
