@@ -236,16 +236,15 @@ public class MemberDao {
 	      return result;
 	   }
 
-	   public int updateMember(Connection con, Member m, String oldPassword) {
+	   public int updateMember(Connection con, Member m) {
 	      PreparedStatement pstmt = null;
 	      int result = 0;
 	      
 	      String query = prop.getProperty("updateMember");
-	      String query2 = prop.getProperty("updateMemberNoPwd");
+	      //String query2 = prop.getProperty("updateMemberNoPwd");
 	      System.out.println(query);
 	      
 	      try {
-	         if(!m.getPassword().equals(oldPassword)){
 	            pstmt = con.prepareStatement(query);
 	            pstmt.setString(1, m.getPassword());            
 	            pstmt.setString(2, m.getNickName());
@@ -256,16 +255,6 @@ public class MemberDao {
 	            pstmt.setString(7, String.valueOf(m.getUserNumber()));
 	         
 	            result = pstmt.executeUpdate();
-	         }else{
-	            pstmt = con.prepareStatement(query2);            
-	            pstmt.setString(1, m.getNickName());
-	            pstmt.setString(2, m.getAddress());
-	            pstmt.setString(3, m.getPhone());
-	            pstmt.setString(4, m.getHobby());
-	            pstmt.setString(5, m.getUserEmail());
-	            pstmt.setString(6, String.valueOf(m.getUserNumber()));
-	            result = pstmt.executeUpdate();
-	         }
 	         
 	      } catch (SQLException e) {
 	         e.printStackTrace();
@@ -275,9 +264,9 @@ public class MemberDao {
 	      
 	      return result;
 	   }
-	   /*
+	   
 
-	   public int deleteMember(Connection con, Member m) {
+	   /*public int deleteMember(Connection con, Member m) {
 	      PreparedStatement pstmt = null;
 	      int result = 0;
 	      
@@ -300,9 +289,9 @@ public class MemberDao {
 	      }
 	      
 	      return result;
-	   }
+	   }*/
 
-	   public ArrayList<Member> selectAll(Connection con) {
+	  /* public ArrayList<Member> selectAll(Connection con) {
 	      ArrayList<Member> list = null;
 	      Statement stmt = null;
 	      ResultSet rset = null;

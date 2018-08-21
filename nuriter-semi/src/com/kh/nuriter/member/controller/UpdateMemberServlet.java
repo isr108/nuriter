@@ -40,6 +40,9 @@ public class UpdateMemberServlet extends HttpServlet {
 	      int userNumber = Integer.parseInt(request.getParameter("userNumber"));
 	      String userEmail = request.getParameter("userEmail");
 	      String oldPassword = request.getParameter("oldPassword");
+	      System.out.println("기존비밀번호 : " + oldPassword);
+	      String oldPassword2 = request.getParameter("oldPassword2");
+	      System.out.println("기존비밀번호2 : " + oldPassword2);
 	      String password = request.getParameter("password");
 	      String userName = request.getParameter("userName");
 	      String nickName = request.getParameter("nickName");
@@ -54,7 +57,7 @@ public class UpdateMemberServlet extends HttpServlet {
 	            hobbys += ", " + hobby[i];
 	         }
 	      }
-	            
+	       
 	      //member객체 생성
 	      Member m = new Member();
 	      m.setUserNumber(userNumber);
@@ -69,7 +72,7 @@ public class UpdateMemberServlet extends HttpServlet {
 	      System.out.println("회원정보 : " + m);
 	      
 	      //service로직으로 전달
-	      int result = new MemberService().updateMember(m, oldPassword);
+	      int result = new MemberService().updateMember(m);
 	      
 	      //처리 결과에 따른 뷰 페이지 결정
 	      String page = "";
@@ -78,6 +81,8 @@ public class UpdateMemberServlet extends HttpServlet {
 	         HttpSession session = request.getSession();
 	         session.setAttribute("loginUser", m);
 	         response.sendRedirect("index.jsp");
+	         System.out.println("기존비번 : " + oldPassword);
+	         System.out.println("기존비번2 : " + oldPassword2);
 	      }else {
 	         page = "views/common/errorPage.jsp";
 	         request.setAttribute("msg", "회원 정보 수정에 실패하였습니다!!");
