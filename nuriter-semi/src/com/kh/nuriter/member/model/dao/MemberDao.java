@@ -212,180 +212,190 @@ public class MemberDao {
 		return result;
 	}
 
-	/*public int deleteMember(Connection con, String userId) {
-		PreparedStatement pstmt = null;
-		int result = 0;
-		
-		String query = prop.getProperty("deleteMember");
-		
-		try {
-			pstmt = con.prepareStatement(query);
-			pstmt.setString(1, userId);
-			
-			result = pstmt.executeUpdate();
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}finally{
-			close(pstmt);
-			
-		}
-		
-		return result;
-	}
+	 public int deleteMember(Connection con, Member m) {
+	      PreparedStatement pstmt = null;
+	      int result = 0;
+	      
+	      String query = prop.getProperty("deleteMember");
+	      
+	      try {
+	         pstmt = con.prepareStatement(query);
+	         pstmt.setString(1, m.getUserEmail());
+	         pstmt.setString(2, m.getPassword());
+	         
+	         result = pstmt.executeUpdate();
+	         
+	      } catch (SQLException e) {
+	         // TODO Auto-generated catch block
+	         e.printStackTrace();
+	      }finally{
+	         close(pstmt);
+	         
+	      }
+	      
+	      return result;
+	   }
 
-	public int updateMember(Connection con, Member m) {
-		PreparedStatement pstmt = null;
-		int result = 0;
-		
-		String query = prop.getProperty("updateMember");
-		System.out.println(query);
-		
-		try {
-			pstmt = con.prepareStatement(query);
-			
-			pstmt.setString(1, m.getPassword());
-			pstmt.setString(2, m.getUserName());
-			pstmt.setString(3, m.getGender());
-			pstmt.setInt(4, m.getAge());
-			pstmt.setString(5, m.getEmail());
-			pstmt.setString(6, m.getPhone());
-			pstmt.setString(7, m.getAddress());
-			pstmt.setString(8, m.getHobby());
-			pstmt.setString(9, m.getUserEail());
-			
-			
-			result = pstmt.executeUpdate();
-			
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			close(pstmt);
-		}
-		
-		return result;
-	}
+	   public int updateMember(Connection con, Member m, String oldPassword) {
+	      PreparedStatement pstmt = null;
+	      int result = 0;
+	      
+	      String query = prop.getProperty("updateMember");
+	      String query2 = prop.getProperty("updateMemberNoPwd");
+	      System.out.println(query);
+	      
+	      try {
+	         if(!m.getPassword().equals(oldPassword)){
+	            pstmt = con.prepareStatement(query);
+	            pstmt.setString(1, m.getPassword());            
+	            pstmt.setString(2, m.getNickName());
+	            pstmt.setString(3, m.getAddress());
+	            pstmt.setString(4, m.getPhone());
+	            pstmt.setString(5, m.getHobby());
+	            pstmt.setString(6, m.getUserEmail());
+	            pstmt.setString(7, String.valueOf(m.getUserNumber()));
+	         
+	            result = pstmt.executeUpdate();
+	         }else{
+	            pstmt = con.prepareStatement(query2);            
+	            pstmt.setString(1, m.getNickName());
+	            pstmt.setString(2, m.getAddress());
+	            pstmt.setString(3, m.getPhone());
+	            pstmt.setString(4, m.getHobby());
+	            pstmt.setString(5, m.getUserEmail());
+	            pstmt.setString(6, String.valueOf(m.getUserNumber()));
+	            result = pstmt.executeUpdate();
+	         }
+	         
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      }finally {
+	         close(pstmt);
+	      }
+	      
+	      return result;
+	   }
+	   /*
 
-	public int deleteMember(Connection con, Member m) {
-		PreparedStatement pstmt = null;
-		int result = 0;
-		
-		String query = prop.getProperty("deleteMember");
-		System.out.println(query);
-		
-		try {
-			pstmt = con.prepareStatement(query);
-			pstmt.setString(1, m.getUserEail());
-			pstmt.setString(2, m.getPassword());
-			
-			result = pstmt.executeUpdate();
-			
-			System.out.println(result);
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			close(pstmt);
-		}
-		
-		return result;
-	}
+	   public int deleteMember(Connection con, Member m) {
+	      PreparedStatement pstmt = null;
+	      int result = 0;
+	      
+	      String query = prop.getProperty("deleteMember");
+	      System.out.println(query);
+	      
+	      try {
+	         pstmt = con.prepareStatement(query);
+	         pstmt.setString(1, m.getUserEail());
+	         pstmt.setString(2, m.getPassword());
+	         
+	         result = pstmt.executeUpdate();
+	         
+	         System.out.println(result);
+	         
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      }finally {
+	         close(pstmt);
+	      }
+	      
+	      return result;
+	   }
 
-	public ArrayList<Member> selectAll(Connection con) {
-		ArrayList<Member> list = null;
-		Statement stmt = null;
-		ResultSet rset = null;
-		
-		String query = prop.getProperty("selectAll");
-		
-		try {
-			stmt = con.createStatement();
-			
-			rset = stmt.executeQuery(query);
-			
-			list = new ArrayList<Member>();
-			
-			while(rset.next()){
-				Member m = new Member();
-				m.setUserId(rset.getString("user_id"));
-				m.setPassword(rset.getString("user_pwd"));
-				m.setUserName(rset.getString("user_name"));
-				m.setGender(rset.getString("gender"));
-				m.setAge(rset.getInt("age"));
-				m.setEmail(rset.getString("email"));
-				m.setPhone(rset.getString("phone"));
-				m.setAddress(rset.getString("address"));
-				m.setHobby(rset.getString("hobby"));
-				m.setEnrollDate(rset.getDate("enroll_date"));
-				
-			
-				list.add(m);
-			}
-			
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			close(stmt);
-			close(rset);
-		}
-		
-	
-		return list;
-	}
+	   public ArrayList<Member> selectAll(Connection con) {
+	      ArrayList<Member> list = null;
+	      Statement stmt = null;
+	      ResultSet rset = null;
+	      
+	      String query = prop.getProperty("selectAll");
+	      
+	      try {
+	         stmt = con.createStatement();
+	         
+	         rset = stmt.executeQuery(query);
+	         
+	         list = new ArrayList<Member>();
+	         
+	         while(rset.next()){
+	            Member m = new Member();
+	            m.setUserId(rset.getString("user_id"));
+	            m.setPassword(rset.getString("user_pwd"));
+	            m.setUserName(rset.getString("user_name"));
+	            m.setGender(rset.getString("gender"));
+	            m.setAge(rset.getInt("age"));
+	            m.setEmail(rset.getString("email"));
+	            m.setPhone(rset.getString("phone"));
+	            m.setAddress(rset.getString("address"));
+	            m.setHobby(rset.getString("hobby"));
+	            m.setEnrollDate(rset.getDate("enroll_date"));
+	            
+	         
+	            list.add(m);
+	         }
+	         
+	         
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      }finally {
+	         close(stmt);
+	         close(rset);
+	      }
+	      
+	   
+	      return list;
+	   }
 
-	public ArrayList<Member> searchId(Connection con, String userId){
-		ArrayList<Member> list = null;
-		Statement stmt = null;
-		ResultSet rset = null;
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		
-		String query = prop.getProperty("searchId");
-		System.out.println(query);
-		
-		try {
-			pstmt = con.prepareStatement(query);
-			
-			pstmt.setString(1, userId);
-			
-			rset = pstmt.executeQuery();
-			
-			
-			if(rset != null){
-				list = new ArrayList<Member>();
-				
-				while(rset.next()){
-					Member m = new Member();
-					
-					m.setUserId(rset.getString("user_id"));
-					m.setPassword(rset.getString("user_pwd"));
-					m.setUserName(rset.getString("user_name"));
-					m.setGender(rset.getString("gender"));
-					m.setAge(rset.getInt("age"));
-					m.setEmail(rset.getString("email"));
-					m.setPhone(rset.getString("phone"));
-					m.setAddress(rset.getString("address"));
-					m.setHobby(rset.getString("hobby"));
-					m.setEnrollDate(rset.getDate("enroll_date"));
+	   public ArrayList<Member> searchId(Connection con, String userId){
+	      ArrayList<Member> list = null;
+	      Statement stmt = null;
+	      ResultSet rset = null;
+	      PreparedStatement pstmt = null;
+	      ResultSet rset = null;
+	      
+	      String query = prop.getProperty("searchId");
+	      System.out.println(query);
+	      
+	      try {
+	         pstmt = con.prepareStatement(query);
+	         
+	         pstmt.setString(1, userId);
+	         
+	         rset = pstmt.executeQuery();
+	         
+	         
+	         if(rset != null){
+	            list = new ArrayList<Member>();
+	            
+	            while(rset.next()){
+	               Member m = new Member();
+	               
+	               m.setUserId(rset.getString("user_id"));
+	               m.setPassword(rset.getString("user_pwd"));
+	               m.setUserName(rset.getString("user_name"));
+	               m.setGender(rset.getString("gender"));
+	               m.setAge(rset.getInt("age"));
+	               m.setEmail(rset.getString("email"));
+	               m.setPhone(rset.getString("phone"));
+	               m.setAddress(rset.getString("address"));
+	               m.setHobby(rset.getString("hobby"));
+	               m.setEnrollDate(rset.getDate("enroll_date"));
 
-					list.add(m);
-				}
-				System.out.println(list);
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally{
-			close(pstmt);
-			close(rset);
-		}
-		
-		
-		return list;
-	}*/
+	               list.add(m);
+	            }
+	            System.out.println(list);
+	         }
+	         
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      } finally{
+	         close(pstmt);
+	         close(rset);
+	      }
+	      
+	      
+	      return list;
+	   }*/
+
 }
 
 
