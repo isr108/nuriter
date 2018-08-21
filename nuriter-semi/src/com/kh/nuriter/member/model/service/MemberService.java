@@ -90,7 +90,7 @@ public class MemberService {
 		
 		return list;
 	}
-
+*/
 	public int idCheck(String userEmail) {
 		Connection con = getConnection();
 		
@@ -102,9 +102,19 @@ public class MemberService {
 		
 		return result;
 		
-	}*/
+	}
 
-	public int snsloginMember(Member m) {
+	public Member snsloginMember(String userEmail) {
+		Connection con=getConnection();
+		Member loginUser = new MemberDao().snsloginMember(con, userEmail);
+		
+		System.out.println("service userid : " +userEmail);
+		close(con);
+		
+		return loginUser;
+	}
+
+	/*public int snsloginMember(Member m) {
 		Connection con=getConnection();
 		
 		int result=new MemberDao().snsloginMember(m, con);
@@ -119,6 +129,6 @@ public class MemberService {
 		close(con);
 		
 		return result;
-	}
+	}*/
 
 }

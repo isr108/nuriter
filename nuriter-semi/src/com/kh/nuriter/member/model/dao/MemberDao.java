@@ -49,7 +49,7 @@ public class MemberDao {
 			if(rset.next()){
 				loginUser = new Member();
 				
-				loginUser.setUserNumber(Integer.parseInt(rset.getString("user_number")));
+				loginUser.setUserNumber(rset.getInt("user_number"));
 				loginUser.setUserEmail(rset.getString("user_email"));
 				loginUser.setPassword(rset.getString("user_pwd"));
 				loginUser.setUserName(rset.getString("user_name"));
@@ -143,7 +143,7 @@ public class MemberDao {
 		return result;
 	}
 
-	public int snsloginMember(Member m, Connection con) {
+	/*public int snsloginMember(Member m, Connection con) {
 		int result=0;
 		int sw=0;
 		Member m1=null;
@@ -151,11 +151,12 @@ public class MemberDao {
 		Statement st=null;
 		PreparedStatement pst=null;
 		ResultSet rset=null;
-		
+		String query="";
+		query=prop.getProperty("checkMember");
 		String checkQuery=prop.getProperty("checkMember");
 		try {
 			st=con.createStatement();
-			rset=st.executeQuery(checkQuery);
+			rset=st.executeQuery(query);
 			
 			while(rset.next()){
 				m1=new Member();
@@ -171,7 +172,7 @@ public class MemberDao {
 				}
 			}
 			
-			String query="";
+			
 			
 			if(sw==1){
 				query=prop.getProperty("loginMember");
@@ -190,7 +191,7 @@ public class MemberDao {
 				
 			}
 			else{
-				query=prop.getProperty("insertMember");
+				query=prop.getProperty("insertMember2");
 				
 				pst=con.prepareStatement(query);
 				pst.setString(1, m.getUserEmail());
@@ -210,7 +211,7 @@ public class MemberDao {
 		}
 		
 		return result;
-	}
+	}*/
 
 	 public int deleteMember(Connection con, Member m) {
 	      PreparedStatement pstmt = null;
@@ -395,6 +396,96 @@ public class MemberDao {
 	      
 	      return list;
 	   }*/
+
+	public Member snsloginMember(Connection con, String userEmail) {
+		Member loginUser = null;	
+
+		int result=0;
+		int sw=0;
+		Member m1=null;
+		ArrayList<Member> list=new ArrayList<Member>();
+		Statement st=null;
+		PreparedStatement pst=null;
+		ResultSet rset=null;
+		String query="";
+		query=prop.getProperty("checkMember");
+		String checkQuery=prop.getProperty("checkMember");
+		try {
+			st=con.createStatement();
+			rset=st.executeQuery(query);
+			while(rset.next()){
+				/*m1=new Member();
+				m1.setUserEmail(rset.getString("user_email"));
+				
+				list.add(m1);*/
+				loginUser = new Member();
+				
+				loginUser.setUserNumber(rset.getInt("user_number"));
+				loginUser.setUserEmail(rset.getString("user_email"));
+				loginUser.setPassword(rset.getString("user_pwd"));
+				loginUser.setUserName(rset.getString("user_name"));
+				loginUser.setNickName(rset.getString("nickname"));
+				loginUser.setAddress(rset.getString("address"));
+				loginUser.setPhone(rset.getString("phone"));
+				loginUser.setHobby(rset.getString("hobby"));
+				loginUser.setBirthDate(rset.getDate("birth_date"));
+				loginUser.setEnrollDate(rset.getDate("enroll_date"));
+				loginUser.setGrade(rset.getString("grade"));
+				loginUser.setGradeDate(rset.getDate("grade_date"));
+				loginUser.setBankName(rset.getString("bank_name"));
+				loginUser.setBankNumber(rset.getString("bank_number"));
+				loginUser.setAccountSort(rset.getString("account_sort"));
+				loginUser.setToken(rset.getString("token"));
+				loginUser.setReportedUser(rset.getString("reported_user"));
+				loginUser.setActivated(rset.getString("activated"));
+				loginUser.setActivatedDate(rset.getDate("activated_date"));
+			}
+			
+			/*for(int i=0;i<list.size();i++){
+				if(list.get(i).getUserEmail().equals(m.getUserEmail())){
+					sw=1;
+					break;
+				}
+			}*/
+			
+			/*if(sw==1){
+				query=prop.getProperty("loginMember");
+				
+				pst=con.prepareStatement(query);
+				pst.setString(1, m.getUserEmail());
+				
+				result=pst.executeUpdate();
+				
+				if(result>0){
+					result=99;
+				}
+				else{
+					result=0;
+				}
+				
+			}*/
+			/*else{
+				query=prop.getProperty("insertMember2");
+				
+				pst=con.prepareStatement(query);
+				pst.setString(1, m.getUserEmail());
+				pst.setString(2, m.getNickName());
+				pst.setString(3, m.getToken());
+				
+				result=pst.executeUpdate();
+			}*/
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally{
+			close(st);
+			close(rset);
+			close(pst);
+		}
+		
+		return loginUser;
+	}
 
 }
 

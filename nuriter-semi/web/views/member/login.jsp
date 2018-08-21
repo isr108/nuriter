@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.*, com.kh.nuriter.member.model.vo.*"%>
-    <% Member loginUser = (Member)session.getAttribute("loginUser");%>
+    pageEncoding="UTF-8"%>
+
+   
 <!DOCTYPE html>
 <html>
 <head>
@@ -226,7 +227,7 @@
 				   
 				</script>
 				
-		<form id="login" method="post" name="frm" action="<%= request.getContextPath() %>/snslogin.me"> 
+	<form id="login" method="post" name="frm" action="<%=request.getContextPath()%>/snslogin.me"> 
 		<!--  <form id="login" method="post" name="frm"> -->
 		<input type="hidden" name="useremail">
 		<input type="hidden" name="idNum">

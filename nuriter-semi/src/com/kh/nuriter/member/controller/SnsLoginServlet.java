@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.kh.nuriter.member.model.service.MemberService;
 import com.kh.nuriter.member.model.vo.Member;
@@ -41,7 +42,29 @@ public class SnsLoginServlet extends HttpServlet {
 		m.setNickName(nickName);
 		m.setToken(refreshToken);
 		
-		int result=new MemberService().snsloginMember(m);
+		Member loginUser = new MemberService().snsloginMember(userEmail);
+		System.out.println(loginUser);
+		
+		//4. 받은 결과에 따라 뷰 페이지 내보내기
+		/*String page = "";*/
+		if(loginUser != null){
+			HttpSession session = request.getSession();
+			session.setAttribute("loginUser", loginUser);
+			
+			/*page ="index.jsp";
+			System.out.println(page);*/
+			response.sendRedirect("index.jsp");
+			
+			
+		}else{
+			/*page = "views/common/errorPage.jsp";*/
+			/*page = "views/common/errorPage.jsp";*/
+			/*request.setAttribute("msg", "로그인 에러!!!");*/
+			request.setAttribute("msg", "로그인 실패!!");
+			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
+		}
+		
+		/*int result=new MemberService().snsloginMember(m);
 		
 		if(result == 99){
 			request.setAttribute("msg", "로그인 성공");
@@ -54,7 +77,7 @@ public class SnsLoginServlet extends HttpServlet {
 		}
 		
 		RequestDispatcher view=request.getRequestDispatcher("index.jsp");
-		view.forward(request, response);
+		view.forward(request, response);*/
 	}
 
 	/**
