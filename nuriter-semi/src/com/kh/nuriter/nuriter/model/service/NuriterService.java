@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import com.kh.nuriter.nuriter.model.dao.NuriterDao;
 import com.kh.nuriter.nuriter.model.vo.Category;
+import com.kh.nuriter.nuriter.model.vo.Nuriboss;
 import com.kh.nuriter.nuriter.model.vo.Nuriter;
 
 public class NuriterService {
@@ -39,6 +40,23 @@ public class NuriterService {
 		close(con);
 		
 		return list;
+	}
+
+	public int insertNuriBoss(Nuriboss n) {
+		Connection con = getConnection();
+		
+		int result = new NuriterDao().insertNuriBoss(con, n);
+		
+		if(result > 0) {
+			commit(con);
+		}
+		else {
+			rollback(con);
+		}
+		
+		close(con);
+		
+		return result;
 	}
 
 }

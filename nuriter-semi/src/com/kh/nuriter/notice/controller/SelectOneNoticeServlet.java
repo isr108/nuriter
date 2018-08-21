@@ -1,4 +1,4 @@
-package com.kh.nuriter.member.controller;
+package com.kh.nuriter.notice.controller;
 
 import java.io.IOException;
 
@@ -8,22 +8,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import com.kh.nuriter.member.model.service.MemberService;
-import com.kh.nuriter.member.model.vo.Member;
+import com.kh.nuriter.notice.model.service.NoticeService;
+import com.kh.nuriter.notice.model.vo.Notice;
 
 /**
- * Servlet implementation class deleteMemberServlet
+ * Servlet implementation class SelectOneNoticeServlet
  */
-@WebServlet("/deleteMember.me")
-public class deleteMemberServlet extends HttpServlet {
+@WebServlet("/selectOne.no")
+public class SelectOneNoticeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public deleteMemberServlet() {
+    public SelectOneNoticeServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,23 +31,23 @@ public class deleteMemberServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
+		String num = request.getParameter("num");
 		
-		HttpSession session = request.getSession();
+		System.out.println("num : " + num);
 		
-		Member m = (Member)session.getAttribute("loginUser");
+		Notice n = new NoticeService().selectOne(num);
 		
-		int result = new MemberService().deleteMember(m);
+		String page = "";
 		
-		if(result > 0) {
-			session.invalidate();
-			response.sendRedirect("index.jsp");
-		}else {
-			request.setAttribute("msg", "회원 탈퇴 실패!!");
-			
-			RequestDispatcher view = request.getRequestDispatcher("views/common/errorPage.jsp");
-			view.forward(request, response);
+		if(n != null){
+			page = "views/notice/noticeDetail.jsp";
+			request.setAttribute("n", n);
+		}else{
+			page = "views/common/errorPage.jsp";
+			request.setAttribute("msg", "공지사항 상세보기 실패!");
 		}
+		RequestDispatcher view = request.getRequestDispatcher(page);
+		view.forward(request, response);
 	}
 
 	/**

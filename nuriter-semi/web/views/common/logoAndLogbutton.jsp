@@ -239,7 +239,7 @@
         	<button class="button" onclick="location.href='../member/memberJoinForm.jsp' ">회원가입</button>
         <%}else{ %>
         <%if(loginUser != null) {%>
-        		<font id="web-font"> <a><%= loginUser.getUserName() %> 님</a></font>
+        		<font id="web-font"> <a><%= loginUser.getNickName() %> 님</a></font>
         		<button class="button" onclick="logout();" >로그아웃</button>
         <% } %>
         		<% if(!loginUser.getUserEmail().equals("admin@naver.com")){ %>

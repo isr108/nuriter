@@ -44,6 +44,7 @@ public class LoginServlet extends HttpServlet {
 		
 		//3. 서비스 호출
 		Member loginUser = new MemberService().loginCheck(userEmail, password);
+		System.out.println(loginUser);
 		
 		//4. 받은 결과에 따라 뷰 페이지 내보내기
 		/*String page = "";*/

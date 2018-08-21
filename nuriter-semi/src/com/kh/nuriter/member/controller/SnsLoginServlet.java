@@ -8,22 +8,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.kh.nuriter.member.model.service.MemberService;
 import com.kh.nuriter.member.model.vo.Member;
 
 /**
- * Servlet implementation class deleteMemberServlet
+ * Servlet implementation class SnsLoginServlet
  */
-@WebServlet("/deleteMember.me")
-public class deleteMemberServlet extends HttpServlet {
+@WebServlet("/snslogin.me")
+public class SnsLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public deleteMemberServlet() {
+    public SnsLoginServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,23 +31,30 @@ public class deleteMemberServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
+		String userEmail=request.getParameter("useremail");
+		String idNum=request.getParameter("idNum");
+		String nickName=request.getParameter("nickname");
+		String refreshToken=request.getParameter("refreshToken");
 		
-		HttpSession session = request.getSession();
+		Member m=new Member();
+		m.setUserEmail(userEmail);
+		m.setNickName(nickName);
+		m.setToken(refreshToken);
 		
-		Member m = (Member)session.getAttribute("loginUser");
+		int result=new MemberService().snsloginMember(m);
 		
-		int result = new MemberService().deleteMember(m);
-		
-		if(result > 0) {
-			session.invalidate();
-			response.sendRedirect("index.jsp");
-		}else {
-			request.setAttribute("msg", "회원 탈퇴 실패!!");
-			
-			RequestDispatcher view = request.getRequestDispatcher("views/common/errorPage.jsp");
-			view.forward(request, response);
+		if(result == 99){
+			request.setAttribute("msg", "로그인 성공");
 		}
+		else if(result<99&&result>0){
+			request.setAttribute("msg", "가입 성공");
+		}
+		else{
+			request.setAttribute("msg", "로그인 및 가입 실패");
+		}
+		
+		RequestDispatcher view=request.getRequestDispatcher("index.jsp");
+		view.forward(request, response);
 	}
 
 	/**
