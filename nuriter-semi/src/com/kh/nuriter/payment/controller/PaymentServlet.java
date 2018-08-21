@@ -13,7 +13,7 @@ import com.kh.nuriter.payment.model.vo.Payment;
 /**
  * Servlet implementation class PaymentServlet
  */
-@WebServlet("/pms")
+@WebServlet("/payment.pms")
 public class PaymentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -42,7 +42,7 @@ public class PaymentServlet extends HttpServlet {
 		
 		/*String page="";
 		if(result >0){
-			response.sendRedirect(request.getContextPath() +"/paymentDetail.pd");
+			response.sendRedirect(request.getContextPath() +"/PaymentDetail.pd");
 		}else{
 			
 		}*/

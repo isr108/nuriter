@@ -17,6 +17,7 @@ public class PaymentDao {
 
 		try {
 			prop.load(new FileReader(fileName));
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
