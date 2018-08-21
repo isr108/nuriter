@@ -241,9 +241,6 @@
 			var pwd1 = document.getElementById("oldPass1").checked;
 			var num = 0;
 			
-			/* if(yes == true){
-				 num=1;
-			} */
 			
 			if(yes == true){
 				$("#form1").submit();
