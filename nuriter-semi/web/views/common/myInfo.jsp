@@ -122,7 +122,7 @@
 		<div id="myInfoPage">
 		<h1 align="center"><%=loginUser.getUserName() %>님의 회원 정보 수정</h1>
 		<br><br>
-		<form> <!-- action="/w7/updateMember" method="post" -->
+		<form action="<%=request.getContextPath()%>/updateMember.me" method="post">
 			<table class="changeInfo" align="center">
 			<colgroup>
 				<col width="140">
@@ -130,26 +130,48 @@
 			</colgroup>
 			<tbody>
 			<tr>
+					<th><label>아이디</label></th>
+					<td><input type="text" name="userEmail" value="<%= loginUser.getUserEmail()%>" readonly>
+					<input type="hidden" name="userNumber" value="<%= loginUser.getUserNumber() %>">
+					</td>
+			</tr>
+			<tr>
+				<th>현재 비밀번호</th>
+				<td>
+					<input type="password" id="oldPass1" name="oldPassword" maxlength="16">
+					<input type="hidden" id="oldPass2" name="oldPassword" value="<%=loginUser.getPassword()%>">
+					<br>
+					<label>*정보변경을 위해 반드시 입력해주세요</label>
+				</td>
+			</tr>
+			<tr>
 				<th>새 비밀번호</th>
 				<td>
-					<input type="password" id="new_pass" name="new_pass" maxlength="16" class="newPassword">
+					<input type="password" id="new_pass" name="password" maxlength="16" class="newPassword">
 				</td>
 			</tr>
 			<tr>
 				<th>새 비밀번호 확인</th>
-				<td><input type="password" id="new_pass2" name="new_pass2" maxlength="16" class="newPassword"></td>
+				<td><input type="password" id="new_pass2" name="password" maxlength="16" class="newPassword">
+				<br>
+				<label id="pwdresult"></label>
+				</td>
+			</tr>
+			<tr>
+				<th>이름</th>
+				<td><input type="text" name="userName" value="<%=loginUser.getUserName()%>" readonly></td>
 			</tr>
 			<tr>
 				<th>닉네임</th>
-				<td><input type="text" name="nickName" <%-- value="<%=loginUser.getUserName()%>" --%>></td>
+				<td><input type="text" name="nickName" value="<%=loginUser.getNickName()%>"></td>
 			</tr>
 			<tr>
 				<th>전화번호</th>
-				<td><input type="tel" name="phone" <%-- value="<%=loginUser.getPhone()%>" --%>></td>
+				<td><input type="tel" name="phone" value="<%=loginUser.getPhone()%>"></td>
 			</tr>
 			<tr>
 				<th><label>주소</label></th>
-				<td><input type="text" name="address" <%-- value="<%=loginUser.getAddress()%>" --%>></td>
+				<td><input type="text" name="address" value="<%=loginUser.getAddress()%>"></td>
 			</tr>
 			<tr>
 				<th><label>취미</label></th>
@@ -176,14 +198,15 @@
 				</td>
 				</tr>
 				</tbody>
-		</table>			
-		</form>
+		</table>					
 		<br><br>
 		<div align="center">
-		<input type="button" value="취소하기" onclick="location.href='/nuri/views/index.jsp'"> 
-		<input type="submit" value="변경하기">
+		<input type="button" value="취소하기" onclick="location.href='<%=request.getContextPath()%>/index.jsp'"> 
+		<input type="button" value="변경하기" onclick="updateMember();">
+		<!-- <input type="submit" value="변경하기"> -->
 		<button onclick="deleteMember();">탈퇴하기</button>
 		</div>
+		</form>
 		<!-- ▼ 알아두기 //-->
 	<br>
 	<hr width="50%">
@@ -200,7 +223,7 @@
 	</div>
 		
 	</div>
-	<%-- <script>
+	<script>
 		$(function(){
 			$("input[name=hobby]").each(function(){
 				var arr = '<%= loginUser.getHobby() %>'.split(", ");
@@ -213,17 +236,43 @@
 			});
 		});
 		
-		function deleteMember(){
-			var answer = window.confirm('정말로 탈퇴하시려구요?');
+		function updateMember(){
+
+			var pwd1 = document.getElementById("oldPass1").checked;
+			var num = 0;
 			
-			if(answer == true){
-				alert('헐.. 정말로 탈퇴를 누르다니.. 잘가요 사요나라..');
-				location.href="<%=request.getContextPath()%>/deleteMember";
+			
+			if(yes == true){
+				$("#form1").submit();
 			}else{
-				alert('잘 생각하셨어요^^');
+				alert("약관에 동의 해 주시길 바랍니다.");
 			}
 		}
 		
-	</script> --%>
+		function deleteMember(){
+			var answer = window.confirm('탈퇴 후 동일한 계정으로 재가입이 불가능합니다. 그래도 탈퇴하시겠습니까?');
+			
+			if(answer == true){
+				alert('탈퇴 처리되었습니다.');
+				location.href="<%=request.getContextPath()%>/deleteMember.me";
+			}else{
+				alert('탈퇴가 취소되었습니다.');
+			}
+		}
+		
+		$(function(){
+			$("#new_pass2").change(function(){
+				if($("#new_pass").val() != $(this).val()){
+					$("#pwdresult").html("비밀번호가 일치하지 않습니다.").css("color","red");
+					$("#new_pass2").val('');
+					$(this).select();
+				}else{
+					$("#pwdresult").html("비밀번호 일치").css("color","green");
+				}
+			});
+			
+			
+		
+	</script>
 </body>
 </html>

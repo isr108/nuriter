@@ -8,6 +8,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+<<<<<<< HEAD
+=======
+import java.sql.Statement;
+>>>>>>> refs/remotes/nuriter-semi/jihwang0821-2
 import java.util.ArrayList;
 import java.util.Properties;
 
@@ -145,6 +149,7 @@ public class MemberDao {
 	}
 
 	public int snsloginMember(Member m, Connection con) {
+<<<<<<< HEAD
 		int result=0;
 		int sw=0;
 		Member m1=null;
@@ -152,11 +157,183 @@ public class MemberDao {
 		Statement st=null;
 		PreparedStatement pst=null;
 		ResultSet rset=null;
+=======
+	      int result=0;
+	      int sw=0;
+	      Member m1=null;
+	      ArrayList<Member> list=new ArrayList<Member>();
+	      Statement st=null;
+	      PreparedStatement pst=null;
+	      ResultSet rset=null;
+	      
+	      String checkQuery=prop.getProperty("checkMember");
+	      try {
+	         st=con.createStatement();
+	         rset=st.executeQuery(checkQuery);
+	         
+	         while(rset.next()){
+	            m1=new Member();
+	            m1.setUserEmail(rset.getString("user_email"));
+	            
+	            list.add(m1);
+	         }
+	         
+	         for(int i=0;i<list.size();i++){
+	            if(list.get(i).getUserEmail().equals(m.getUserEmail())){
+	               sw=1;
+	               break;
+	            }
+	         }
+	         
+	         String query="";
+	         
+	         if(sw==1){
+	            query=prop.getProperty("loginMember");
+	            
+	            pst=con.prepareStatement(query);
+	            pst.setString(1, m.getUserEmail());
+	            
+	            result=pst.executeUpdate();
+	            
+	            if(result>0){
+	               result=99;
+	            }
+	            else{
+	               result=0;
+	            }
+	            
+	         }
+	         else{
+	            query=prop.getProperty("insertMember");
+	            
+	            pst=con.prepareStatement(query);
+	            pst.setString(1, m.getUserEmail());
+	            pst.setString(2, m.getNickName());
+	            pst.setString(3, m.getToken());
+	            
+	            result=pst.executeUpdate();
+	         }
+	         
+	         
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      } finally{
+	         close(st);
+	         close(rset);
+	         close(pst);
+	      }
+	      
+	      return result;
+	   }
+	
+	public int deleteMember(Connection con, Member m) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+>>>>>>> refs/remotes/nuriter-semi/jihwang0821-2
 		
 		String checkQuery=prop.getProperty("checkMember");
 		try {
+<<<<<<< HEAD
 			st=con.createStatement();
 			rset=st.executeQuery(checkQuery);
+=======
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, m.getUserEmail());
+			pstmt.setString(2, m.getPassword());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			close(pstmt);
+			
+		}
+		
+		return result;
+	}
+
+	public int updateMember(Connection con, Member m, String oldPassword) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = prop.getProperty("updateMember");
+		String query2 = prop.getProperty("updateMemberNoPwd");
+		System.out.println(query);
+		
+		try {
+			if(!m.getPassword().equals(oldPassword)){
+				pstmt = con.prepareStatement(query);
+				pstmt.setString(1, m.getPassword());				
+				pstmt.setString(2, m.getNickName());
+				pstmt.setString(3, m.getAddress());
+				pstmt.setString(4, m.getPhone());
+				pstmt.setString(5, m.getHobby());
+				pstmt.setString(6, m.getUserEmail());
+				pstmt.setString(7, String.valueOf(m.getUserNumber()));
+			
+				result = pstmt.executeUpdate();
+			}else{
+				pstmt = con.prepareStatement(query2);				
+				pstmt.setString(1, m.getNickName());
+				pstmt.setString(2, m.getAddress());
+				pstmt.setString(3, m.getPhone());
+				pstmt.setString(4, m.getHobby());
+				pstmt.setString(5, m.getUserEmail());
+				pstmt.setString(6, String.valueOf(m.getUserNumber()));
+				result = pstmt.executeUpdate();
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+	/*
+
+	public int deleteMember(Connection con, Member m) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = prop.getProperty("deleteMember");
+		System.out.println(query);
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, m.getUserEail());
+			pstmt.setString(2, m.getPassword());
+			
+			result = pstmt.executeUpdate();
+			
+			System.out.println(result);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	public ArrayList<Member> selectAll(Connection con) {
+		ArrayList<Member> list = null;
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		String query = prop.getProperty("selectAll");
+		
+		try {
+			stmt = con.createStatement();
+			
+			rset = stmt.executeQuery(query);
+			
+			list = new ArrayList<Member>();
+>>>>>>> refs/remotes/nuriter-semi/jihwang0821-2
 			
 			while(rset.next()){
 				m1=new Member();

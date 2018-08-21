@@ -43,10 +43,10 @@ public class MemberService {
 		return result;
 	}
 
-	/*public int deleteMember(String userId) {
+	public int deleteMember(Member m) {
 		Connection con = getConnection();
 		
-		int result = new MemberDao().deleteMember(con, userId);
+		int result = new MemberDao().deleteMember(con, m);
 		
 		if(result >0){
 			commit(con);
@@ -63,10 +63,10 @@ public class MemberService {
 
 
 
-	public int updateMember(Member m) {
+	public int updateMember(Member m, String oldPassword) {
 		Connection con = getConnection();
 		
-		int result = new MemberDao().updateMember(con, m);
+		int result = new MemberDao().updateMember(con, m, oldPassword);
 		
 		if(result > 0){
 			commit(con);
@@ -78,6 +78,8 @@ public class MemberService {
 				
 		return result;
 	}
+	
+	/*
 
 	public ArrayList<Member> selectAll() {
 	Connection con = getConnection();
@@ -87,7 +89,7 @@ public class MemberService {
 		close(con);
 		
 		return list;
-	}*/
+	}
 
 	public int idCheck(String userEmail) {
 		Connection con = getConnection();
@@ -100,7 +102,7 @@ public class MemberService {
 		
 		return result;
 		
-	}
+	}*/
 
 	public int snsloginMember(Member m) {
 		Connection con=getConnection();

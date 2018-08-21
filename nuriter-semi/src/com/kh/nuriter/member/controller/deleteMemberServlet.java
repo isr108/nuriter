@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.kh.nuriter.member.model.service.MemberService;
 import com.kh.nuriter.member.model.vo.Member;
@@ -15,7 +16,7 @@ import com.kh.nuriter.member.model.vo.Member;
 /**
  * Servlet implementation class deleteMemberServlet
  */
-@WebServlet("/deleteMember")
+@WebServlet("/deleteMember.me")
 public class deleteMemberServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -31,27 +32,23 @@ public class deleteMemberServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*Member m = (Member)request.getSession().getAttribute("loginUser");
+		request.setCharacterEncoding("UTF-8");
 		
-		int result = new MemberService().deleteMember(m.getUserId());
+		HttpSession session = request.getSession();
 		
-		String page="";
+		Member m = (Member)session.getAttribute("loginUser");
 		
-		if(result > 0){
-			page = "views/common/successPage.jsp";
-			request.setAttribute("msg", "탈퇴 성공!!");
-		}else{
-			page = "views/common/errorPage.jsp";
-			request.setAttribute("msg", "탈퇴 실패!!");
+		int result = new MemberService().deleteMember(m);
 		
+		if(result > 0) {
+			session.invalidate();
+			response.sendRedirect("index.jsp");
+		}else {
+			request.setAttribute("msg", "회원 탈퇴 실패!!");
+			
+			RequestDispatcher view = request.getRequestDispatcher("views/common/errorPage.jsp");
+			view.forward(request, response);
 		}
-		
-		RequestDispatcher view = request.getRequestDispatcher(page);
-		view.forward(request, response);*/
-		
-		/*request.getSession().invalidate();
-		
-		response.sendRedirect("index.jsp");*/
 	}
 
 	/**
