@@ -134,10 +134,11 @@
 	    <%@ include file="../common/myPage_left.jsp" %>
 	</div>
 	<div id="main">
+	<% if(loginUser != null){ %>
 	    	<div id="twoRight" align="center">
 	    		<div id="twoRight-child">
 		    		<div id="twoRight-child2" align="left">
-		    		<form action="<%=request.getContextPath() %>/insert.nu" method="get" id="insertForm">
+		    		<form action="<%=request.getContextPath() %>/insert.nu" method="post" id="insertForm">
 			    		<h3 id="web-font">카테고리</h3><br>
 						  <select id="web-font" class="selectBox">
 						  		<option id="web-font">---</option>
@@ -214,6 +215,13 @@
         	</div>
 	    </div>
     </div>
+    
+    <% }else{
+		request.setAttribute("msg", "잘못된 경로로 접근하셨습니다.");
+		request.getRequestDispatcher("../common/errorPage.jsp").forward(request, response);
+		
+	} %>
+	
     <script>
     //데이터피커
     $(function(){

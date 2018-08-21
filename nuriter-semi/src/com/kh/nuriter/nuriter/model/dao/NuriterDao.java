@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import com.kh.nuriter.nuriter.model.vo.Category;
+import com.kh.nuriter.nuriter.model.vo.Nuriboss;
 import com.kh.nuriter.nuriter.model.vo.Nuriter;
 
 public class NuriterDao {
@@ -96,6 +97,30 @@ public class NuriterDao {
 		}
 		
 		return list;
+	}
+
+	public int insertNuriBoss(Connection con, Nuriboss n) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		String query = prop.getProperty("insertNuriBoss");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, n.getUserNum()); //회원번호
+			pstmt.setString(2, n.getCategoryNum()); //카테고리 넘버
+			pstmt.setString(3, n.getBossContent()); //제목
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
 	}
 
 }

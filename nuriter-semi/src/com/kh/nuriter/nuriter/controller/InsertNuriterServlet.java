@@ -47,7 +47,7 @@ public class InsertNuriterServlet extends HttpServlet {
 		String files = request.getParameter("summerText"); 
 		String price = request.getParameter("price");
 		
-		System.out.println(writer);
+		/*System.out.println(writer);
 		System.out.println(category);
 		System.out.println(title);
 		System.out.println(fromDate);
@@ -56,7 +56,7 @@ public class InsertNuriterServlet extends HttpServlet {
 		System.out.println(endTime);
 		System.out.println(place);
 		System.out.println(files);
-		System.out.println(price);
+		System.out.println(price);*/
 		
 		java.sql.Date startDay = null;
 		

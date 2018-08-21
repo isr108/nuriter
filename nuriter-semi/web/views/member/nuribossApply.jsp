@@ -20,7 +20,7 @@
 <title>Insert title here</title>
 <style>
 	#main {
-		margin-top:190px;
+		margin-top:250px;
 		margin-left:220px;
 		margin-right:auto;
 		overflow:hidden;
@@ -55,7 +55,6 @@
 		width:100px;
 		height:30px;
 		border-radius: 5px; /* iOS 둥근모서리 제거 */
-		background: rgb(241, 196, 15);
 	}
 	button{
 	     width: 90px;
@@ -68,9 +67,18 @@
    
     button:hover {
 	     background-color: white; /* Green */
-	     color: rgb(241, 196, 15);
 	     border: 2px solid rgb(241, 196, 15); /* Green */
    	}
+   	
+   	button font {
+   		color:white;
+   	}
+   	
+   	button:hover font {
+   		color: rgb(241, 196, 15);
+   	}
+   	
+   	
 </style>
 </head>
 <body>
@@ -79,7 +87,8 @@
 	    <%@ include file="../common/categorybar.jsp" %>
 	    <%@ include file="../common/myPage_left.jsp" %>
 	</div>
-	<form>
+	<% if(loginUser != null && loginUser.get){ %>
+	<form action="<%=request.getContextPath() %>/insertBoss.nu" method="get" id="insertForm">
 		<div id="main" align="center">
 			<div id="child">
 				<div id="child2" align="left">
@@ -111,27 +120,43 @@
 							</div>
 					  </div>
 					  
-					  <h3 id="web-font">활동 계획서</h3>
+					  <input type="hidden" id="web-font" class="summerText" name="summerText">
+					  
+					  <!-- <h3 id="web-font">활동 계획서</h3>
 					  <button id="button1"><font id="web-font">파일첨부</font></button>
 				
 					  <div id="fileArea">
-					  <input type="file" id="thumbnailImg1">
+					  <input type="file" id="thumbnailImg1"> -->
 					  </div>
 					  
 					  <br><br><br><br>
 					  
 					  <div id="submit" align="center">
-						  <button id="web-font">신청하기</button>
-						  &nbsp;&nbsp;&nbsp;&nbsp;
-						  &nbsp;&nbsp;&nbsp;&nbsp;
-						  <button id="web-font">취소</button>
+						  <button id="web-font" type="submit" onclick="insert();"><font>신청하기</font></button>
+						  &nbsp;&nbsp;
+						  <button id="web-font" type="reset"><font>취소</font></button>
 					  </div>
 					  
 				</div>
 			</div>
-		</div>
+			
+			<% }else{
+					request.setAttribute("msg", "잘못된 경로로 접근하셨습니다.");
+					request.getRequestDispatcher("../common/errorPage.jsp").forward(request, response);
+			} %>
 	</form>
+	
 	<script>
+	//개설하기 버튼
+    function insert(){
+    	var markupStr = $('#summernote').summernote('code');
+    	console.log(markupStr);
+    	
+    	$(".summerText").val(markupStr);
+    	
+		$("#insertForm").submit();
+	}
+	
     $(function(){
 		$("#fileArea").hide();
 		
