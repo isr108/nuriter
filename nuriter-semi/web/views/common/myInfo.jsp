@@ -122,7 +122,7 @@
 		<div id="myInfoPage">
 		<h1 align="center"><%=loginUser.getUserName() %>님의 회원 정보 수정</h1>
 		<br><br>
-		<form action="<%=request.getContextPath()%>/updateMember.me" method="post">
+		<form  id="myInfo" action="<%=request.getContextPath()%>/updateMember.me" method="post">
 			<table class="changeInfo" align="center">
 			<colgroup>
 				<col width="140">
@@ -147,12 +147,12 @@
 			<tr>
 				<th>새 비밀번호</th>
 				<td>
-					<input type="password" id="new_pass" name="password" maxlength="16" class="newPassword">
+					<input type="password" id="newPass1" name="password" maxlength="16" class="newPassword">
 				</td>
 			</tr>
 			<tr>
 				<th>새 비밀번호 확인</th>
-				<td><input type="password" id="new_pass2" name="password" maxlength="16" class="newPassword">
+				<td><input type="password" id="newPass2" name="password" maxlength="16" class="newPassword">
 				<br>
 				<label id="pwdresult"></label>
 				</td>
@@ -202,7 +202,7 @@
 		<br><br>
 		<div align="center">
 		<input type="button" value="취소하기" onclick="location.href='<%=request.getContextPath()%>/index.jsp'"> 
-		<input type="button" value="변경하기" onclick="updateMember();">
+		<button onclick="updateMember();">변경하기</button>
 		<!-- <input type="submit" value="변경하기"> -->
 		<button onclick="deleteMember();">탈퇴하기</button>
 		</div>
@@ -237,16 +237,25 @@
 		});
 		
 		function updateMember(){
-
-			var pwd1 = document.getElementById("oldPass1").checked;
-			var num = 0;
+			var oldPass1  = $("#oldPass1").val();
+			var oldPass2  = $("#oldPass2").val();
+			var newPass1 = $("#newPass1").val();
+			var newPass2 = $("#newPass2").val();
+			//패스워드 입력여부 검사
+			 if(oldPass1 == ""){
+			  alert("기존 비밀번호를 입력하세요");
+			  oldPass1.select();
+			 }else if(oldPass1 != oldPass2){
+				alert("패스워드가 일치하지않습니다");
+				oldPass1 ="";
+				oldPass2 ="";
+				oldPass1.select();
+			 }else{
+				 $("#myInfo").sumbit();
+				 
+			 }
+			 
 			
-			
-			if(yes == true){
-				$("#form1").submit();
-			}else{
-				alert("약관에 동의 해 주시길 바랍니다.");
-			}
 		}
 		
 		function deleteMember(){
@@ -260,7 +269,7 @@
 			}
 		}
 		
-		$(function(){
+		/* $(function(){
 			$("#new_pass2").change(function(){
 				if($("#new_pass").val() != $(this).val()){
 					$("#pwdresult").html("비밀번호가 일치하지 않습니다.").css("color","red");
@@ -269,7 +278,7 @@
 				}else{
 					$("#pwdresult").html("비밀번호 일치").css("color","green");
 				}
-			});
+			}); */
 			
 			
 		
