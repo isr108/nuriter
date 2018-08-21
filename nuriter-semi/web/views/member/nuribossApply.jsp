@@ -4,6 +4,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<!-- 부가적인 테마 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/semantic.min.css">
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/semantic.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <title>Insert title here</title>
 <style>
 	#main {
@@ -33,6 +46,9 @@
    	}
    	#submit > button {
    		width:150px;
+   	}
+   	.web-font{
+      	font-family: 'Jua', sans-serif;
    	}
    	select {
 		display:inline;
@@ -72,7 +88,7 @@
 					<br><br>
 					
 					<h3 id="web-font">카테고리</h3>
-					<select id="web-font">
+					<select id="web-font" class="selectBox">
 					  		<option id="web-font">---</option>
 					        <option id="web-font">언어</option>
 					        <option id="web-font">공방</option>
@@ -82,7 +98,9 @@
 					        <option id="web-font">컴퓨터</option>
 					        <option id="web-font">문화</option>
 					        <option id="web-font">기타</option>
-					  </select>
+					</select>
+					
+					<select name="category" id="gsonListSelect" class="web-font" style="display:none; font-size:14px;"></select>
 					
 					  <br><br>
 					
@@ -119,6 +137,37 @@
 		
 		$("#button1").click(function(){
 			$("#thumbnailImg1").click();
+		});
+    });
+    
+  //셀렉트 박스
+    $(function(){
+	    $(".selectBox").change(function(){
+	    	var name = $(".selectBox option:selected").text();
+	    	
+	    	$.ajax({
+				url:"/ns/category.nu",
+				data:{name:name},
+				type:"get",
+				success:function(data){
+					console.log(data);
+					
+					$select = $("#gsonListSelect");
+					$select.find("option").remove();
+					
+					for(var key in data){
+						var $option = $("<option  name='category'>");
+						$option.val(data[key].cno);
+						$option.text(data[key].cname);
+						$select.append($option);
+					}
+					
+					$("#gsonListSelect").show();
+				},
+				error:function(data){
+					console.log(data)
+				}
+			});
 		});
     });
     </script>

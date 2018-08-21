@@ -42,13 +42,15 @@ public class NuriterDao {
 		
 		try {
 			pstmt = con.prepareStatement(query);
-			pstmt.setString(1, n.getCategoryNum());
-			pstmt.setString(2, n.getNuriTitle());
-			pstmt.setDate(3, n.getStartDate());
-			pstmt.setDate(4, n.getEndDate());
-			pstmt.setString(5, n.getStartTime());
-			pstmt.setString(6, n.getPlace());
-			pstmt.setString(7, n.getPrice());
+			pstmt.setString(1, n.getOwnerNum()); //회원번호
+			pstmt.setString(2, n.getCategoryNum()); //카테고리 넘버
+			pstmt.setString(3, n.getNuriTitle()); //제목
+			pstmt.setDate(4, n.getStartDate()); //시작
+			pstmt.setDate(5, n.getEndDate()); //종룍
+			pstmt.setString(6, n.getStartTime());
+			pstmt.setString(7, n.getPlace());
+			pstmt.setString(8, n.getPrice());
+			pstmt.setString(9, n.getContent());
 			
 			result = pstmt.executeUpdate();
 			

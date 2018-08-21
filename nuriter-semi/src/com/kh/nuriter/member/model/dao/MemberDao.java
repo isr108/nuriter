@@ -47,7 +47,7 @@ public class MemberDao {
 			if(rset.next()){
 				loginUser = new Member();
 				
-				/*loginUser.setUserNumber(rset.getString("user_number"));*/
+				loginUser.setUserNumber(Integer.parseInt(rset.getString("user_number")));
 				loginUser.setUserEmail(rset.getString("user_email"));
 				loginUser.setPassword(rset.getString("user_pwd"));
 				loginUser.setUserName(rset.getString("user_name"));

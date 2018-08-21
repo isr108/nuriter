@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.kh.nuriter.member.model.vo.Member;
 import com.kh.nuriter.nuriter.model.service.NuriterService;
 import com.kh.nuriter.nuriter.model.vo.Nuriter;
 
@@ -32,6 +33,7 @@ public class InsertNuriterServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String writer = String.valueOf(((Member)(request.getSession().getAttribute("loginUser"))).getUserNumber());
 		String category = request.getParameter("category");
 		String title = request.getParameter("title");
 		String fromDate = request.getParameter("fromDate");
@@ -42,15 +44,19 @@ public class InsertNuriterServlet extends HttpServlet {
 		String placeTwo = request.getParameter("placeTwo");
 		String placeTree = request.getParameter("placeTree");
 		String place = placeOne + " " + placeTwo + " " + placeTree;
-		String files = request.getParameter("files"); 
+		String files = request.getParameter("summerText"); 
+		String price = request.getParameter("price");
 		
-		/*System.out.println(title);
+		System.out.println(writer);
+		System.out.println(category);
+		System.out.println(title);
 		System.out.println(fromDate);
 		System.out.println(toDate);
 		System.out.println(startTime);
 		System.out.println(endTime);
 		System.out.println(place);
-		System.out.println(files);*/
+		System.out.println(files);
+		System.out.println(price);
 		
 		java.sql.Date startDay = null;
 		
@@ -89,7 +95,7 @@ public class InsertNuriterServlet extends HttpServlet {
 		}
 		
 		Nuriter n = new Nuriter();
-		n.setOwnerNum("누리장 번호");
+		n.setOwnerNum(writer);
 		n.setCategoryNum(category);
 		n.setNuriTitle(title);
 		n.setStartDate(startDay);
@@ -97,8 +103,8 @@ public class InsertNuriterServlet extends HttpServlet {
 		n.setStartTime(startTime + " ~ " + endTime);
 		n.setEndTime(endTime);
 		n.setPlace(place);
-		n.setContent("제목이 곧 내용");
-		n.setPrice("20000");
+		n.setContent(files);
+		n.setPrice(price);
 		
 		System.out.println(n.toString());
 		

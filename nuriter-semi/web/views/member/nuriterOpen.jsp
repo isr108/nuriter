@@ -23,6 +23,8 @@
 
 <!-- 다음 우편번호 찾기 -->
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <title>Insert title here</title>
 <style>
 	#main {
@@ -78,7 +80,7 @@
    	.web-font{
       	font-family: 'Jua', sans-serif;
    	}
-   	.text{
+   	#nuriterTitle{
    		width: 600px;
 	    padding: 12px 20px;
 	    margin: 4px 0;
@@ -132,7 +134,6 @@
 	    <%@ include file="../common/myPage_left.jsp" %>
 	</div>
 	<div id="main">
-			<% if(loginUser != null){ %>
 	    	<div id="twoRight" align="center">
 	    		<div id="twoRight-child">
 		    		<div id="twoRight-child2" align="left">
@@ -158,7 +159,7 @@
 					  <br><br>
 					  
 					  <h3 id="web-font">누리터명</h3>
-					  <input type="text" id="nuriterTitle" class="text" name="title">
+					  <input type="text" id="nuriterTitle" class="web-font" name="title">
 					  
 					  <br><br>
 					  
@@ -193,6 +194,15 @@
 						  </div>
 					  </div>
 					  
+					  <br>
+					  
+					  <input type="hidden" id="web-font" class="summerText" name="summerText">
+					  
+					  <h3 id="web-font">활동비</h3>
+					  <div id="summerText">
+						  <input type="text" id="web-font" name="price">
+					  </div>
+					  
 					  <br><br><br><br>
 					  
 					  <div id="submitDiv" align="center">
@@ -212,6 +222,11 @@
     
     //개설하기 버튼
     function insert(){
+    	var markupStr = $('#summernote').summernote('code');
+    	console.log(markupStr);
+    	
+    	$(".summerText").val(markupStr);
+    	
 		$("#insertForm").submit();
 	}
     
@@ -291,10 +306,5 @@
     </script>
     <br><br><br><br><br>
     <br><br><br>
-    
-    <% }else{
-		request.setAttribute("msg", "잘못된 경로로 접근하셨습니다.");
-		request.getRequestDispatcher("../common/errorPage.jsp").forward(request, response);
-	} %>
 </body>
 </html>
