@@ -23,11 +23,6 @@
 
 <!-- 다음 우편번호 찾기 -->
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-  <script>
-  $( function() {
-    $( "#datepicker" ).datepicker();
-  } );
-  </script>
 <title>Insert title here</title>
 <style>
 	#main {
@@ -58,9 +53,6 @@
 	}
 	#web-font{
       	font-family: 'Jua', sans-serif;
-   	}
-   	#submitDiv {
-   		margin-right:200px;
    	}
    	#submitDiv > button {
    		width:150px;
@@ -197,7 +189,7 @@
 					  <h3 id="web-font">누리터 내용</h3>
 					  <div id="summerText">
 						  <div id="summertextChild">
-						  	<%@ include file="../common/summerText.jsp" %>
+						  	<%@ include file="../common/summernote_write.jsp" %>
 						  </div>
 					  </div>
 					  

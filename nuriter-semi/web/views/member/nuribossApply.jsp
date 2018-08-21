@@ -89,7 +89,7 @@
 				      <h3 id="web-font">누리장 신청 내용</h3>
 					  <div id="summerText">
 							<div id="summertextChild">
-								<%@ include file="../common/summerText.jsp" %>
+								<%@ include file="../common/summernote_write.jsp" %>
 							</div>
 					  </div>
 					  

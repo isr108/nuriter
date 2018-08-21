@@ -394,7 +394,7 @@
      <div id="showRight">
      
         <div id="showRightButton">
-            <button class="button">누리터 개설하기</button>
+            <button class="button" onclick="location.href='/ns/views/member/nuriterOpen.jsp' ">누리터 개설하기</button>
               <button class="button">관심누리터 확인</button>
                <div class="select-control inline-block width-100px" align="right">
                <select class="input-xs" onchange="sendGAClickEvent('정렬 방식 변경 - ' + this.value)" >
