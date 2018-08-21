@@ -172,12 +172,12 @@
    			<label>공지사항</label>
    			<div id="btnBox">
    			
-   			<%-- <% if(loginUser != null 
-			     && loginUser.getUserId().equals("admin")){ %> --%>
+   			<% if(loginUser != null 
+			     && loginUser.getUserEmail().equals("admin")){ %>
 			     
    			  <button onclick="location.href='views/notice/noticeInsertForm.jsp'">작성하기</button>
    			  
-   			<%-- <% } %> --%>
+   			<% } %>
    			
    			</div>
    		</div>

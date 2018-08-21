@@ -126,5 +126,62 @@ public class NoticeDao {
 		
 		return listCount;
 	}
+	public Notice selectOne(Connection con, String num) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		Notice n = null;
+		
+		String query = prop.getProperty("selectOne");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, num);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()){
+				n = new Notice();
+				
+				n.setbNumber(rset.getString("board_number"));
+				n.setbTitle(rset.getString("board_title"));
+				n.setbContent(rset.getString("board_content"));
+				n.setUserNumber(rset.getString("nickname"));
+				n.setbCount(rset.getInt("bcount"));
+				n.setbDate(rset.getDate("board_date"));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(rset);
+		}
+		System.out.println(n);
+		
+		return n;
+	}
+	public int updateNotice(Connection con, Notice n) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = prop.getProperty("updateNotice");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, n.getbTitle());
+			pstmt.setDate(2, n.getbDate());
+			pstmt.setString(3, n.getbContent());
+			pstmt.setString(4, n.getbNumber());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
 
 }

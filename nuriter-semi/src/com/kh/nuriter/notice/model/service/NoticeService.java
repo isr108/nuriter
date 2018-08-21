@@ -47,8 +47,29 @@ public class NoticeService {
 	}
 
 	public Notice selectOne(String num) {
+		Connection con = getConnection();
 		
-		return null;
+		Notice n = new NoticeDao().selectOne(con, num);
+		
+		close(con);
+		
+		return n;
+	}
+
+	public int updateNotice(Notice n) {
+		Connection con = getConnection();
+		
+		int result = new NoticeDao().updateNotice(con, n);
+		
+		if(result > 0){
+			commit(con);
+		}else{
+			rollback(con);
+		}
+		
+		close(con);
+		
+		return result;
 	}
 
 }
