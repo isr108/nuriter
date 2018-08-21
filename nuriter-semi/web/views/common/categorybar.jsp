@@ -56,7 +56,7 @@
       /* margin:auto;  */
       text-align:center;
        /* height:30px; */
-      margin-top:3%;
+      margin-top:2%;
      
    }
    
@@ -100,12 +100,12 @@
 		margin:0px;
 		border:0px;
 		position:absolute;
-		width:120px;
+		width:150px;
 		z-index:200;
 		/* left:0; */
 		/* opacity: 0; */
 		list-style-type: none;
-		text-align:left;
+		text-align:center;
 		
 		}
 	
@@ -115,7 +115,7 @@
 		
 	}
 	li.na{
-		width:120px;
+		width:150px;
 		border-style: solid;
        border-color: rgb(241, 196, 15);
        border-top:none;
@@ -325,18 +325,64 @@
           <ul class="navi">
                <li id="web-font" ><a href="/bs/views/Login.html">언어</a>
                	 <ul>
-               		<li id="web-font" class="na"><a href="#">일본어</a></li>
+               		<li id="web-font" class="na"><a href="#">영어</a></li>
                		<li id="web-font" class="na"><a href="#">중국어</a></li>
+               		<li id="web-font" class="na"><a href="#">일본어</a></li>
+               		<li id="web-font" class="na"><a href="#">아랍어</a></li>
                		
                	</ul> 
                	</li>	
-               <li id="web-font"><a href="/bs/views/mypage.html">공방</a></li>
-               <li id="web-font"><a href="/bs/views/roadmap.html">요리</a></li>
-               <li id="web-font"><a href="/bs/views/hobby.html">운동</a></li>
-               <li id="web-font"><a href="/bs/views/nuritaShow.html">음악</a></li>
-               <li id="web-font"><a href="/bs/views/nuritaShow.html">컴퓨터</a></li>
-               <li id="web-font"><a href="/bs/views/nuritaShow.html">문화</a></li>
-               <li id="web-font"><a href="/bs/views/nuritaShow.html">기타</a></li>
+               <li id="web-font"><a href="/bs/views/mypage.html">공방</a>
+               	<ul>
+               		<li id="web-font" class="na"><a href="#">목공</a></li>
+               		<li id="web-font" class="na"><a href="#">가죽</a></li>
+               		<li id="web-font" class="na"><a href="#">플로리스트</a></li>
+               		
+               	</ul> 
+               </li>
+               <li id="web-font"><a href="/bs/views/roadmap.html">요리</a>
+               	<ul>
+               		<li id="web-font" class="na"><a href="#">한식</a></li>
+               		<li id="web-font" class="na"><a href="#">중식</a></li>
+               		<li id="web-font" class="na"><a href="#">일식</a></li>
+               		<li id="web-font" class="na"><a href="#">양식</a></li>
+               		
+               	</ul> 
+               </li>
+               <li id="web-font"><a href="/bs/views/hobby.html">운동</a>
+               <ul>
+               	<li id="web-font" class="na"><a href="#">축구</a></li>
+               	<li id="web-font" class="na"><a href="#">야구</a></li>
+               	<li id="web-font" class="na"><a href="#">농구</a></li>
+               	<li id="web-font" class="na"><a href="#">수영</a></li>
+               	</ul>
+               </li>
+               <li id="web-font"><a href="/bs/views/nuritaShow.html">음악</a>
+               <ul>
+               	<li id="web-font" class="na"><a href="#">악기</a></li>
+               	<li id="web-font" class="na"><a href="#">보컬</a></li>
+               	<li id="web-font" class="na"><a href="#">작곡</a></li>
+               	</ul>
+               </li>
+               <li id="web-font"><a href="/bs/views/nuritaShow.html">컴퓨터</a>
+               <ul>
+               	<li id="web-font" class="na"><a href="#">양식</a></li>
+               	<li id="web-font" class="na"><a href="#">양식</a></li>
+               	<li id="web-font" class="na"><a href="#">양식</a></li>
+               	</ul>
+               </li>
+               <li id="web-font"><a href="/bs/views/nuritaShow.html">문화</a>
+               <ul>
+               	<li id="web-font" class="na"><a href="#">영화</a></li>
+               	<li id="web-font" class="na"><a href="#">미술관</a></li>
+               	<li id="web-font" class="na"><a href="#">공연</a></li>
+               </ul>
+               </li>
+               <li id="web-font"><a href="/bs/views/nuritaShow.html">기타</a>
+               	<ul>
+               	<li id="web-font" class="na"><a href="#">낚시</a></li>
+               </ul>
+               </li>
           </ul>
         </div>
         <hr class="colorgraph">

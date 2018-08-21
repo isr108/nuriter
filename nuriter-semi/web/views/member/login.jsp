@@ -160,40 +160,52 @@
 	<!-- <button type="button" style="width: 290px; height: 30px;"><font id="web-font">카카오톡으로
 				시작하기</font></button> -->
 				<a id="kakao-login-btn"></a>
-				<a href="http://developers.kakao.com/logout"></a>
+				<a href="http://developers.kakao.com/logout" onclick="kakao"></a>
 				<script type='text/javascript'>
-	  					//<![CDATA[
-				    // 사용할 앱의 JavaScript 키를 설정해 주세요.
+				function kakao(){
+					
+			
 				    Kakao.init('a8004af3cf14f2187ce86e8e3a84b0e4');
 				    // 카카오 로그인 버튼을 생성합니다.
-				    Kakao.Auth.createLoginButton({
+				   Kakao.Auth.createLoginButton({
+				    /* Kakao.Auth.loginForm({ */
+			
 				      container: '#kakao-login-btn',
 				      success: function(authObj) {
-				    	 Kakao.API.reuest({
+				    	  var accessToken=Kakao.Auth.getAccessToken();
+							var refreshToken=authObj.refresh_token;
+				    	  
+				    	if(accessToken){ 
+							Kakao.API.reuest({
 				    		  
 				    		  url: '/v1/user/me',
 				    		  success: function(res){
-				    			 
-				    		  alert(res.properties.nickname+'님 환영합니다.');
-				    		  location.href="./home?name"+res.properties.nickname;
-				    			  /* alert(JSON.stringify(authObj));
-							        console.log(JSON.stringify(authObj.kaccount_email));
-						              console.log(JSON.stringify(authObj.id));
-
-						              console.log(JSON.stringify(authObj.properties.nickname)); */
+				    			  c/* onsole.log(JSON.stringify(res.kaccount_email));
+				                  console.log(JSON.stringify(res.id));
+				                  console.log(JSON.stringify(res.properties.profile_image));
+				                  console.log(JSON.stringify(res.properties.nickname)); */
+				                  
+				                  console.log(res.id);
+				                  $("#id").val(res.id);
 				    		  },
 				    	 	  fail: function(err) {
 							         alert(JSON.stringify(err));
 				    	 	  }
 				    	  });
-				        
+				    	}
 				      },
 				      fail: function(err) {
 				         alert(JSON.stringify(err));
 				      }
 				    });
-				  //]]>
+				   }
+				  
 				</script>
+				<form id="login" method="post" action="<%= request.getContextPath() %>/login.me">
+		<input type="hidden" name="id">
+		<input type="hidden" name="nickname">
+		<input type="hidden" name="refreshToken">
+	</form>
 	</div>
 	
 	<script>
