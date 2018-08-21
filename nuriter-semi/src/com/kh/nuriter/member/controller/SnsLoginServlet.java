@@ -53,7 +53,7 @@ public class SnsLoginServlet extends HttpServlet {
 			request.setAttribute("msg", "로그인 및 가입 실패");
 		}
 		
-		RequestDispatcher view=request.getRequestDispatcher("result.jsp");
+		RequestDispatcher view=request.getRequestDispatcher("index.jsp");
 		view.forward(request, response);
 	}
 
