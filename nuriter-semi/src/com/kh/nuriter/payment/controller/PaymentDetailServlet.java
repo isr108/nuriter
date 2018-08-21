@@ -7,20 +7,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.kh.nuriter.payment.model.service.PaymentService;
-import com.kh.nuriter.payment.model.vo.Payment;
-
 /**
- * Servlet implementation class PaymentServlet
+ * Servlet implementation class PaymentDetailServlet
  */
-@WebServlet("/payment.pms")
-public class PaymentServlet extends HttpServlet {
+@WebServlet("/paymentDetail.pd")
+public class PaymentDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PaymentServlet() {
+    public PaymentDetailServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,28 +26,11 @@ public class PaymentServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String pid =request.getParameter("imp");
-		String userNum = request.getParameter("userNum");
-		String nuriNum = request.getParameter("nuriNum");
-		
-		Payment p = new Payment();
-		p.setpId(pid);
-		p.setUserNum(userNum);
-		p.setNuriNum(nuriNum);
-		
-		int result =new PaymentService().InsertPayment(p);
-		
-	/*	String page="";
-		if(result >0){
-			response.sendRedirect(request.getContextPath() +"/paymentDetail.pd");
-		}else{
 			
-		}*/
 		
-		
-		System.out.println("결제번호 : "+pid);
-		System.out.println("유저넘버 : "+userNum);
-		System.out.println("누리넘버  : "+nuriNum);
+	
+	
+	
 	
 	}
 

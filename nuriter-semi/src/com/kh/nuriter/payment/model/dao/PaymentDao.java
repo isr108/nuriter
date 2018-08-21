@@ -22,7 +22,7 @@ public class PaymentDao {
 			e.printStackTrace();
 		}
 	}
-
+//
 	public int InsertPayment(Payment p, Connection con) {
 		int result =0;
 		PreparedStatement pstmt = null;

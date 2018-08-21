@@ -18,7 +18,7 @@ public class Payment {
 		return pId;
 	}
 
-	
+	//
 	public String getUserNum() {
 		return userNum;
 	}

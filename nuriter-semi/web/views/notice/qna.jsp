@@ -151,7 +151,7 @@ margin-top:10%;
 			<div class="b">
 				<button id="bButton" onclick="location.href='quaInquire.jsp'">게시글 작성</button>
 			</div>
-			<div class="bulletin" class="web-font">
+			<div class="bulletin" id="web-font">
 				<table id="bulletinTable">
 					<tr class="tHead">
 					 <td>NO.</td>
