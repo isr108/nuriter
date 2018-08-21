@@ -2,12 +2,12 @@ package com.kh.nuriter.payment.model.vo;
 
 public class Payment {
 	private String pId; //결제아이디
-	private int userNum;//회원번호
+	private String userNum;//회원번호
 	private String nuriNum;//누리터 번호
 	
 	public Payment(){}
 
-	public Payment(String pId, int userNum, String nuriNum) {
+	public Payment(String pId, String userNum, String nuriNum) {
 		super();
 		this.pId = pId;
 		this.userNum = userNum;
@@ -18,7 +18,7 @@ public class Payment {
 		return pId;
 	}
 
-	public int getUserNum() {
+	public String getUserNum() {
 		return userNum;
 	}
 
@@ -30,7 +30,7 @@ public class Payment {
 		this.pId = pId;
 	}
 
-	public void setUserNum(int userNum) {
+	public void setUserNum(String userNum) {
 		this.userNum = userNum;
 	}
 
