@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Properties;
 
 import com.kh.nuriter.member.model.vo.Member;
@@ -141,6 +143,75 @@ public class MemberDao {
 		return result;
 	}
 
+	public int snsloginMember(Member m, Connection con) {
+	      int result=0;
+	      int sw=0;
+	      Member m1=null;
+	      ArrayList<Member> list=new ArrayList<Member>();
+	      Statement st=null;
+	      PreparedStatement pst=null;
+	      ResultSet rset=null;
+	      
+	      String checkQuery=prop.getProperty("checkMember");
+	      try {
+	         st=con.createStatement();
+	         rset=st.executeQuery(checkQuery);
+	         
+	         while(rset.next()){
+	            m1=new Member();
+	            m1.setUserEmail(rset.getString("user_email"));
+	            
+	            list.add(m1);
+	         }
+	         
+	         for(int i=0;i<list.size();i++){
+	            if(list.get(i).getUserEmail().equals(m.getUserEmail())){
+	               sw=1;
+	               break;
+	            }
+	         }
+	         
+	         String query="";
+	         
+	         if(sw==1){
+	            query=prop.getProperty("loginMember");
+	            
+	            pst=con.prepareStatement(query);
+	            pst.setString(1, m.getUserEmail());
+	            
+	            result=pst.executeUpdate();
+	            
+	            if(result>0){
+	               result=99;
+	            }
+	            else{
+	               result=0;
+	            }
+	            
+	         }
+	         else{
+	            query=prop.getProperty("insertMember");
+	            
+	            pst=con.prepareStatement(query);
+	            pst.setString(1, m.getUserEmail());
+	            pst.setString(2, m.getNickName());
+	            pst.setString(3, m.getToken());
+	            
+	            result=pst.executeUpdate();
+	         }
+	         
+	         
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      } finally{
+	         close(st);
+	         close(rset);
+	         close(pst);
+	      }
+	      
+	      return result;
+	   }
+	
 	public int deleteMember(Connection con, Member m) {
 		PreparedStatement pstmt = null;
 		int result = 0;
