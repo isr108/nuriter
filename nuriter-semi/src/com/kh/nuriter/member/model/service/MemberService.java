@@ -4,11 +4,16 @@ import static com.kh.nuriter.common.JDBCTemplate.close;
 import static com.kh.nuriter.common.JDBCTemplate.commit;
 import static com.kh.nuriter.common.JDBCTemplate.getConnection;
 import static com.kh.nuriter.common.JDBCTemplate.rollback;
+import static com.sns.common.JDBCTemplate.close;
+import static com.sns.common.JDBCTemplate.commit;
+import static com.sns.common.JDBCTemplate.getConnection;
+import static com.sns.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 
 import com.kh.nuriter.member.model.dao.MemberDao;
 import com.kh.nuriter.member.model.vo.Member;
+import com.sns.member.model.dao.SNSMemberDao;
 
 public class MemberService {
 
@@ -100,6 +105,23 @@ public class MemberService {
 		
 		return result;
 		
+	}
+
+	public int snsloginMember(Member m) {
+		Connection con=getConnection();
+		
+		int result=new MemberDao().snsloginMember(m, con);
+		
+		if(result > 0){
+			commit(con);
+		}
+		else{
+			rollback(con);
+		}
+		
+		close(con);
+		
+		return result;
 	}
 
 }

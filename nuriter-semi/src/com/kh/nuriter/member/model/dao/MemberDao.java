@@ -11,6 +11,10 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 import com.kh.nuriter.member.model.vo.Member;
+import com.sns.member.model.dao.ArrayList;
+import com.sns.member.model.dao.Statement;
+import com.sns.member.model.dao.String;
+import com.sns.member.model.vo.SNSMember;
 
 public class MemberDao {
 	private Properties prop = new Properties();
@@ -139,6 +143,19 @@ public class MemberDao {
 			
 		}
 		return result;
+	}
+
+	public int snsloginMember(Member m, Connection con) {
+		int result=0;
+		int sw=0;
+		SNSMember m=null;
+		ArrayList<SNSMember> list=new ArrayList<SNSMember>();
+		Statement st=null;
+		PreparedStatement pst=null;
+		ResultSet rset=null;
+		
+		String checkQuery=prop.getProperty("checkMember");
+		return 0;
 	}
 
 	/*public int deleteMember(Connection con, String userId) {
