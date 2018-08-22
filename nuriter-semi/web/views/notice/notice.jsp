@@ -151,33 +151,31 @@
 </head>
 <body>
 	<%@ include file="../common/logoAndLogbutton.jsp" %>
-	<%-- <%@ include file="adminbar.jsp" %> --%>
 	
 <div id="main">
  <br><br> <br><br>
-    <!-- <hr class="colorgraph">
+    <hr class="colorgraph">
     
 	<div id="showLeft" >
      <ul class="navi2" style="list-style-type:none">
         <hr class="colorgraph">
         <li id="web-font"><a href="#">공지사항</a></li>
         <hr class="colorgraph">
-        <li id="web-font"><a href="#">Q&A</a></li>
-        <li id="web-font"><a href="#">자주묻는질문</a></li>
+        
      </ul>
-   	</div> -->
+   	</div>
    	
    	<div id="notice" align="center">
    		<div id="upBox" align="center">
    			<label>공지사항</label>
    			<div id="btnBox">
    			
-   			<%-- <% if(loginUser != null 
-			     && loginUser.getUserId().equals("admin")){ %> --%>
+   			<% if(loginUser != null 
+			     && loginUser.getUserEmail().equals("admin")){ %>
 			     
    			  <button onclick="location.href='views/notice/noticeInsertForm.jsp'">작성하기</button>
    			  
-   			<%-- <% } %> --%>
+   			<% } %>
    			
    			</div>
    		</div>
