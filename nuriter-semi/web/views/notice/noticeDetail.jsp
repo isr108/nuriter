@@ -7,38 +7,101 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
-	.outer{
-		width:800px;
-		height:500px;
-		border:1px solid blue;
-		background:white;
-		color:black;
-		margin-left:auto;
-		margin-right:auto;
-		margin-top:50px;
-	}
-	table {
-		border:1px solid red;
-	}
-	.tableArea {
-		width:450px;
-		height:350px;
-		margin-left:auto;
-		margin-right:auto;
-	}
+	
+	#main{
+   	border:1px solid white;
+   	min-height:90%:
+   }
+   
+   #web-font{
+      font-family: 'Jua', sans-serif;
+   } 
+
+	.colorgraph {
+      width: 98%;
+        height: 3px;
+        border-top: 0;
+        background: rgb(241, 196, 15);
+        border-radius: 3px;
+   }
+
+
+	#showLeft{
+       float:left;
+       width:10%;
+       font-size:20px;
+       display: inline-block;
+   }
+   
+   ul.navi2 li a {
+      float: center;
+      font-size: 15px;
+      line-height: 10px;
+      color: #000000;
+      text-decoration: none;
+      -moz-border-radius-topright: 10px;
+      -webkit-border-top-right-radius: 10px;
+      -moz-border-radius-topleft: 10px;
+      -webkit-border-top-left-radius: 10px;
+   }
+   
+   #noticeDetail{
+   	border:1px solid blue;
+   	width:40%;
+   	margin-left:auto;
+   	margin-right:auto;
+   	width: 1080px;
+   	min-height: 800px;
+   	background:#eaeaea;
+   }
+   
+   #upBox{
+   	border:1px solid red;
+   	width:100%;
+   	height:50px;
+   }
+   
+   #upBox > label {
+    font-size:20px;
+   	float: left;
+   }
+   
+   #tableArea{
+     border:1px solid white;
+     width:100%;
+     height:480px;
+   }
+   
+   table {
+   }
+   
 </style>
 </head>
 <body>
 <%@ include file="../common/logoAndLogbutton.jsp" %>
-<div class="outer">
-		<br>
-		<h2 align="center">공지 사항 내용</h2>
-		<div class="tableArea">
-			<table>
+
+<div id="main">
+ <br><br> <br><br>
+ 	<hr class="colorgraph">
+    
+	<div id="showLeft" >
+     <ul class="navi2" style="list-style-type:none">
+        <hr class="colorgraph">
+        <li id="web-font"><a href="#">공지사항</a></li>
+        <hr class="colorgraph">
+     </ul>
+   	</div>
+ 	
+ 	<div id="noticeDetail" align="center">
+ 		<div id="upBox" align="center">
+   			<label>공지 사항</label>
+   		</div>
+ 		<div class="tableArea">
+ 		<table>
 				<tr>
 					<td>제목</td>
 					<td colspan="3">
-						<input type="text" size="50" 
+						<input type="text" size="100" 
 						name="title" value="<%=n.getbTitle()%>" readonly>
 					</td>
 				</tr>
@@ -60,22 +123,24 @@
 				<tr>
 					<td colspan="4">
 						<textarea name="content" 
-						cols="60" rows="15" 
+						cols="108" rows="30" 
 						style="resize:none" readonly><%= n.getbContent() %></textarea>
 					</td>
 				</tr>
 				
 			</table>
-			<br>
+ 			<br>
 			<div align="center">
-				<button onclick="location.href='<%=request.getContextPath() %>/selectList.no'">메뉴로 돌아가기</button>
+				<button onclick="location.href='<%=request.getContextPath() %>/selectList.no'">이전</button>&nbsp;
 				<% if(loginUser != null 
 					&& loginUser.getUserEmail().equals("admin")){ %>
 					<button onclick="location.href='<%=request.getContextPath()%>/selectNotice.no?num=<%=n.getbNumber()%>'">수정하기</button>
 				<% } %>
 			</div>
-			
-		</div>
-	</div>
+ 		</div>
+ 	</div>
+</div>
+
+	<%@ include file="../common/footer.jsp" %>
 </body>
 </html>

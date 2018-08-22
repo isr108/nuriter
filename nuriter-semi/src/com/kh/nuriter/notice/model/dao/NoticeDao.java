@@ -180,6 +180,28 @@ public class NoticeDao {
 		} finally {
 			close(pstmt);
 		}
+		System.out.println(result);
+		return result;
+	}
+	public int updateCount(Connection con, String getbNumber) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = prop.getProperty("updateCount");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, getbNumber);
+			pstmt.setString(2, getbNumber);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
 		
 		return result;
 	}
