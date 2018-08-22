@@ -24,6 +24,13 @@ public class LoginWrapper extends HttpServletRequestWrapper {
 			value=super.getParameter(key);
 		}
 		
+		//정보수정시 기존비밀번호값 확인
+		if(key != null && key.equals("oldPassword")){
+			value = getSha512(super.getParameter("oldPassword"));
+		}else{
+			value=super.getParameter(key);
+		}
+		
 		
 		
 		

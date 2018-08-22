@@ -6,6 +6,7 @@ import static com.kh.nuriter.common.JDBCTemplate.getConnection;
 import static com.kh.nuriter.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 
 import com.kh.nuriter.member.model.dao.MemberDao;
 import com.kh.nuriter.member.model.vo.Member;
@@ -43,10 +44,10 @@ public class MemberService {
 		return result;
 	}
 
-	/*public int deleteMember(String userId) {
+	public int deleteMember(Member m) {
 		Connection con = getConnection();
 		
-		int result = new MemberDao().deleteMember(con, userId);
+		int result = new MemberDao().deleteMember(con, m);
 		
 		if(result >0){
 			commit(con);
@@ -78,8 +79,10 @@ public class MemberService {
 				
 		return result;
 	}
+	
+	
 
-	public ArrayList<Member> selectAll() {
+	/*public ArrayList<Member> selectAll() {
 	Connection con = getConnection();
 		
 		ArrayList<Member> list = new MemberDao().selectAll(con);
@@ -100,6 +103,23 @@ public class MemberService {
 		
 		return result;
 		
+	}
+
+	public int snsloginMember(Member m) {
+		Connection con=getConnection();
+		
+		int result=new MemberDao().snsloginMember(m, con);
+		
+		if(result > 0){
+			commit(con);
+		}
+		else{
+			rollback(con);
+		}
+		
+		close(con);
+		
+		return result;
 	}
 
 }

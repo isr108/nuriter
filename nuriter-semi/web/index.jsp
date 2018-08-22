@@ -380,7 +380,7 @@
 	        	<button class="button" onclick="location.href='views/member/memberJoinForm.jsp' ">회원가입</button>
 	        <%}else{ %>
 	        <%if(loginUser != null) {%>
-	        		<font id="web-font"> <a><%= loginUser.getUserName() %> 님</a></font>
+	        		<font id="web-font"> <a><%= loginUser.getNickName() %> 님</a></font>
 	        		<button class="button" onclick="logout();" >로그아웃</button>
 	        <% } %>
 	        		<% if(!loginUser.getUserEmail().equals("admin@naver.com")){ %>
@@ -390,7 +390,7 @@
 					<% } %>
 	        
 	        <%} %>
-   		</div>
+   		</div> 
   	</div>
       
       <br><br><br><br><br><br><br><br>
@@ -698,7 +698,8 @@
 	      1544-1544
 	   </div>
 	   
-	   <div id="notice" onclick="location.href='views/notice/notice.jsp'" align="left">
+	   <div id="notice" onclick="goNotice();">
+	   <!-- <div id="notice" onclick="location.href='views/notice/notice.jsp'" align="left"> -->
 	   	<h4>공지사항</h4>
 	      <ul>
 	         <li>고객센터 운영시간 변경안내</li>
@@ -728,6 +729,9 @@
 			location.href='<%=request.getContextPath()%>/home';
 		}
 		
+		function goNotice(){
+			location.href="<%=request.getContextPath()%>/selectList.no";			
+		}
 	
 	</script> 
  <%@ include file="views/common/footer.jsp" %>
