@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.kh.nuriter.payment.model.service.PaymentService;
 import com.kh.nuriter.payment.model.vo.Payment;
+import com.kh.nuriter.payment.model.vo.PaymentDetail;
 
 /**
  * Servlet implementation class PaymentServlet
@@ -40,12 +41,20 @@ public class PaymentServlet extends HttpServlet {
 		
 		int result =new PaymentService().InsertPayment(p);
 		
-	/*	String page="";
+		
+		
+    	String page="";
 		if(result >0){
-			response.sendRedirect(request.getContextPath() +"/paymentDetail.pd");
+			PaymentDetail pd = new PaymentDetail();
+			
+			
+			//
+			
+			//int resuly2 = new PaymentService().InsertDetailPayment();
+			
 		}else{
 			
-		}*/
+		}
 		
 		
 		System.out.println("결제번호 : "+pid);

@@ -6,6 +6,8 @@ public class PaymentDetail {
 	private String pstate;//결제상태
 	private String cardNum;//카드넘버
 	private String fundNum;//환불번호
+	//
+	public PaymentDetail(){}
 	public PaymentDetail(String pDetailId, String pid, String pstate, String cardNum, String fundNum) {
 		super();
 		this.pDetailId = pDetailId;

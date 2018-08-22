@@ -304,7 +304,7 @@ button {
 <script>
  function cash(){
 	alert('전송');
-	
+	//
 		var IMP = window.IMP; // 생략가능
 		   IMP.init('imp43582013');  // 가맹점 식별 코드
 

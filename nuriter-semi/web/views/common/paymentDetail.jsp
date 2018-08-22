@@ -24,7 +24,7 @@
  
 } */
 #paytable{
-height:300px;
+height:400px;
 width:50%;
 /* margin-left:300px; */
 margin-left:auto;
@@ -32,6 +32,15 @@ margin-right:auto;
 margin-top:50px;
 border:1px solid black;
 
+}
+.t{
+	background: rgb(241, 196, 15);
+	 text-align:center;
+	 
+}
+.tt{
+	background: #5882FA;
+	 text-align:center;
 }
 </style>
 </head>
@@ -47,20 +56,20 @@ border:1px solid black;
 		<div class="paydiv" id="web-font">
 				<table id="paytable">
 					<tr class="tHead">
-					 <td>누리터 제목</td>
-					 <td>제목</td>
+					 <td class="t">누리터 제목</td>
+					 <td class="tt">제목</td>
 					</tr>
 					<tr class="tBody">
-						<td>내용</td>
+						<td class="tt">내용</td>
 					</tr>
 					<tr class="tBody">
-						<td>유저 이메일</td>
-						<td>이메일</td>
+						<td class="t">유저 이메일</td>
+						<td class="tt">이메일</td>
 						
 					</tr>
 					<tr class="tBody">
-						<td>결제</td>
-						<td>금액</td>
+						<td class="t">결제</td>
+						<td class="tt">금액</td>
 						
 					</tr>
 				</table>
