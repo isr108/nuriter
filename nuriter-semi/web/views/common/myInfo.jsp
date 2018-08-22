@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 <style>
 	#myInfoPage{
 	margin-top:16%;
@@ -122,7 +123,7 @@
 		<div id="myInfoPage">
 		<h1 align="center"><%=loginUser.getUserName() %>님의 회원 정보 수정</h1>
 		<br><br>
-		<form  id="myInfo" action="<%=request.getContextPath()%>/updateMember.me" method="post">
+		<form id="updatePage" action="<%=request.getContextPath()%>/updateMember.me" method="post">
 			<table class="changeInfo" align="center">
 			<colgroup>
 				<col width="140">
@@ -139,7 +140,7 @@
 				<th>현재 비밀번호</th>
 				<td>
 					<input type="password" id="oldPass1" name="oldPassword" maxlength="16">
-					<input type="hidden" id="oldPass2" name="oldPassword" value="<%=loginUser.getPassword()%>">
+					<input type="hidden" id="oldPass2" name="oldPassword2" value="<%=loginUser.getPassword()%>">
 					<br>
 					<label>*정보변경을 위해 반드시 입력해주세요</label>
 				</td>
@@ -202,7 +203,8 @@
 		<br><br>
 		<div align="center">
 		<input type="button" value="취소하기" onclick="location.href='<%=request.getContextPath()%>/index.jsp'"> 
-		<button onclick="updateMember();">변경하기</button>
+		<!-- <button onclick="updateMember();">변경하기</button> -->
+		<input type="button" value="변경하기" onclick="updateMember();">
 		<!-- <input type="submit" value="변경하기"> -->
 		<button onclick="deleteMember();">탈퇴하기</button>
 		</div>
@@ -237,27 +239,30 @@
 		});
 		
 		function updateMember(){
-			var oldPass1  = $("#oldPass1").val();
-			var oldPass2  = $("#oldPass2").val();
+			var oldPass1 = $("#oldPass1").val();
+			var oldPass2 = $("#oldPass2").val();
 			var newPass1 = $("#newPass1").val();
 			var newPass2 = $("#newPass2").val();
-			//패스워드 입력여부 검사
-			 if(oldPass1 == ""){
-			  alert("기존 비밀번호를 입력하세요");
-			  oldPass1.select();
-			 }else if(oldPass1 != oldPass2){
-				alert("패스워드가 일치하지않습니다");
-				oldPass1 ="";
-				oldPass2 ="";
-				oldPass1.select();
-			 }else{
-				 $("#myInfo").sumbit();
-				 
-			 }
-			 
+			
+			
+		};
+
+			
+			
+			<%-- if(newPass1 != newPass2){
+				alert("새 비밀번호가 일치하지 않습니다.");
+				$("#updatePage").submit();
+			}else if(oldPass1 != oldPass2){
+				alert("기존 비밀번호가 일치하지 않습니다.");
+				location.href="<%=request.getContextPath()%>/updateMember.me";
+			}else{
+				alert("정보가 성공적으로 변경되었습니다.");
+				location.href="<%=request.getContextPath()%>/updateMember.me";
+			} --%>
 			
 		}
 		
+		 
 		function deleteMember(){
 			var answer = window.confirm('탈퇴 후 동일한 계정으로 재가입이 불가능합니다. 그래도 탈퇴하시겠습니까?');
 			
@@ -269,16 +274,6 @@
 			}
 		}
 		
-		/* $(function(){
-			$("#new_pass2").change(function(){
-				if($("#new_pass").val() != $(this).val()){
-					$("#pwdresult").html("비밀번호가 일치하지 않습니다.").css("color","red");
-					$("#new_pass2").val('');
-					$(this).select();
-				}else{
-					$("#pwdresult").html("비밀번호 일치").css("color","green");
-				}
-			}); */
 			
 			
 		

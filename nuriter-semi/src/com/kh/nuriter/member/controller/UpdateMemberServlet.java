@@ -40,6 +40,7 @@ public class UpdateMemberServlet extends HttpServlet {
 	      int userNumber = Integer.parseInt(request.getParameter("userNumber"));
 	      String userEmail = request.getParameter("userEmail");
 	      String oldPassword = request.getParameter("oldPassword");
+	      String oldPassword2 = request.getParameter("oldPassword2");
 	      String password = request.getParameter("password");
 	      String userName = request.getParameter("userName");
 	      String nickName = request.getParameter("nickName");
@@ -54,7 +55,7 @@ public class UpdateMemberServlet extends HttpServlet {
 	            hobbys += ", " + hobby[i];
 	         }
 	      }
-	            
+	       
 	      //member객체 생성
 	      Member m = new Member();
 	      m.setUserNumber(userNumber);
@@ -69,7 +70,7 @@ public class UpdateMemberServlet extends HttpServlet {
 	      System.out.println("회원정보 : " + m);
 	      
 	      //service로직으로 전달
-	      int result = new MemberService().updateMember(m, oldPassword);
+	      int result = new MemberService().updateMember(m);
 	      
 	      //처리 결과에 따른 뷰 페이지 결정
 	      String page = "";
