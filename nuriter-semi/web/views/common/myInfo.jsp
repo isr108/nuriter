@@ -204,8 +204,8 @@
 		<div align="center">
 		<input type="button" value="취소하기" onclick="location.href='<%=request.getContextPath()%>/index.jsp'"> 
 		<!-- <button onclick="updateMember();">변경하기</button> -->
-		<!-- <input type="button" value="변경하기" onclick="updateMember();"> -->
-		<input type="submit" value="변경하기">
+		<input type="button" value="변경하기" onclick="updateMember();">
+		<!-- <input type="submit" value="변경하기"> -->
 		<button onclick="deleteMember();">탈퇴하기</button>
 		</div>
 		</form>
@@ -243,24 +243,13 @@
 			var oldPass2 = $("#oldPass2").val();
 			var newPass1 = $("#newPass1").val();
 			var newPass2 = $("#newPass2").val();
-
-			$.ajax({
-				url : "updateMember.me",
-				type : "get",
-				data : {
-					oldPass1 : oldPass1
-				},
-				success : function(data) {
-					console.log(data);
-				},
-				error:function(data){
-					console.log("실패!");
-				}
-			});
+			
+			
+		};
 
 			
 			
-			if(newPass1 != newPass2){
+			<%-- if(newPass1 != newPass2){
 				alert("새 비밀번호가 일치하지 않습니다.");
 				$("#updatePage").submit();
 			}else if(oldPass1 != oldPass2){
@@ -269,7 +258,7 @@
 			}else{
 				alert("정보가 성공적으로 변경되었습니다.");
 				location.href="<%=request.getContextPath()%>/updateMember.me";
-			}
+			} --%>
 			
 		}
 		
